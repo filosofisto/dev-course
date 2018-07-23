@@ -1,6 +1,6 @@
 class X {
 
 	public void x() {
-		// do something
+		int x = 10/2;
 	}
 }
