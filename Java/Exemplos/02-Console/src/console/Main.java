@@ -15,5 +15,4 @@ public class Main {
 		
 		out.printf("Usuario: %s, Senha: %s\n\n", username, new String(password));
 	}
-
 }
