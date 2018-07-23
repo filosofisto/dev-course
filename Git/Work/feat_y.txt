@@ -1,0 +1,6 @@
+class Y {
+
+	public void y() {
+		int y = 10/2;
+	}
+}
