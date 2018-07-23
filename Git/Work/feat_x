@@ -1,0 +1,6 @@
+class X {
+
+	public void x() {
+		int x = 10/2;
+	}
+}
