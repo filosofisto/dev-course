@@ -13,6 +13,9 @@ public class Main {
 		float custo = ler.nextFloat();
 		
 		//Custo final do veiculo
+		//Distribuidor:  1.8%
+		//Impostos    : 45.0%
+		//PrecoFinal = CustoFabricacao * (1+(Distribuidor+Impostos)/100)
 		System.out.printf("\nCusto final: R$ %.2f", custo * 1.468);
 	}
 

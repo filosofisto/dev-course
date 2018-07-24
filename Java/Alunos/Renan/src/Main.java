@@ -1,6 +1,7 @@
 import static java.lang.System.out;
 import static java.lang.System.err;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -50,7 +51,7 @@ public class Main {
 				case 5:
 					out.println(
 							"Construa um programa que leia a partir do console as 3 notas de um aluno e calcule a média final deste aluno, considerando média aritmética simples.");
-					exe05();
+					exe05(args);
 					break;
 				case 6:
 					out.println(
@@ -64,8 +65,26 @@ public class Main {
 					break;
 				case 8:
 					out.println(
-							"8.	Construa um programa que calcule a média aritmética das 3 notas de um aluno e mostre, além do valor da média, uma mensagem de \"Aprovado\", caso a média seja igual ou superior a 6, ou a mensagem \"reprovado\", caso contrário. Ao invés de ler as notas do console, sorteie (randomicamente) valores inteiros de 1 a 10.");
+							"Construa um programa que calcule a média aritmética das 3 notas de um aluno e mostre, além do valor da média, uma mensagem de \"Aprovado\", caso a média seja igual ou superior a 6, ou a mensagem \"reprovado\", caso contrário. Ao invés de ler as notas do console, sorteie (randomicamente) valores inteiros de 1 a 10.");
 					exe08();
+					break;
+				case 9:
+					out.println(
+							"Elaborar um programa que lê 2 números e imprime a mensagem: \"São múltiplos\" ou \"Não são múltiplos”.");
+					exe09();
+					break;
+				case 10:
+					out.println(
+							"Elabore um programa que dada a idade de um nadador classifica-o em uma das seguintes categorias:");
+					exe10(args);
+					break;
+				case 11:
+					out.println(
+							"Um usuário deseja um algoritmo onde possa escolher que tipo de média deseja calcular a partir de 3 notas. Faça um programa que leia a partir do console as notas, a opção escolhida pelo usuário e calcule o resultado. Opções: (1) aritmética, (2) ponderada [valores da ponderação: 3,3,4] e (3) harmônica.");
+					exe11();
+					break;
+				case 12:
+					out.print("Ok.");
 					break;
 				default:
 					out.println("Exercício não listado.");
@@ -115,9 +134,15 @@ public class Main {
 	}
 
 	// Exercício 5
-	public static void exe05() {
+	public static void exe05(String[] args) {
 		out.println("Insira as 3 notas do aluno:");
-		float[] notas = new float[] { in.nextFloat(), in.nextFloat(), in.nextFloat() };
+		float[] notas;
+		if (args == null) {
+			notas = new float[] { in.nextFloat(), in.nextFloat(), in.nextFloat() };
+		} else {
+			notas = new float[] { Float.parseFloat(args[0]), Float.parseFloat(args[1]), Float.parseFloat(args[2]) };
+		}
+
 		out.println("A média deste aluno é " + calcularMedia(notas) + ".");
 
 	}
@@ -149,9 +174,20 @@ public class Main {
 	// Exercício 8
 	public static void exe08() {
 
-		out.println("Insira a as 3 notas de um aluno: ");
+		out.println("Sorteando as 3 notas de um aluno... ");
 
-		float media = calcularMedia(new float[] { in.nextFloat(), in.nextFloat(), in.nextFloat() });
+		Random r = new Random();
+
+		float[] notas = new float[] { (r.nextInt(10) + r.nextFloat()), (r.nextInt(10) + r.nextFloat()),
+				(r.nextInt(10) + r.nextFloat()) };
+
+		out.println("As notas sorteads foram: ");
+		for (float nota : notas) {
+			out.println(nota);
+		}
+
+		out.println("Calculando a média... ");
+		float media = calcularMedia(notas);
 
 		out.println("A média deste aluno é " + media + ".");
 
@@ -161,12 +197,87 @@ public class Main {
 			out.println("Reprovado!");
 		}
 	}
-	
-	//	Exercício 9
+
+	// Exercício 9
 	public static void exe09() {
-		
+		out.println("Insira dois números: ");
+		float[] n = new float[] { in.nextFloat(), in.nextFloat() };
+
+		if (n[0] % n[1] == 0) {
+			out.println("\t " + n[0] + " é múltiplo de " + n[1] + ".");
+		} else if (n[1] % n[0] == 0) {
+			out.println("\t " + n[1] + " é múltiplo de " + n[0] + ".");
+		} else {
+			out.println("\t Nenhum número é múltiplo do outro.");
+		}
+
 	}
-	
+
+	// Exercício 10
+	public static void exe10(String[] args) {
+		int idade;
+		if (args == null) {
+			out.println("Insira a idade de um nadador: ");
+			idade = in.nextInt();
+		} else {
+			idade = Integer.parseInt(args[0]);
+		}
+
+		out.println("Idade: " + idade);
+
+		if (5 >= idade && idade <= 7) {
+			out.println("Infantil A");
+		} else if (8 <= idade && idade <= 10) {
+			out.println("Infantil B");
+		} else if (11 <= idade && idade <= 13) {
+			out.println("Juvenil A");
+		} else if (14 <= idade && idade <= 17) {
+			out.println("Juvenil B");
+		} else if (idade >= 18) {
+			out.println("Adulto");
+		} else {
+			out.println("Não existem categorias para esta idade");
+		}
+
+	}
+
+	// Exercício 11
+	public static void exe11() {
+		out.println("Escolha sua forma de média" + "\n 1 \t-\t Aritmética" + "\n 2 \t-\t Ponderada"
+				+ "\n 3 \t-\t Harmônica");
+		int opcao = in.nextInt();
+
+		// Sorteio
+		Random r = new Random();
+
+		float[] notas = new float[] { (r.nextInt(10) + r.nextFloat()), (r.nextInt(10) + r.nextFloat()),
+				(r.nextInt(10) + r.nextFloat()) };
+
+		out.println("As notas sorteadas foram: ");
+		for (float nota : notas) {
+			out.println(nota);
+		}
+
+		switch (opcao) {
+		case 1:
+			out.println("Média Aritmética: " + calcularMedia(notas));
+			break;
+		case 2:
+			float[] pesos = new float[] { 3f, 3f, 4f };
+			out.println("Os pesos são: ");
+			for (float peso : pesos) {
+				out.println(peso);
+			}
+			out.println("Média Ponderada: " + calcularMediaPonderada(notas, pesos));
+			break;
+		case 3:
+			out.println("Média Harmônica: " + calcularMediaHarmonica(notas));
+			break;
+		default:
+			out.println("Média não especificada.");
+		}
+
+	}
 
 //	Outros Metódos ...
 	public static float calcularMedia(float[] valores) {
@@ -198,6 +309,24 @@ public class Main {
 		}
 	}
 
+	public static float calcularMediaHarmonica(float[] valores) {
+		/**
+		 * H = n / (1/x1 + 1/x2 + ... 1/xn)
+		 * 
+		 * H = n / SOMA[n|i=1] 1/xi
+		 * 
+		 * Dado xi > 0 para todo i
+		 */
+
+		float soma = 0;
+		for (float valor : valores) {
+			soma += 1f / valor; // 1/xi
+		}
+
+		// Retorna o H
+		return valores.length / soma;
+	}
+
 	public static int[] ordenar(int[] vetor) {
 		return ordenar(vetor, true);
 	}
@@ -216,8 +345,8 @@ public class Main {
 			}
 		} else {
 			// Decrescente
-			for (int i = 0; i < vetor.length; i++) {
-				for (int j = i + 1; j < vetor.length; j++) {
+			for (int i = vetor.length; i >= 0; i--) {
+				for (int j = vetor.length - 1; j >= 0; j--) {
 					if (vetor[j] > vetor[i]) {
 						int temp = vetor[j];
 						vetor[j] = vetor[i];
