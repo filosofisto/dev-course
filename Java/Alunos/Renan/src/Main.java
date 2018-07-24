@@ -64,8 +64,13 @@ public class Main {
 					break;
 				case 8:
 					out.println(
-							"8.	Construa um programa que calcule a média aritmética das 3 notas de um aluno e mostre, além do valor da média, uma mensagem de \"Aprovado\", caso a média seja igual ou superior a 6, ou a mensagem \"reprovado\", caso contrário. Ao invés de ler as notas do console, sorteie (randomicamente) valores inteiros de 1 a 10.");
+							"Construa um programa que calcule a média aritmética das 3 notas de um aluno e mostre, além do valor da média, uma mensagem de \"Aprovado\", caso a média seja igual ou superior a 6, ou a mensagem \"reprovado\", caso contrário. Ao invés de ler as notas do console, sorteie (randomicamente) valores inteiros de 1 a 10.");
 					exe08();
+					break;
+				case 9:
+					out.println(
+							"Elaborar um programa que lê 2 números e imprime a mensagem: \"São múltiplos\" ou \"Não são múltiplos”.");
+					exe09();
 					break;
 				default:
 					out.println("Exercício não listado.");
@@ -161,12 +166,22 @@ public class Main {
 			out.println("Reprovado!");
 		}
 	}
-	
-	//	Exercício 9
+
+	// Exercício 9
 	public static void exe09() {
+		out.println("Insira dois números: ");
+		float[] n = new float[] { in.nextFloat(), in.nextFloat() };
 		
+		if(n[0] % n[1] == 0) {
+			out.println("\t "+n[0]+" é múltiplo de "+n[1]+".");
+		}else if(n[1] % n[0] == 0) {
+			out.println("\t "+n[1]+" é múltiplo de "+n[0]+".");
+		}else {
+			out.println("\t Nenhum número é múltiplo do outro.");
+		}
+		
+
 	}
-	
 
 //	Outros Metódos ...
 	public static float calcularMedia(float[] valores) {
@@ -216,8 +231,8 @@ public class Main {
 			}
 		} else {
 			// Decrescente
-			for (int i = 0; i < vetor.length; i++) {
-				for (int j = i + 1; j < vetor.length; j++) {
+			for (int i = vetor.length; i >= 0; i--) {
+				for (int j = vetor.length - 1; j >= 0; j--) {
 					if (vetor[j] > vetor[i]) {
 						int temp = vetor[j];
 						vetor[j] = vetor[i];
