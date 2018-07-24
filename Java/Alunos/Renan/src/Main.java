@@ -62,6 +62,11 @@ public class Main {
 							"O custo ao consumidor de um carro novo é a soma do custo de fábrica somados a percentagem do distribuidor e dos impostos (aplicados ao custo de fábrica). Supondo que a percentagem do distribuidor seja de 1,8% e os impostos de 45%, escrever um programa que leia do console o custo de fábrica de um carro e imprima o custo final");
 					exe07();
 					break;
+				case 8:
+					out.println(
+							"8.	Construa um programa que calcule a média aritmética das 3 notas de um aluno e mostre, além do valor da média, uma mensagem de \"Aprovado\", caso a média seja igual ou superior a 6, ou a mensagem \"reprovado\", caso contrário. Ao invés de ler as notas do console, sorteie (randomicamente) valores inteiros de 1 a 10.");
+					exe08();
+					break;
 				default:
 					out.println("Exercício não listado.");
 				}
@@ -132,15 +137,38 @@ public class Main {
 		out.println("Insira o custo de fabrica de um carro: ");
 		float preco = in.nextFloat();
 
-		final float distribuidor = (18 / 1000); // 1.8%
-		final float impostos = (45 / 100); // 45%
+		final float distribuidor = 0.018f; // 1.8%
+		final float impostos = 0.45f; // 45%
 
 		// Preço Final = Preço + (% do Distribuidor + % de Impostos) * Preço
 		float preco_final = (preco + (distribuidor + impostos) * preco);
 
-		out.println("O custo final de um carro é " + preco + ".");
+		out.println("O custo final de um carro é " + preco_final + ".");
 	}
 
+	// Exercício 8
+	public static void exe08() {
+
+		out.println("Insira a as 3 notas de um aluno: ");
+
+		float media = calcularMedia(new float[] { in.nextFloat(), in.nextFloat(), in.nextFloat() });
+
+		out.println("A média deste aluno é " + media + ".");
+
+		if (media >= 6) {
+			out.println("Aprovado!");
+		} else {
+			out.println("Reprovado!");
+		}
+	}
+	
+	//	Exercício 9
+	public static void exe09() {
+		
+	}
+	
+
+//	Outros Metódos ...
 	public static float calcularMedia(float[] valores) {
 		float soma = 0;
 		for (float valor : valores) {
