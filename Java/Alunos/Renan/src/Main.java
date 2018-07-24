@@ -3,8 +3,6 @@ import static java.lang.System.err;
 
 import java.util.Scanner;
 
-import javax.management.RuntimeErrorException;
-
 public class Main {
 	private static Scanner in = new Scanner(System.in);
 
@@ -14,31 +12,29 @@ public class Main {
 		int exe;
 
 		do {
-			out.print("\n\n" + "\t================================" + "\t| Lista de Exercício 03 – Java |"
-					+ "\t================================" + "\n\n\t Selecione o Exercício da Lista que gostaria de ver"
-					+ "\n\t" + "\n\t Insira 0 para encerrar a aplicação" + "\n\t > ");
+			out.print("\n\n\t================================" + "\n\t| Lista de Exercício 02 – Java |"
+					+ "\n\t================================" + "\n\n\t Insira valores de 1 a " + quantidade_exercicios
+					+ " para ver o respectivo exercício." + "\n\t Insira 0 para encerrar a aplicação." + "\n\t > ");
 			try {
 				exe = in.nextInt();
 			} catch (Exception e) {
 				err.print("\n\t ERRO: O valor inserido não é inteiro.");
 				exe = 0;
 			}
-
+			out.println();
 			if (exe > quantidade_exercicios) {
 				out.println("A lista só tem " + quantidade_exercicios + " exercícios.");
-			} else if (exe < 0) {
-				out.println("ERRO: O usuário forneceu um número negativo para o número do exercício.");
-			} else {
+			} else if (exe > 0) {
 
 				out.print("\n\t Exercício no." + exe + "\n\t");
 
 				// Exercício listados
 				in.nextLine();
 				switch (exe) {
-				case 0:
+				case 1:
 					out.println("Ok.");
 					break;
-				case 1:
+				case 2:
 					out.print("Ok.");
 					break;
 				case 3:
@@ -70,6 +66,8 @@ public class Main {
 
 		} while (exe != 0);
 
+		out.println("Fim da Aplicação");
+		System.exit(0);
 	}
 
 	// Exercício 3
@@ -109,7 +107,7 @@ public class Main {
 	// Exercício 5
 	public static void exe05() {
 		out.println("Insira as 3 notas do aluno:");
-		int[] notas = new int[] { in.nextInt(), in.nextInt(), in.nextInt() };
+		float[] notas = new float[] { in.nextFloat(), in.nextFloat(), in.nextFloat() };
 		out.println("A média deste aluno é " + calcularMedia(notas) + ".");
 
 	}
@@ -117,39 +115,40 @@ public class Main {
 	// Exercício 6
 	public static void exe06() {
 		out.println("Insira as 3 notas do aluno:");
-		int[] notas = new int[] { in.nextInt(), in.nextInt(), in.nextInt() };
-		out.println(" O peso de cada nota, respectivamente, é 2, 3 e 5" + "\n A média final aluno é "
-				+ calcularMedia(notas) + ".");
+		float[] notas = new float[] { in.nextFloat(), in.nextFloat(), in.nextFloat() };
+		out.println("O peso de cada nota, respectivamente, é 2, 3 e 5.");
+		float[] pesos = new float[] { 2, 3, 5 };
+		out.println("A média final (ponderada) do aluno é " + calcularMediaPonderada(notas, pesos) + ".");
 
 	}
 
 	// Metódos...
-	public static int calcularMedia(int[] valores) {
-		int soma = 0;
-		for (int valor : valores) {
+	public static float calcularMedia(float[] valores) {
+		float soma = 0;
+		for (float valor : valores) {
 			soma += valor;
 		}
 
 		return soma / valores.length;
 	}
 
-	public static int calcularMediaPonderada(int[] valores, int[] pesos) {
+	public static float calcularMediaPonderada(float[] valores, float[] pesos) {
 		if (valores.length != pesos.length) {
 			throw new Error("A quantidade de pesos é diferente da quantidade de valores");
 		} else {
-			
-			int total_pesos = 0;
-			int soma = 0;
-			
-			for (int peso : pesos) {
+
+			float total_pesos = 0;
+			float soma = 0;
+
+			for (float peso : pesos) {
 				total_pesos += peso;
 			}
-			
-			for() {
-				
+
+			for (int i = 0; i < valores.length; i++) {
+				soma += valores[i] * pesos[i];
 			}
 
-			return soma / valores.length;
+			return soma / total_pesos;
 		}
 	}
 
