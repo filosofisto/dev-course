@@ -13,23 +13,25 @@ public class Main {
 		int exe;
 
 		do {
-			out.print("\n\n\t================================" + "\n\t| Lista de Exercício 02 – Java |"
+			out.print("\n\n\t================================" + "\n\t| Lista de ExercÃ­cio 02 Java |"
 					+ "\n\t================================" + "\n\n\t Insira valores de 1 a " + quantidade_exercicios
-					+ " para ver o respectivo exercício." + "\n\t Insira 0 para encerrar a aplicação." + "\n\t > ");
+					+ " para ver o respectivo exercÃ­cio." + "\n\t Insira 0 para encerrar a aplicaÃ§Ã£o." + "\n\t > ");
+
 			try {
 				exe = in.nextInt();
-			} catch (Exception e) {
-				err.print("\n\t ERRO: O valor inserido não é inteiro.");
+			} catch (Exception er) {
+				err.print("\n\t ERRO: O valor inserido nÃ£o Ã© inteiro.");
 				exe = 0;
 			}
+
 			out.println();
 			if (exe > quantidade_exercicios) {
-				out.println("A lista só tem " + quantidade_exercicios + " exercícios.");
+				out.println("A lista sÃ³ tem " + quantidade_exercicios + " exercï¿½cios.");
 			} else if (exe > 0) {
 
-				out.print("\n\t Exercício no." + exe + "\n\t");
+				out.print("\n\t ExercÃ­cio no." + exe + "\n\t");
 
-				// Exercício listados
+				// Exercï¿½cio listados
 				in.nextLine();
 				switch (exe) {
 				case 1:
@@ -40,7 +42,7 @@ public class Main {
 					break;
 				case 3:
 					out.println(
-							"Construa um programa que leia do console 3 números inteiros, e imprima o resultado em ordem crescente");
+							"Construa um programa que leia do console 3 nÃºmeros inteiros, e imprima o resultado em ordem crescente");
 					exe03();
 					break;
 				case 4:
@@ -50,44 +52,48 @@ public class Main {
 					break;
 				case 5:
 					out.println(
-							"Construa um programa que leia a partir do console as 3 notas de um aluno e calcule a média final deste aluno, considerando média aritmética simples.");
+							"Construa um programa que leia um conjunto de notas (pelo menos uma) de um aluno a partir da linha de comando, e calcule a mÃ©dia final deste aluno, considerando mÃ©dia aritmÃ©tica simples.");
 					exe05(args);
 					break;
 				case 6:
 					out.println(
-							"Construa um programa que leia a partir do console as 3 notas de um aluno e calcule a média final deste aluno. Considerar que a média é ponderada e que o peso das notas são 2,3 e 5, respectivamente.");
+							"Construa um programa que leia a partir do console as 3 notas de um aluno e calcule a mÃ©dia final deste aluno. Considerar que a mÃ©dia Ã© ponderada e que o peso das notas sÃ£o 2,3 e 5, respectivamente.");
 					exe06();
 					break;
 				case 7:
 					out.println(
-							"O custo ao consumidor de um carro novo é a soma do custo de fábrica somados a percentagem do distribuidor e dos impostos (aplicados ao custo de fábrica). Supondo que a percentagem do distribuidor seja de 1,8% e os impostos de 45%, escrever um programa que leia do console o custo de fábrica de um carro e imprima o custo final");
+							"O custo ao consumidor de um carro novo Ã© a soma do custo de fÃ¡brica somados a percentagem do distribuidor e dos impostos (aplicados ao custo de fÃ¡brica). Supondo que a percentagem do distribuidor seja de 1,8% e os impostos de 45%, escrever um programa que leia do console o custo de fÃ¡brica de um carro e imprima o custo final.");
 					exe07();
 					break;
 				case 8:
 					out.println(
-							"Construa um programa que calcule a média aritmética das 3 notas de um aluno e mostre, além do valor da média, uma mensagem de \"Aprovado\", caso a média seja igual ou superior a 6, ou a mensagem \"reprovado\", caso contrário. Ao invés de ler as notas do console, sorteie (randomicamente) valores inteiros de 1 a 10.");
+							"Construa um programa que calcule a mÃ©dia aritmÃ©tica das 3 notas de um aluno e mostre, alÃ©m do valor da mÃ©dia, uma mensagem de \"Aprovado\", caso a mÃ©dia seja igual ou superior a 6, ou a mensagem \"reprovado\", caso contrÃ¡rio. Ao invÃ©s de ler as notas do console, sorteie (randomicamente) valores inteiros de 1 a 10.");
 					exe08();
 					break;
 				case 9:
 					out.println(
-							"Elaborar um programa que lê 2 números e imprime a mensagem: \"São múltiplos\" ou \"Não são múltiplos”.");
+							"Elaborar um programa que lÃª 2 nÃºmeros e imprime a mensagem: \"SÃ£o mÃºltiplos\" ou \"NÃ£o sÃ£o mÃºltiplosâ€.");
 					exe09();
 					break;
 				case 10:
 					out.println(
-							"Elabore um programa que dada a idade de um nadador classifica-o em uma das seguintes categorias:");
+							"Elabore um programa que dada a idade de um nadador classifica-o em uma das seguintes categorias:\r\n"
+									+ "\n\t I.	Infantil A = 5-7 anos\r\n" + "\n\t II.	Infantil B = 8-10 anos\r\n"
+									+ "\n\t III.	Juvenil A = 11-13 anos\r\n" + "\n\t IV.	Juvenil B = 14-17 anos\r\n"
+									+ "\n\t V.	Adulto = maiores de 18 anos\r\n" + "");
 					exe10(args);
 					break;
 				case 11:
 					out.println(
-							"Um usuário deseja um algoritmo onde possa escolher que tipo de média deseja calcular a partir de 3 notas. Faça um programa que leia a partir do console as notas, a opção escolhida pelo usuário e calcule o resultado. Opções: (1) aritmética, (2) ponderada [valores da ponderação: 3,3,4] e (3) harmônica.");
+							"Um usuÃ¡rio deseja um algoritmo onde possa escolher que tipo de mÃ©dia deseja calcular a partir de 3 notas. FaÃ§a um programa que leia a partir do console as notas, a opÃ§Ã£o escolhida pelo usuÃ¡rio e calcule o resultado."
+									+ "\n\t OpÃ§Ãµes: (1) aritmÃ©tica, (2) ponderada [valores da ponderaÃ§Ã£o: 3,3,4] e (3) harmÃ´nica.");
 					exe11();
 					break;
 				case 12:
 					out.print("Ok.");
 					break;
 				default:
-					out.println("Exercício não listado.");
+					out.println("ExercÃ­cio nÃ£o listado.");
 				}
 			}
 
@@ -95,13 +101,13 @@ public class Main {
 
 		} while (exe != 0);
 
-		out.println("Fim da Aplicação");
+		out.println("Fim da AplicaÃ§Ã£o");
 		System.exit(0);
 	}
 
-	// Exercício 3
+	// Exercï¿½cio 3
 	public static void exe03() {
-		out.println("tInforme três valores números \t (pressione enter para cada valor informado");
+		out.println("tInforme trÃªs valores nÃºmeros \t (pressione enter para cada valor informado");
 
 		String valores[] = new String[] { in.nextLine(), in.nextLine(), in.nextLine() };
 
@@ -122,42 +128,42 @@ public class Main {
 		}
 	}
 
-	// Exercício 4
+	// Exercï¿½cio 4
 	public static void exe04() {
 		out.println("Insira a sua idade expressa em anos, meses e dias:");
 		int anos = in.nextInt();
 		int meses = in.nextInt();
 		int dias = in.nextInt();
 
-		out.println("Sua idade é de " + (anos * 360 + meses * 30 + dias) + " dias.");
+		out.println("Sua idade Ã© de " + (anos * 360 + meses * 30 + dias) + " dias.");
 
 	}
 
-	// Exercício 5
+	// Exercï¿½cio 5
 	public static void exe05(String[] args) {
 		out.println("Insira as 3 notas do aluno:");
 		float[] notas;
-		if (args == null) {
-			notas = new float[] { in.nextFloat(), in.nextFloat(), in.nextFloat() };
-		} else {
+		try {
 			notas = new float[] { Float.parseFloat(args[0]), Float.parseFloat(args[1]), Float.parseFloat(args[2]) };
+		} catch(Exception e) {
+			notas = new float[] { in.nextFloat(), in.nextFloat(), in.nextFloat() };
 		}
 
-		out.println("A média deste aluno é " + calcularMedia(notas) + ".");
+		out.println("A mÃ©dia deste aluno ï¿½ " + calcularMedia(notas) + ".");
 
 	}
 
-	// Exercício 6
+	// Exercï¿½cio 6
 	public static void exe06() {
 		out.println("Insira as 3 notas do aluno:");
 		float[] notas = new float[] { in.nextFloat(), in.nextFloat(), in.nextFloat() };
-		out.println("O peso de cada nota, respectivamente, é 2, 3 e 5.");
+		out.println("Os pesos de cada nota sÃ£o: 2, 3 e 5.");
 		float[] pesos = new float[] { 2, 3, 5 };
-		out.println("A média final (ponderada) do aluno é " + calcularMediaPonderada(notas, pesos) + ".");
+		out.println("A mÃ©dia final (ponderada) do aluno ï¿½ " + calcularMediaPonderada(notas, pesos) + ".");
 
 	}
 
-	// Exercício 7
+	// Exercï¿½cio 7
 	public static void exe07() {
 		out.println("Insira o custo de fabrica de um carro: ");
 		float preco = in.nextFloat();
@@ -165,13 +171,13 @@ public class Main {
 		final float distribuidor = 0.018f; // 1.8%
 		final float impostos = 0.45f; // 45%
 
-		// Preço Final = Preço + (% do Distribuidor + % de Impostos) * Preço
+		// Preï¿½o Final = Preï¿½o + (% do Distribuidor + % de Impostos) * Preï¿½o
 		float preco_final = (preco + (distribuidor + impostos) * preco);
 
-		out.println("O custo final de um carro é " + preco_final + ".");
+		out.println("O custo final de um carro Ã© " + preco_final + ".");
 	}
 
-	// Exercício 8
+	// Exercï¿½cio 8
 	public static void exe08() {
 
 		out.println("Sorteando as 3 notas de um aluno... ");
@@ -186,10 +192,10 @@ public class Main {
 			out.println(nota);
 		}
 
-		out.println("Calculando a média... ");
+		out.println("Calculando a mÃ©dia... ");
 		float media = calcularMedia(notas);
 
-		out.println("A média deste aluno é " + media + ".");
+		out.println("A mÃ©dia deste aluno Ã© " + media + ".");
 
 		if (media >= 6) {
 			out.println("Aprovado!");
@@ -198,29 +204,29 @@ public class Main {
 		}
 	}
 
-	// Exercício 9
+	// Exercï¿½cio 9
 	public static void exe09() {
-		out.println("Insira dois números: ");
+		out.println("Insira dois nÃºmeros: ");
 		float[] n = new float[] { in.nextFloat(), in.nextFloat() };
 
 		if (n[0] % n[1] == 0) {
-			out.println("\t " + n[0] + " é múltiplo de " + n[1] + ".");
+			out.println("\t " + n[0] + " Ã© mÃºtiplo de " + n[1] + ".");
 		} else if (n[1] % n[0] == 0) {
-			out.println("\t " + n[1] + " é múltiplo de " + n[0] + ".");
+			out.println("\t " + n[1] + " Ã© mÃºtiplo de " + n[0] + ".");
 		} else {
-			out.println("\t Nenhum número é múltiplo do outro.");
+			out.println("\t Nenhum nÃºmero Ã© mÃºltiplo do outro.");
 		}
 
 	}
 
-	// Exercício 10
+	// Exercï¿½cio 10
 	public static void exe10(String[] args) {
 		int idade;
-		if (args == null) {
+		try {
+			idade = Integer.parseInt(args[0]);
+		} catch (Exception e) {
 			out.println("Insira a idade de um nadador: ");
 			idade = in.nextInt();
-		} else {
-			idade = Integer.parseInt(args[0]);
 		}
 
 		out.println("Idade: " + idade);
@@ -236,50 +242,50 @@ public class Main {
 		} else if (idade >= 18) {
 			out.println("Adulto");
 		} else {
-			out.println("Não existem categorias para esta idade");
+			out.println("NÃ£o existem categorias para esta idade");
 		}
 
 	}
 
-	// Exercício 11
+	// Exercï¿½cio 11
 	public static void exe11() {
-		out.println("Escolha sua forma de média" + "\n 1 \t-\t Aritmética" + "\n 2 \t-\t Ponderada"
-				+ "\n 3 \t-\t Harmônica");
+		out.println("Escolha sua forma de mÃ©dia" + "\n 1 \t-\t AritmÃ©tica" + "\n 2 \t-\t Ponderada"
+				+ "\n 3 \t-\t HarmÃ´nica");
 		int opcao = in.nextInt();
 
 		// Sorteio
 		Random r = new Random();
 
-		float[] notas = new float[] { (r.nextInt(10) + r.nextFloat()), (r.nextInt(10) + r.nextFloat()),
-				(r.nextInt(10) + r.nextFloat()) };
+		out.println("Insira as notas");
+		float[] notas = new float[] { in.nextFloat(), in.nextFloat(), in.nextFloat() };
 
-		out.println("As notas sorteadas foram: ");
+		out.println("As notas sÃ£o: ");
 		for (float nota : notas) {
 			out.println(nota);
 		}
 
 		switch (opcao) {
 		case 1:
-			out.println("Média Aritmética: " + calcularMedia(notas));
+			out.println("MÃ©dia AritmÃ©tica: " + calcularMedia(notas));
 			break;
 		case 2:
 			float[] pesos = new float[] { 3f, 3f, 4f };
-			out.println("Os pesos são: ");
+			out.println("Os pesos sï¿½o: ");
 			for (float peso : pesos) {
 				out.println(peso);
 			}
-			out.println("Média Ponderada: " + calcularMediaPonderada(notas, pesos));
+			out.println("MÃ©dia Ponderada: " + calcularMediaPonderada(notas, pesos));
 			break;
 		case 3:
-			out.println("Média Harmônica: " + calcularMediaHarmonica(notas));
+			out.println("MÃ©dia HarmÃ´nica: " + calcularMediaHarmonica(notas));
 			break;
 		default:
-			out.println("Média não especificada.");
+			out.println("MÃ©dia nÃ£o especificada.");
 		}
 
 	}
 
-//	Outros Metódos ...
+//	Outros Metï¿½dos ...
 	public static float calcularMedia(float[] valores) {
 		float soma = 0;
 		for (float valor : valores) {
@@ -291,7 +297,7 @@ public class Main {
 
 	public static float calcularMediaPonderada(float[] valores, float[] pesos) {
 		if (valores.length != pesos.length) {
-			throw new Error("A quantidade de pesos é diferente da quantidade de valores");
+			throw new Error("A quantidade de pesos ï¿½ diferente da quantidade de valores");
 		} else {
 
 			float total_pesos = 0;
