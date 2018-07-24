@@ -170,8 +170,15 @@ public class Main {
 	// Exercício 9
 	public static void exe09() {
 		out.println("Insira dois números: ");
-		float[] valores = new float[] { in.nextFloat(), in.nextFloat() };
+		float[] n = new float[] { in.nextFloat(), in.nextFloat() };
 		
+		if(n[0] % n[1] == 0) {
+			out.println("\t "+n[0]+" é múltiplo de "+n[1]+".");
+		}else if(n[1] % n[0] == 0) {
+			out.println("\t "+n[1]+" é múltiplo de "+n[0]+".");
+		}else {
+			out.println("\t Nenhum número é múltiplo do outro.");
+		}
 		
 
 	}
