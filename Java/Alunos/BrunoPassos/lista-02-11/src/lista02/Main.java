@@ -39,8 +39,8 @@ public class Main {
 
 	}
 
-	public static void mediaHarmonica(float n1, float n2, float n3) {
-		
+	public static float mediaHarmonica(float n1, float n2, float n3) {
+		return (3/((1/n1)+(1/n2)+(1/n3)));
 		
 	}
 
