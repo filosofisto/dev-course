@@ -51,7 +51,7 @@ public class Main {
 				case 5:
 					out.println(
 							"Construa um programa que leia a partir do console as 3 notas de um aluno e calcule a média final deste aluno, considerando média aritmética simples.");
-					exe05();
+					exe05(args);
 					break;
 				case 6:
 					out.println(
@@ -76,7 +76,12 @@ public class Main {
 				case 10:
 					out.println(
 							"Elabore um programa que dada a idade de um nadador classifica-o em uma das seguintes categorias:");
-					exe10();
+					exe10(args);
+					break;
+				case 11:
+					out.println(
+							"Um usuário deseja um algoritmo onde possa escolher que tipo de média deseja calcular a partir de 3 notas. Faça um programa que leia a partir do console as notas, a opção escolhida pelo usuário e calcule o resultado. Opções: (1) aritmética, (2) ponderada [valores da ponderação: 3,3,4] e (3) harmônica.");
+					exe11();
 					break;
 				default:
 					out.println("Exercício não listado.");
@@ -126,9 +131,15 @@ public class Main {
 	}
 
 	// Exercício 5
-	public static void exe05() {
+	public static void exe05(String[] args) {
 		out.println("Insira as 3 notas do aluno:");
-		float[] notas = new float[] { in.nextFloat(), in.nextFloat(), in.nextFloat() };
+		float[] notas;
+		if (args == null) {
+			notas = new float[] { in.nextFloat(), in.nextFloat(), in.nextFloat() };
+		} else {
+			notas = new float[] { Float.parseFloat(args[0]), Float.parseFloat(args[1]), Float.parseFloat(args[2]) };
+		}
+
 		out.println("A média deste aluno é " + calcularMedia(notas) + ".");
 
 	}
@@ -199,10 +210,17 @@ public class Main {
 
 	}
 
-	//	Exercício 10
-	public static void exe10() {
-		out.println("Insira a idade de um nadador: ");
-		int idade = in.nextInt();
+	// Exercício 10
+	public static void exe10(String[] args) {
+		int idade;
+		if (args == null) {
+			out.println("Insira a idade de um nadador: ");
+			idade = in.nextInt();
+		} else {
+			idade = Integer.parseInt(args[0]);
+		}
+
+		out.println("Idade: " + idade);
 
 		if (5 >= idade && idade <= 7) {
 			out.println("Infantil A");
@@ -216,6 +234,44 @@ public class Main {
 			out.println("Adulto");
 		} else {
 			out.println("Não existem categorias para esta idade");
+		}
+
+	}
+
+	// Exercício 11
+	public static void exe11() {
+		out.println("Escolha sua forma de média" + "\n 1 \t-\t Aritmética" + "\n 2 \t-\t Ponderada"
+				+ "\n 3 \t-\t Harmônica");
+		int opcao = in.nextInt();
+
+		// Sorteio
+		Random r = new Random();
+
+		float[] notas = new float[] { (r.nextInt(10) + r.nextFloat()), (r.nextInt(10) + r.nextFloat()),
+				(r.nextInt(10) + r.nextFloat()) };
+
+		out.println("As notas sorteadas foram: ");
+		for (float nota : notas) {
+			out.println(nota);
+		}
+
+		switch (opcao) {
+		case 1:
+			out.println("Média Aritmética: " + calcularMedia(notas));
+			break;
+		case 2:
+			float[] pesos = new float[] { 3f, 3f, 4f };
+			out.println("Os pesos são: ");
+			for (float peso : pesos) {
+				out.println(peso);
+			}
+			out.println("Média Ponderada: " + calcularMediaPonderada(notas, pesos));
+			break;
+		case 3:
+			out.println("Média Harmônica: " + calcularMediaHarmonica(notas));
+			break;
+		default:
+			out.println("Média não especificada.");
 		}
 
 	}
@@ -248,6 +304,24 @@ public class Main {
 
 			return soma / total_pesos;
 		}
+	}
+
+	public static float calcularMediaHarmonica(float[] valores) {
+		/**
+		 * H = n / (1/x1 + 1/x2 + ... 1/xn)
+		 * 
+		 * H = n / SOMA[n|i=1] 1/xi
+		 * 
+		 * Dado xi > 0 para todo i
+		 */
+
+		float soma = 0;
+		for (float valor : valores) {
+			soma += 1f / valor; // 1/xi
+		}
+
+		// Retorna o H
+		return valores.length / soma;
 	}
 
 	public static int[] ordenar(int[] vetor) {
