@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class Main {
 
 	/*
-	 * 11. Um usuário deseja um algoritmo onde possa escolher que tipo de média
-	 * deseja calcular a partir de 3 notas. Faça um programa que leia a partir do
-	 * console as notas, a opção escolhida pelo usuário e calcule o resultado.
-	 * Opções: (1) aritmética, (2) ponderada [valores da ponderação: 3,3,4] e (3)
-	 * harmônica.
+	 * 11. Um usuï¿½rio deseja um algoritmo onde possa escolher que tipo de mï¿½dia
+	 * deseja calcular a partir de 3 notas. Faï¿½a um programa que leia a partir do
+	 * console as notas, a opï¿½ï¿½o escolhida pelo usuï¿½rio e calcule o resultado.
+	 * Opï¿½ï¿½es: (1) aritmï¿½tica, (2) ponderada [valores da ponderaï¿½ï¿½o: 3,3,4] e (3)
+	 * harmï¿½nica.
 	 */
 
 	public static void main(String[] args) {
@@ -21,7 +21,7 @@ public class Main {
 		float n2 = scan.nextFloat();
 		float n3 = scan.nextFloat();
 		
-		System.out.println("Informe qual opção deseja para ser realizado o calculo\n"
+		System.out.println("Informe qual opï¿½ï¿½o deseja para ser realizado o calculo\n"
 				+"Opcao 1 > Media Aritmetica\n"
 				+ "Opcao 2 > Media Ponderada\n"
 				+ "Opcao 3 > Media Harmonica\n");
@@ -30,7 +30,7 @@ public class Main {
 		if(opcao < 1 || opcao > 3) {
 			System.out.println("Opcao invalida");
 		}else if(opcao == 1) {
-			System.out.println("A media aritmetica é: " + mediaAritmetica(n1,n2,n3));
+			System.out.println("A media aritmetica ï¿½: " + mediaAritmetica(n1,n2,n3));
 		}else if(opcao == 2) {
 			System.out.println(mediaPonderada(n1,n2,n3));
 		}else if(opcao == 3) {
@@ -40,7 +40,11 @@ public class Main {
 	}
 
 	public static float mediaHarmonica(float n1, float n2, float n3) {
+<<<<<<< HEAD
 		return (3/((1/n1)+(1/n2)+(1/n3)));
+=======
+		return 3/((1/n1)+(1/n2)+(1/n3));
+>>>>>>> 9c098e36cad9a9afd78d42b206ca37fac5c4e9ea
 		
 	}
 
