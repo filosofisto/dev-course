@@ -6,17 +6,18 @@ import java.util.Scanner;
 import javax.management.RuntimeErrorException;
 
 public class Main {
+	private static Scanner in = new Scanner(System.in);
 
-	public static void main(String[] args) {
-
-		Scanner in = new Scanner(System.in);
+	public static void main(String[] args) throws InterruptedException {
 
 		int exe;
 
 		do {
-			out.println("================================" + "| Lista de Exercício 03 – Java |"
-					+ "================================" + "\n\n"
-					+ "\n\t Insira um valor entre 1 e 13 para selecionar o exercício."
+			out.println("\n\n"
+					+ "\t================================" 
+					+ "\t| Lista de Exercício 03 – Java |"
+					+ "\t================================"
+					+ "\n\n\t Insira um valor entre 1 e 13 para selecionar o exercício."
 					+ "\n\t Insira 0 para encerrar a aplicação");
 			try {
 				exe = in.nextInt();
@@ -27,21 +28,23 @@ public class Main {
 
 			if (exe > 13) {
 				out.println("A lista só tem 13 exercícios.");
-			} else if(exe < 0) {
+			} else if (exe < 0) {
 				out.println("ERRO: O usuário forneceu um número negativo para o número do exercício.");
-		}else{
-				//	Exercício listado
-				
+			} else {
+				// Exercício listados
+				in.nextLine();
 				switch (exe) {
 				case 0:
 					out.println("Aplicação Encerrada.");
 				case 1:
 					exe01();
 					break;
-
+				default:
+					out.println("Exercício não listado.");
 				}
 			}
 
+			Thread.sleep(1500);;
 		} while (exe != 0);
 
 	}
