@@ -1,6 +1,7 @@
 import static java.lang.System.out;
 import static java.lang.System.err;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -71,6 +72,11 @@ public class Main {
 					out.println(
 							"Elaborar um programa que lê 2 números e imprime a mensagem: \"São múltiplos\" ou \"Não são múltiplos”.");
 					exe09();
+					break;
+				case 10:
+					out.println(
+							"Elabore um programa que dada a idade de um nadador classifica-o em uma das seguintes categorias:");
+					exe10();
 					break;
 				default:
 					out.println("Exercício não listado.");
@@ -154,9 +160,20 @@ public class Main {
 	// Exercício 8
 	public static void exe08() {
 
-		out.println("Insira a as 3 notas de um aluno: ");
+		out.println("Sorteando as 3 notas de um aluno... ");
 
-		float media = calcularMedia(new float[] { in.nextFloat(), in.nextFloat(), in.nextFloat() });
+		Random r = new Random();
+
+		float[] notas = new float[] { (r.nextInt(10) + r.nextFloat()), (r.nextInt(10) + r.nextFloat()),
+				(r.nextInt(10) + r.nextFloat()) };
+
+		out.println("As notas sorteads foram: ");
+		for (float nota : notas) {
+			out.println(nota);
+		}
+
+		out.println("Calculando a média... ");
+		float media = calcularMedia(notas);
 
 		out.println("A média deste aluno é " + media + ".");
 
@@ -171,15 +188,35 @@ public class Main {
 	public static void exe09() {
 		out.println("Insira dois números: ");
 		float[] n = new float[] { in.nextFloat(), in.nextFloat() };
-		
-		if(n[0] % n[1] == 0) {
-			out.println("\t "+n[0]+" é múltiplo de "+n[1]+".");
-		}else if(n[1] % n[0] == 0) {
-			out.println("\t "+n[1]+" é múltiplo de "+n[0]+".");
-		}else {
+
+		if (n[0] % n[1] == 0) {
+			out.println("\t " + n[0] + " é múltiplo de " + n[1] + ".");
+		} else if (n[1] % n[0] == 0) {
+			out.println("\t " + n[1] + " é múltiplo de " + n[0] + ".");
+		} else {
 			out.println("\t Nenhum número é múltiplo do outro.");
 		}
-		
+
+	}
+
+	//	Exercício 10
+	public static void exe10() {
+		out.println("Insira a idade de um nadador: ");
+		int idade = in.nextInt();
+
+		if (5 >= idade && idade <= 7) {
+			out.println("Infantil A");
+		} else if (8 <= idade && idade <= 10) {
+			out.println("Infantil B");
+		} else if (11 <= idade && idade <= 13) {
+			out.println("Juvenil A");
+		} else if (14 <= idade && idade <= 17) {
+			out.println("Juvenil B");
+		} else if (idade >= 18) {
+			out.println("Adulto");
+		} else {
+			out.println("Não existem categorias para esta idade");
+		}
 
 	}
 
