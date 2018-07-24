@@ -57,6 +57,11 @@ public class Main {
 							"Construa um programa que leia a partir do console as 3 notas de um aluno e calcule a média final deste aluno. Considerar que a média é ponderada e que o peso das notas são 2,3 e 5, respectivamente.");
 					exe06();
 					break;
+				case 7:
+					out.println(
+							"O custo ao consumidor de um carro novo é a soma do custo de fábrica somados a percentagem do distribuidor e dos impostos (aplicados ao custo de fábrica). Supondo que a percentagem do distribuidor seja de 1,8% e os impostos de 45%, escrever um programa que leia do console o custo de fábrica de um carro e imprima o custo final");
+					exe07();
+					break;
 				default:
 					out.println("Exercício não listado.");
 				}
@@ -122,7 +127,20 @@ public class Main {
 
 	}
 
-	// Metódos...
+	// Exercício 7
+	public static void exe07() {
+		out.println("Insira o custo de fabrica de um carro: ");
+		float preco = in.nextFloat();
+
+		final float distribuidor = (18 / 1000); // 1.8%
+		final float impostos = (45 / 100); // 45%
+
+		// Preço Final = Preço + (% do Distribuidor + % de Impostos) * Preço
+		float preco_final = (preco + (distribuidor + impostos) * preco);
+
+		out.println("O custo final de um carro é " + preco + ".");
+	}
+
 	public static float calcularMedia(float[] valores) {
 		float soma = 0;
 		for (float valor : valores) {
