@@ -14,9 +14,9 @@ public class Main {
 		int exe;
 
 		do {
-			out.println("\n\n" + "\t================================" + "\t| Lista de Exercício 03 – Java |"
+			out.print("\n\n" + "\t================================" + "\t| Lista de Exercício 03 – Java |"
 					+ "\t================================" + "\n\n\t Selecione o Exercício da Lista que gostaria de ver"
-					+ "\n\t" + "\n\t Insira 0 para encerrar a aplicação");
+					+ "\n\t" + "\n\t Insira 0 para encerrar a aplicação" + "\n\t > ");
 			try {
 				exe = in.nextInt();
 			} catch (Exception e) {
@@ -42,14 +42,24 @@ public class Main {
 					out.print("Ok.");
 					break;
 				case 3:
-					out.print(
+					out.println(
 							"Construa um programa que leia do console 3 números inteiros, e imprima o resultado em ordem crescente");
 					exe03();
 					break;
 				case 4:
-					out.print(
+					out.println(
 							"Construa um programa que leia a partir do console a idade de uma pessoa expressa em anos, meses e dias e imprima no console a idade expressa apenas em dias.");
 					exe04();
+					break;
+				case 5:
+					out.println(
+							"Construa um programa que leia a partir do console as 3 notas de um aluno e calcule a média final deste aluno, considerando média aritmética simples.");
+					exe05();
+					break;
+				case 6:
+					out.println(
+							"Construa um programa que leia a partir do console as 3 notas de um aluno e calcule a média final deste aluno. Considerar que a média é ponderada e que o peso das notas são 2,3 e 5, respectivamente.");
+					exe06();
 					break;
 				default:
 					out.println("Exercício não listado.");
@@ -94,6 +104,53 @@ public class Main {
 
 		out.println("Sua idade é de " + (anos * 360 + meses * 30 + dias) + " dias.");
 
+	}
+
+	// Exercício 5
+	public static void exe05() {
+		out.println("Insira as 3 notas do aluno:");
+		int[] notas = new int[] { in.nextInt(), in.nextInt(), in.nextInt() };
+		out.println("A média deste aluno é " + calcularMedia(notas) + ".");
+
+	}
+
+	// Exercício 6
+	public static void exe06() {
+		out.println("Insira as 3 notas do aluno:");
+		int[] notas = new int[] { in.nextInt(), in.nextInt(), in.nextInt() };
+		out.println(" O peso de cada nota, respectivamente, é 2, 3 e 5" + "\n A média final aluno é "
+				+ calcularMedia(notas) + ".");
+
+	}
+
+	// Metódos...
+	public static int calcularMedia(int[] valores) {
+		int soma = 0;
+		for (int valor : valores) {
+			soma += valor;
+		}
+
+		return soma / valores.length;
+	}
+
+	public static int calcularMediaPonderada(int[] valores, int[] pesos) {
+		if (valores.length != pesos.length) {
+			throw new Error("A quantidade de pesos é diferente da quantidade de valores");
+		} else {
+			
+			int total_pesos = 0;
+			int soma = 0;
+			
+			for (int peso : pesos) {
+				total_pesos += peso;
+			}
+			
+			for() {
+				
+			}
+
+			return soma / valores.length;
+		}
 	}
 
 	public static int[] ordenar(int[] vetor) {
