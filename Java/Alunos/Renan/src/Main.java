@@ -83,6 +83,9 @@ public class Main {
 							"Um usuário deseja um algoritmo onde possa escolher que tipo de média deseja calcular a partir de 3 notas. Faça um programa que leia a partir do console as notas, a opção escolhida pelo usuário e calcule o resultado. Opções: (1) aritmética, (2) ponderada [valores da ponderação: 3,3,4] e (3) harmônica.");
 					exe11();
 					break;
+				case 12:
+					out.print("Ok.");
+					break;
 				default:
 					out.println("Exercício não listado.");
 				}
