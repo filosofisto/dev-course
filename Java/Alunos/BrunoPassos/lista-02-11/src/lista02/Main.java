@@ -40,11 +40,7 @@ public class Main {
 	}
 
 	public static float mediaHarmonica(float n1, float n2, float n3) {
-<<<<<<< HEAD
 		return (3/((1/n1)+(1/n2)+(1/n3)));
-=======
-		return 3/((1/n1)+(1/n2)+(1/n3));
->>>>>>> 9c098e36cad9a9afd78d42b206ca37fac5c4e9ea
 		
 	}
 
