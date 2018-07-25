@@ -21,7 +21,7 @@ public class Main {
 					System.exit(0);
 				}
 			}
-			System.out.printf("\nO numero %d é PRIMO!!!", n1);
+			System.out.printf("\nO número %d é PRIMO!!!", n1);
 		
 		} else {
 			System.out.printf("\nNúmero inválido.", n1);
