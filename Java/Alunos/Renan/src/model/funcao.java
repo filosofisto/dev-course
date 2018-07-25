@@ -16,7 +16,7 @@ public class funcao {
 		double pi = 3;
 		
 		if(precisao  < 0){
-			//	Precisão definida
+			//	Precisão definida corretamente
 			double soma = 1;
 			
 			double valor_atual = 1;

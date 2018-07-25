@@ -60,6 +60,9 @@ public class Lista03 {
 				case 8:
 					exercicios.exe08(args);
 					break;
+				case 9:
+					exercicios.exe09(args);
+					break;
 				default:
 					out.println("\n\t Exercício não listado.");
 				}
@@ -251,16 +254,16 @@ public class Lista03 {
 
 			} catch (Exception e) {
 
+			} finally {
 				out.println("\n\t Calculando o valor de π com precisão de 0.01 .");
 				out.println("\n\t π ≈ " + funcao.pi(0.01));
 
 				out.println("\n\t Calculando o valor de π com precisão de 0.0001 .");
 				out.println("\n\t π ≈ " + funcao.pi(0.0001));
-			} finally {
-				out.println(
-						"\n\t Formula usada para calcular o valor de π (pí):" + "\n\t π/4 = 1 - 1/3 + 1/5 - 1/7 + ..."
-								+ "\n\t resumido em " + "\n\t π/4 = 1 + Σ (-1^n) * 1/(2*n+1)");
 			}
+
+			out.println("\n\t Formula usada para calcular o valor de π (pí):" + "\n\t π/4 = 1 - 1/3 + 1/5 - 1/7 + ..."
+					+ "\n\t resumido em " + "\n\t π/4 = 1 + Σ (-1^n) * 1/(2*n+1)");
 
 		}
 
