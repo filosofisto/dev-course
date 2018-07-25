@@ -51,6 +51,12 @@ public class Lista03 {
 				case 5:
 					exercicios.exe05(args);
 					break;
+				case 6:
+					exercicios.exe06(args);
+					break;
+				case 7:
+					exercicios.exe07();
+					break;
 				case 8:
 					exercicios.exe08(args);
 					break;
@@ -172,13 +178,39 @@ public class Lista03 {
 			try {
 				n = Integer.parseInt(args[1]);
 			} catch (Exception e) {
+				out.print("\n\t Insira um número inteiro qualquer: ");
 				n = in.nextInt();
 			}
 
 			boolean primo = funcao.primo(n);
 
+			if (primo) {
+				out.print("\t " + n + " é Primo!");
+			} else {
+				out.print("\t " + n + " NÃO é Primo!");
+			}
+
 			return primo;
 
+		}
+
+		protected static double exe07() {
+
+			out.println("\n\t Calculando o valorde H," + "\n\t Dado H = 1 + 3/2 + 5/3 + 7/4 + ... + 99/50"
+					+ "\n\t      H = Σ (2*n+1)/(2*n)"
+					+ "\n\t Sendo o 2*n para sequencias pares, e (2*n+1) para sequencias impares.");
+
+			double h = 1;
+
+			out.print("\n\t H = 1 ");
+			for (double n = 1; 2 * n <= 50; n++) {
+				double valor = (2 * n + 1) / (2 * n);
+				out.print("+ " + valor);
+				h += valor;
+			}
+			out.println("\n\t H = " + h);
+
+			return h;
 		}
 
 		protected static void exe08(String args[]) {
@@ -186,13 +218,16 @@ public class Lista03 {
 					"\n\t Dado uma série infinita (fórmula abaixo), e calcule o valor da série até atingir a precisão de 0,001."
 							+ "\n\t X = 1 + 1/2 + 1/4 + ...");
 
+			exe08series(0.001);
+			exe08series(0.000001);
+		}
+
+		private static void exe08series(double precisao) {
 			double x = 1;
 			double x_anterior = 0;
 			double denominador = 2;
 
-			double precisao = 0.001;
-
-			out.println("\n\tPrecisão: " + precisao);
+			out.print("\n\n\tPrecisão: " + precisao);
 
 			out.print("\n\t X = 1");
 			do {
@@ -205,6 +240,27 @@ public class Lista03 {
 			out.print("\n\t X Atual: " + x);
 			out.print("\n\t X Anterior: " + x);
 			out.print("\n\t Denominador: " + denominador);
+		}
+
+		protected static void exe09(String args[]) {
+			try {
+				double precisao = Double.parseDouble(args[1]);
+
+				out.println("\n\t Calculando o valor de π com precisão de " + precisao);
+				out.println("\n\t π ≈ " + funcao.pi(precisao));
+
+			} catch (Exception e) {
+
+				out.println("\n\t Calculando o valor de π com precisão de 0.01 .");
+				out.println("\n\t π ≈ " + funcao.pi(0.01));
+
+				out.println("\n\t Calculando o valor de π com precisão de 0.0001 .");
+				out.println("\n\t π ≈ " + funcao.pi(0.0001));
+			} finally {
+				out.println(
+						"\n\t Formula usada para calcular o valor de π (pí):" + "\n\t π/4 = 1 - 1/3 + 1/5 - 1/7 + ..."
+								+ "\n\t resumido em " + "\n\t π/4 = 1 + Σ (-1^n) * 1/(2*n+1)");
+			}
 
 		}
 
