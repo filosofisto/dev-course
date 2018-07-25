@@ -12,6 +12,30 @@ public class Main {
 	 * processamento em milissegundos.
 	 */
 	public static void main(String[] args) {
+		
+		/*
+		 * 		int[] vetor = new int[100];
+				int valoresAleatorios;
+				Random random = new Random();
+		
+		
+		//popula o array
+		for (int i = 0; i < vetor.length; i++) {
+			valoresAleatorios = random.nextInt(100) + 1;
+			vetor[i] = valoresAleatorios;
+		}
+		
+		//realiza busca de um numero aleatoriamente, e verifica se existe o numero
+		for(int i=0; i<vetor.length;i++) {
+			valoresAleatorios = random.nextInt(100) + 1;
+			if(vetor[i] == valoresAleatorios) {
+				System.out.println("Valor escolhido: " + valoresAleatorios);
+			}else {
+				System.out.println("Numero n�o encontrado !");
+			}
+			
+		}
+		 */
 
 		int[] vetor = new int[100000000];
 		int valoresAleatorios;
