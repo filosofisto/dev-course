@@ -5,6 +5,7 @@ import model.funcao;
 
 import static java.lang.System.err;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -17,8 +18,8 @@ public class Lista03 {
 		final int quantidade_exes = 13;
 		int exe;
 
-		out.println("\t======================================" + "\n\t|	Lista de Exercícios 03 - Java	|"
-				+ "\n\t======================================");
+		out.println("\t=========================================" + "\n\t|	Lista de Exercícios 03 - Java	|"
+				+ "\n\t=========================================");
 
 		do {
 			try {
@@ -33,7 +34,6 @@ public class Lista03 {
 
 			if (exe > 0 && exe <= quantidade_exes) {
 				out.print("\n\t Exercício no." + exe);
-				Thread.sleep(1500);
 
 				switch (exe) {
 				case 1:
@@ -62,6 +62,15 @@ public class Lista03 {
 					break;
 				case 9:
 					exercicios.exe09(args);
+					break;
+				case 10:
+					exercicios.exe10(args);
+					break;
+				case 11:
+					exercicios.exe11(args);
+					break;
+				case 12:
+					exercicios.exe12();
 					break;
 				default:
 					out.println("\n\t Exercício não listado.");
@@ -246,26 +255,132 @@ public class Lista03 {
 		}
 
 		protected static void exe09(String args[]) {
+			double precisao = 0;
 			try {
-				double precisao = Double.parseDouble(args[1]);
 
-				out.println("\n\t Calculando o valor de π com precisão de " + precisao);
+				precisao = Double.parseDouble(args[1]);
+
+				out.println("\n\t Calculando o valor de π com precisão de " + precisao + " .");
 				out.println("\n\t π ≈ " + funcao.pi(precisao));
 
 			} catch (Exception e) {
 
 			} finally {
-				out.println("\n\t Calculando o valor de π com precisão de 0.01 .");
-				out.println("\n\t π ≈ " + funcao.pi(0.01));
 
-				out.println("\n\t Calculando o valor de π com precisão de 0.0001 .");
-				out.println("\n\t π ≈ " + funcao.pi(0.0001));
+				precisao = 0.01;
+				out.println("\n\t Calculando o valor de π com precisão de " + precisao + " .");
+				out.println("\n\t π ≈ " + funcao.pi(precisao));
+
+				precisao = 0.0001;
+				out.println("\n\t Calculando o valor de π com precisão de " + precisao + " .");
+				out.println("\n\t π ≈ " + funcao.pi(precisao));
 			}
 
-			out.println("\n\t Formula usada para calcular o valor de π (pí):" + "\n\t π/4 = 1 - 1/3 + 1/5 - 1/7 + ..."
-					+ "\n\t resumido em " + "\n\t π/4 = 1 + Σ (-1^n) * 1/(2*n+1)");
+			out.println("\n\t Formula usada para calcular o valor de π (pí):" + "\n\t π/4 = 1 - 1/3 + 1/5 - 1/7 + ...");
 
 		}
 
+		protected static void exe10(String args[]) {
+			int n = 0;
+			try {
+				n = Integer.parseInt(args[1]);
+			} catch (Exception e) {
+				out.print("\n\t Insira o número do qual gostaria de fazer o Fatorial: ");
+				n = in.nextInt();
+			}
+
+			out.println("\n\t O fatorial de " + n + " é " + funcao.fatorial(n) + ".");
+
+		}
+
+		protected static void exe11(String args[]) {
+			out.println("\n\t Populando um array de 100 posições com valores aleatórios de 1 a 100");
+
+			int[] vetor = new int[100];
+
+			for (int i = 0; i < vetor.length; i++) {
+				Random r = new Random();
+				vetor[i] = r.nextInt(vetor.length + 1); // (MAX + 1 - MIN)
+			}
+
+			out.println("\n\t Array gerado: ");
+			for (int valor : vetor) {
+				out.println("\t " + valor);
+			}
+
+			int num = -1;
+			try {
+				num = Integer.parseInt(args[1]);
+			} catch (Exception e) {
+				Random r = new Random();
+				num = r.nextInt(101); // (MAX + 1 - MIN)
+			}
+
+			out.println("\n\t Procurando pelo número " + num + " num vetor de " + vetor.length + " posições ...");
+
+			long t1 = System.currentTimeMillis();
+			int encontrado = -1;
+			for (int i = 0; i < vetor.length && encontrado == -1; i++) {
+				if (vetor[i] == num) {
+					encontrado = i;
+				}
+			}
+			long t2 = System.currentTimeMillis();
+
+			out.println("\n\t Tempo de processamento: " + (t2 - t1) + " ms.");
+
+			if (encontrado > 0) {
+				out.println("\t Número " + num + " encontrado na posição " + encontrado + " do vetor.");
+			} else {
+				out.println("\n\t O número " + num + " não foi encontrado no vetor.");
+			}
+
+		}
+
+		protected static void exe12() {
+			ArrayList<Time> times = new ArrayList<Time>();
+
+			String resp = "";
+
+			do {
+				out.print("\n\n\t " + (times.size() + 1) + "º Time");
+
+				Time time = new Time();
+
+				out.print("\n\t Nome:\t");
+				time.nome = in.next();
+				out.print("\n\t Vitórias:\t");
+				time.vitorias = in.nextInt();
+				out.print("\n\t Empates:\t");
+				time.empates = in.nextInt();
+				out.print("\n\t Derrotas:\t");
+				time.derrotas = in.nextInt();
+
+				out.print("\n\t Gols Prós:\t");
+				time.gols_pros = in.nextInt();
+				out.print("\n\t Gols Contras:\t");
+				time.gols_contras = in.nextInt();
+
+				times.add(time);
+				
+				out.println("Gostaria de inserir um novo Time? (S/N)");
+				resp = in.nextLine().toUpperCase();
+				while (!(resp.contains("S") || resp.contains("Y") || resp.contains("N"))) {
+					out.println("Gostaria de inserir um novo Time? (SIM ou NÃO)");
+					resp = in.nextLine().toUpperCase();
+				}
+			} while (resp.contains("S") || resp.contains("Y"));
+
+			out.println("\n\n\t Fim da inserção de time.");
+			out.println("\n\t Time inseridos: ");
+			
+			for(Time time : times) {
+				out.println(time.toString());
+			}
+			
+			
+		}
+
 	}
+
 }
