@@ -362,23 +362,21 @@ public class Lista03 {
 				time.gols_contras = in.nextInt();
 
 				times.add(time);
-				
-				out.println("Gostaria de inserir um novo Time? (S/N)");
-				resp = in.nextLine().toUpperCase();
-				while (!(resp.contains("S") || resp.contains("Y") || resp.contains("N"))) {
-					out.println("Gostaria de inserir um novo Time? (SIM ou NÃO)");
+
+				do {
+					out.print("\n\t Gostaria de inserir um novo Time? (S/N)"
+							+ "\n\t > ");
 					resp = in.nextLine().toUpperCase();
-				}
+				} while (!(resp.contains("S") || resp.contains("Y") || resp.contains("N")));
 			} while (resp.contains("S") || resp.contains("Y"));
 
 			out.println("\n\n\t Fim da inserção de time.");
-			out.println("\n\t Time inseridos: ");
-			
-			for(Time time : times) {
+			out.println("\n\n\t "+times.size()+"  Time(s) inserido(s): ");
+
+			for (Time time : times) {
 				out.println(time.toString());
 			}
-			
-			
+
 		}
 
 	}

@@ -23,8 +23,7 @@ class Time {
 		this.derrotas = derrotas;
 	}
 
-	public Time(String nome, int vitorias, int empates, int derrotas,
-			int gols_pros, int gols_contra) {
+	public Time(String nome, int vitorias, int empates, int derrotas, int gols_pros, int gols_contra) {
 		this.nome = nome;
 		this.vitorias = vitorias;
 		this.empates = empates;
@@ -36,16 +35,13 @@ class Time {
 	public int calcularPontuacao() {
 		return this.vitorias * 3 + empates;
 	}
-	
+
 	public String toString() {
-		return " Nome: \t"+this.nome
-				+"\n Vitórias: \t"+this.vitorias
-				+"\n Empates:  \t"+this.empates
-				+"\n Derrotas: \t"+this.derrotas
-				+"\n Gols Prós:   \t"+this.gols_pros
-				+"\n Gols Contra: \t"+this.gols_contras
-						
-						;
+		return "\t Nome: \t" + this.nome + "\n\t Vitórias: \t" + this.vitorias + "\n\t Empates:  \t" + this.empates
+				+ "\n\t Derrotas: \t" + this.derrotas + "\n\t Gols Prós:  \t" + this.gols_pros + "\n\t Gols Contra:\t"
+				+ this.gols_contras + "\n\t Pontuação:\t" + this.calcularPontuacao()
+
+		;
 	}
 
 }
