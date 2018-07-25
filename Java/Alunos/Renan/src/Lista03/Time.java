@@ -2,12 +2,12 @@ package Lista03;
 
 class Time {
 
-	String nome;
-	int vitorias;
-	int empates;
-	int derrotas;
-	int gols_pros;
-	int gols_contras;
+	private String nome;
+	private int vitorias;
+	private int empates;
+	private int derrotas;
+	private int gols_pros;
+	private int gols_contras;
 
 	public Time() {
 	}
@@ -43,5 +43,55 @@ class Time {
 
 		;
 	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getVitorias() {
+		return vitorias;
+	}
+
+	public void setVitorias(int vitorias) {
+		this.vitorias = vitorias;
+	}
+
+	public int getEmpates() {
+		return empates;
+	}
+
+	public void setEmpates(int empates) {
+		this.empates = empates;
+	}
+
+	public int getDerrotas() {
+		return derrotas;
+	}
+
+	public void setDerrotas(int derrotas) {
+		this.derrotas = derrotas;
+	}
+
+	public int getGols_pros() {
+		return gols_pros;
+	}
+
+	public void setGols_pros(int gols_pros) {
+		this.gols_pros = gols_pros;
+	}
+
+	public int getGols_contras() {
+		return gols_contras;
+	}
+
+	public void setGols_contras(int gols_contras) {
+		this.gols_contras = gols_contras;
+	}
+	
+	
 
 }

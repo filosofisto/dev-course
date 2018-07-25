@@ -345,23 +345,22 @@ public class Lista03 {
 			do {
 				out.print("\n\n\t " + (times.size() + 1) + "º Time");
 
-				Time time = new Time();
-
 				out.print("\n\t Nome:\t");
-				time.nome = in.next();
+				String nome = in.next();
 				out.print("\n\t Vitórias:\t");
-				time.vitorias = in.nextInt();
+				int vitorias = in.nextInt();
 				out.print("\n\t Empates:\t");
-				time.empates = in.nextInt();
+				int empates = in.nextInt();
 				out.print("\n\t Derrotas:\t");
-				time.derrotas = in.nextInt();
+				int derrotas = in.nextInt();
 
 				out.print("\n\t Gols Prós:\t");
-				time.gols_pros = in.nextInt();
+				int gols_pros = in.nextInt();
 				out.print("\n\t Gols Contras:\t");
-				time.gols_contras = in.nextInt();
+				int gols_contra = in.nextInt();
 
-				times.add(time);
+				//	Criando um novo time
+				times.add(new Time(nome, vitorias, empates, derrotas, gols_pros, gols_contra));
 
 				do {
 					out.print("\n\t Gostaria de inserir um novo Time? (S/N)"
