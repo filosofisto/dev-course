@@ -13,16 +13,18 @@ public class Main {
 		System.out.print("Informe um numero natural positivo: ");
 		int n = ler.nextInt();
 		
+		long t1 = System.currentTimeMillis();
 		//Resultado
-		System.out.printf("\nFatorial de %d: %d", n, Fatorial(n));
-
+		System.out.printf("\nFatorial de %d: %d", n, fatorial(n));
+		long t2 = System.currentTimeMillis();
+		System.out.println("Tempos de processamento: " + (t2-t1) + " ms");
 	}
 	
-	private static long Fatorial(int n) {
-		if (n == 1) {
+	private static long fatorial(int n) {
+		if (n < 2) {
 			return 1;
 		} else {
-			return n * Fatorial (n - 1);
+			return n * fatorial (n - 1);
 		}
 	}
 

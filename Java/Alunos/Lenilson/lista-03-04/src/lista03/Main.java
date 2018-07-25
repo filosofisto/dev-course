@@ -15,10 +15,15 @@ public class Main {
 		int n1 = rnd.nextInt(20) + 1;
 		System.out.printf("Numero sorteado: %d", n1);
 		
+		long t1 = System.currentTimeMillis();
+		
 		//Calculo do Fatorial usando for
-		for(int i = n1; i > 0; i--) {
+		for(int i = n1; i > 1; i--) {
 			result *= i;
 		}
+		
+		long t2 = System.currentTimeMillis();
+		System.out.println("Tempos de processamento: " + (t2-t1) + " ms");
 		
 		//Resultado
 		System.out.printf("\nFatorial de %d: %d", n1, result);
