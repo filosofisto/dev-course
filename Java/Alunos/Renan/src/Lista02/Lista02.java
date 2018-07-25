@@ -1,10 +1,11 @@
+package Lista02;
 import static java.lang.System.out;
 import static java.lang.System.err;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class Main {
+public class Lista02 {
 	private static Scanner in = new Scanner(System.in);
 
 	public static void main(String[] args) throws InterruptedException {
@@ -149,7 +150,7 @@ public class Main {
 			notas = new float[] { in.nextFloat(), in.nextFloat(), in.nextFloat() };
 		}
 
-		out.println("A média deste aluno � " + calcularMedia(notas) + ".");
+		out.println("A média deste aluno é " + calcularMedia(notas) + ".");
 
 	}
 
@@ -252,9 +253,6 @@ public class Main {
 		out.println("Escolha sua forma de média" + "\n 1 \t-\t Aritmética" + "\n 2 \t-\t Ponderada"
 				+ "\n 3 \t-\t Harmônica");
 		int opcao = in.nextInt();
-
-		// Sorteio
-		Random r = new Random();
 
 		out.println("Insira as notas");
 		float[] notas = new float[] { in.nextFloat(), in.nextFloat(), in.nextFloat() };
