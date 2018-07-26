@@ -26,4 +26,14 @@ public class Circulo extends Figura {
 	public void setRaio(double raio) {
 		this.raio = raio;
 	}
+	
+	@Override
+	public boolean equals(Object object) {
+		if (object != null && object instanceof Circulo) {
+			Circulo c = (Circulo) object;
+			return getPonto().equals(c.getPonto()) && getRaio() == c.getRaio();
+		}
+		
+		return false;
+	}
 }
