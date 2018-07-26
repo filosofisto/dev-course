@@ -1,4 +1,4 @@
-package com.javabasico;
+package poo;
 
 public class Quadrado extends Retangulo {
 
