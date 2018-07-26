@@ -29,9 +29,10 @@ public class Circulo extends Figura {
 	
 	@Override
 	public boolean equals(Object object) {
-		if (object != null && object instanceof Circulo) {
+		if (super.equals(object) && object instanceof Circulo) {
 			Circulo c = (Circulo) object;
-			return getPonto().equals(c.getPonto()) && getRaio() == c.getRaio();
+			//return getPonto().equals(c.getPonto()) && getRaio() == c.getRaio();
+			return getRaio() == c.getRaio();
 		}
 		
 		return false;
