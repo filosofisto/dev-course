@@ -1,21 +1,41 @@
 package lista03;
 
+import static java.lang.System.out;
+
+import java.io.Console;
+
 public class Main {
 
-	/*
-	 * 12. Construa um programa que gerencie a tabela do campeonato brasileiro. A
-	 * tabela deverá manter as seguintes informações: Nome do time, número de
-	 * vitórias, empates e derrotas, gols prós, gols contras e a pontuação.
-	 * Considere que uma vitória vale 3 pontos e um empate vale 1 ponto. Permita que
-	 * o usuário acrescente jogos, informando o nome dos times e quantidade de gols
-	 * de cada time na partida.
-	 */
-	
 	public static void main(String[] args) {
+		//Scanner s = new Scanner(System.in);
+		Console c = System.console();
 		
+		TabelaBrasileirao brasileirao = new TabelaBrasileirao();
+		Jogo jogo;
 		
-
+		for (;;) {
+			jogo = new Jogo();
+			
+			out.println("Entre com o time A: ");
+			jogo.setTimeA(new Time(c.readLine()));
+			
+			out.println("Gols marcados: ");
+			jogo.setGolsA(Integer.parseInt(c.readLine()));
+			
+			out.println("Entre com o time B: ");
+			jogo.setTimeB(new Time(c.readLine()));
+			
+			out.println("Gols marcados: ");
+			jogo.setGolsB(Integer.parseInt(c.readLine()));
+			
+			brasileirao.adicionarJogo(jogo);
+			
+			out.println("Continuar [S/N]");
+			if (c.readLine().equals("N")) {
+				break;
+			}
+		}
 		
+		brasileirao.exibirResultado();
 	}
-
 }
