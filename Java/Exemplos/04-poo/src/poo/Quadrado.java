@@ -10,6 +10,7 @@ public class Quadrado extends Retangulo {
 	public boolean equals(Object object) {
 		return (super.equals(object) && object instanceof Quadrado);
 	}
+	
 
 	public double getLado() {
 		return getAltura();
@@ -31,4 +32,6 @@ public class Quadrado extends Retangulo {
 		this.setAltura(lado);
 		this.setLargura(lado);
 	}
+	
+	
 }
