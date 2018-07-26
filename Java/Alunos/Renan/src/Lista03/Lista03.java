@@ -359,18 +359,17 @@ public class Lista03 {
 				out.print("\n\t Gols Contras:\t");
 				int gols_contra = in.nextInt();
 
-				//	Criando um novo time
+				// Criando um novo time
 				times.add(new Time(nome, vitorias, empates, derrotas, gols_pros, gols_contra));
 
 				do {
-					out.print("\n\t Gostaria de inserir um novo Time? (S/N)"
-							+ "\n\t > ");
+					out.print("\n\t Gostaria de inserir um novo Time? (S/N)" + "\n\t > ");
 					resp = in.nextLine().toUpperCase();
 				} while (!(resp.contains("S") || resp.contains("Y") || resp.contains("N")));
 			} while (resp.contains("S") || resp.contains("Y"));
 
 			out.println("\n\n\t Fim da inserção de time.");
-			out.println("\n\n\t "+times.size()+"  Time(s) inserido(s): ");
+			out.println("\n\n\t " + times.size() + "  Time(s) inserido(s): ");
 
 			for (Time time : times) {
 				out.println(time.toString());
