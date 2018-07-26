@@ -14,15 +14,15 @@ public class Main {
 		int n = ler.nextInt();
 		
 		//Resultado
-		System.out.printf("\nFatorial de %d: %d", n, Fatorial(n));
+		System.out.printf("\nFatorial de %d: %d", n, fatorial(n));
 
 	}
 	
-	private static long Fatorial(int n) {
-		if (n == 1) {
+	private static long fatorial(int n) {
+		if (n < 2) {
 			return 1;
 		} else {
-			return n * Fatorial (n - 1);
+			return n * fatorial (n - 1);
 		}
 	}
 

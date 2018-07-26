@@ -16,10 +16,12 @@ public class Main {
 		System.out.print("Informe o numero Y: ");
 		int y = ler.nextInt();
 		
+		//Potencia usando for
 		for (int i = 1; i <= y; i++) {
 			result *= x; 
 		}
 		
+		//Resultado
 		System.out.printf("\nResultado de %d elevado a %d: %d", x, y, result);
 	}
 }
