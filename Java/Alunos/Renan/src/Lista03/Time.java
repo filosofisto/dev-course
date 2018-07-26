@@ -36,7 +36,18 @@ class Time {
 	public int quantidadeDeJogos() {
 		return this.derrotas + this.empates + this.vitorias;
 	}
-	
+
+	@Override
+	public boolean equals(Object object) {
+		if (object != null && object instanceof Time) {
+			Time o = (Time) object;
+			return o.getNome() == this.getNome();
+		}
+
+		return false;
+	}
+
+	@Override
 	public String toString() {
 		return "\t Nome: \t" + this.nome + "\n\t Vitórias: \t" + this.vitorias + "\n\t Empates:  \t" + this.empates
 				+ "\n\t Derrotas: \t" + this.derrotas + "\n\t Gols Prós:  \t" + this.gols_pros + "\n\t Gols Contra:\t"
@@ -44,8 +55,6 @@ class Time {
 
 		;
 	}
-	
-	
 
 	public void acrescentaVitoria() {
 		this.vitorias++;
@@ -70,17 +79,16 @@ class Time {
 	public void acrescentaEmpates(int quantidade) {
 		this.empates += quantidade;
 	}
-	
+
 	public void acrescentaGolsPros(int quantidade) {
 		this.gols_pros += quantidade;
 	}
-	
+
 	public void acrescentaGolsContras(int quantidade) {
 		this.gols_contras += quantidade;
 	}
 
-	
-	//	Getters & Setters
+	// Getters & Setters
 	public String getNome() {
 		return nome;
 	}

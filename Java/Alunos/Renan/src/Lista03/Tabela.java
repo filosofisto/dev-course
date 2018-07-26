@@ -63,10 +63,13 @@ public class Tabela {
 
 		return this.times.get(vencedor);
 	}
+
 	public Time getPerdedor() {
 		int perdedor = 0;
 		for (int i = 1; i < times.size(); i++) {
-			if (times.get(i).calcularPontuacao() < times.get(perdedor).calcularPontuacao()) {
+			if ((times.get(i).calcularPontuacao()
+					- times.get(i).getDerrotas()) < (times.get(perdedor).calcularPontuacao()
+							- times.get(perdedor).getDerrotas())) {
 				perdedor = i;
 			}
 		}
@@ -75,9 +78,7 @@ public class Tabela {
 	}
 
 	public void sortearCampeonato() {
-
 		zerarCampeonato();
-
 		for (int i = 0; i < times.size(); i++) {
 			for (int j = i + 1; j < times.size(); j++) {
 				Random r = new Random();
@@ -125,6 +126,7 @@ public class Tabela {
 		String txt = "\t Campeonato\t" + this.nome;
 
 		txt += "\n\t Vencedor:\t" + getVencedor().getNome();
+		txt += "\n\t Maior Perdedor:\t" + getPerdedor().getNome();
 		txt += "\n\t Quantidade de times participantes:\t" + this.times.size();
 		txt += "\n\t Quantidade de partidas realizadas:\t" + getQuantidadeDeJogos() + "\n";
 		for (int i = 0; i < this.times.size(); i++) {
