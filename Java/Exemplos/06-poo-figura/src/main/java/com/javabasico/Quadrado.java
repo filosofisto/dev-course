@@ -5,6 +5,7 @@ public class Quadrado extends Retangulo {
 	public Quadrado(double lado) {
 		super(lado, lado);
 	}
+<<<<<<< HEAD
 
 	public boolean equals(Object object) {
 		if (super.equals(object) && object instanceof Quadrado) {
@@ -34,4 +35,6 @@ public class Quadrado extends Retangulo {
 		this.setBase(lado);
 	}
 
+=======
+>>>>>>> 97744895e6c1f22dd27b684de181326483e15e86
 }
