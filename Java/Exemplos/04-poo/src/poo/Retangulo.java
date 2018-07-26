@@ -4,20 +4,20 @@ public class Retangulo extends Figura {
 
 	double largura;
 	double altura;
-	
+
 	public Retangulo(double largura, double altura) {
 		setLargura(largura);
 		setAltura(altura);
 	}
-	
+
 	@Override
 	public double area() {
-		return largura*altura;
+		return largura * altura;
 	}
 
 	@Override
 	public double perimetro() {
-		return 2*(largura+altura);
+		return 2 * (largura + altura);
 	}
 
 	public double getLargura() {
@@ -35,6 +35,15 @@ public class Retangulo extends Figura {
 	public void setAltura(double altura) {
 		this.altura = altura;
 	}
-	
-	
+
+	@Override
+	public boolean equals(Object obj) {
+		if (super.equals(obj) && obj instanceof Retangulo) {
+			Retangulo retangulo = (Retangulo) obj;
+			return getAltura() == retangulo.getAltura() && getLargura() == retangulo.getLargura();
+		}
+
+		return false;
+	}
+
 }
