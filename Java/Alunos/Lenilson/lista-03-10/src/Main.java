@@ -13,11 +13,9 @@ public class Main {
 		System.out.print("Informe um numero natural positivo: ");
 		int n = ler.nextInt();
 		
-		long t1 = System.currentTimeMillis();
 		//Resultado
 		System.out.printf("\nFatorial de %d: %d", n, fatorial(n));
-		long t2 = System.currentTimeMillis();
-		System.out.println("Tempos de processamento: " + (t2-t1) + " ms");
+
 	}
 	
 	private static long fatorial(int n) {
