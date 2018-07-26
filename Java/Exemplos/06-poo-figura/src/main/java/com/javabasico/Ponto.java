@@ -2,7 +2,7 @@ package com.javabasico;
 
 public class Ponto {
 
-	private double x, y;
+	protected double x, y;
 	
 	public Ponto(double x, double y) {
 		this.x = x;
