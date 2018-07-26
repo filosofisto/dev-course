@@ -1,6 +1,6 @@
 package model;
 
-public class funcao {
+public final class funcao {
 
 	public static int fatorial(int n) {
 		
