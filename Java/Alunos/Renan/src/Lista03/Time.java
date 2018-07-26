@@ -2,15 +2,12 @@ package Lista03;
 
 class Time {
 
-	private String nome;
-	private int vitorias;
-	private int empates;
-	private int derrotas;
-	private int gols_pros;
-	private int gols_contras;
-
-	public Time() {
-	}
+	protected String nome;
+	protected int vitorias;
+	protected int empates;
+	protected int derrotas;
+	protected int gols_pros;
+	protected int gols_contras;
 
 	public Time(String nome) {
 		this.nome = nome;
@@ -36,6 +33,21 @@ class Time {
 		return this.vitorias * 3 + empates;
 	}
 
+	public int quantidadeDeJogos() {
+		return this.derrotas + this.empates + this.vitorias;
+	}
+
+	@Override
+	public boolean equals(Object object) {
+		if (object != null && object instanceof Time) {
+			Time o = (Time) object;
+			return o.getNome() == this.getNome();
+		}
+
+		return false;
+	}
+
+	@Override
 	public String toString() {
 		return "\t Nome: \t" + this.nome + "\n\t Vitórias: \t" + this.vitorias + "\n\t Empates:  \t" + this.empates
 				+ "\n\t Derrotas: \t" + this.derrotas + "\n\t Gols Prós:  \t" + this.gols_pros + "\n\t Gols Contra:\t"
@@ -44,6 +56,39 @@ class Time {
 		;
 	}
 
+	public void acrescentaVitoria() {
+		this.vitorias++;
+	}
+
+	public void acrescentaDerrota() {
+		this.derrotas++;
+	}
+
+	public void acrescentaEmpate() {
+		this.empates++;
+	}
+
+	public void acrescentaVitorias(int quantidade) {
+		this.vitorias += quantidade;
+	}
+
+	public void acrescentaDerrotas(int quantidade) {
+		this.derrotas += quantidade;
+	}
+
+	public void acrescentaEmpates(int quantidade) {
+		this.empates += quantidade;
+	}
+
+	public void acrescentaGolsPros(int quantidade) {
+		this.gols_pros += quantidade;
+	}
+
+	public void acrescentaGolsContras(int quantidade) {
+		this.gols_contras += quantidade;
+	}
+
+	// Getters & Setters
 	public String getNome() {
 		return nome;
 	}
@@ -91,7 +136,5 @@ class Time {
 	public void setGols_contras(int gols_contras) {
 		this.gols_contras = gols_contras;
 	}
-	
-	
 
 }

@@ -1,9 +1,9 @@
 package poo;
 
-public class Ponto {
+public class Ponto implements Cloneable{
 
-	int x;
-	int y;
+	protected int x;
+	protected int y;
 	
 	public Ponto() {
 		x = 0;
@@ -40,4 +40,14 @@ public class Ponto {
 		
 		return false;
 	}
+	
+	public Ponto getClone() {
+        try {
+            // call clone in Object.
+            return (Ponto) super.clone();
+        } catch (CloneNotSupportedException e) {
+            System.out.println (" Cloning not allowed. " );
+            return this;
+        }
+    }
 }

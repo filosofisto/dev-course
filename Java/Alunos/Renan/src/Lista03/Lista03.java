@@ -341,39 +341,40 @@ public class Lista03 {
 			ArrayList<Time> times = new ArrayList<Time>();
 
 			String resp = "";
-
+			in.nextLine();
 			do {
 				out.print("\n\n\t " + (times.size() + 1) + "º Time");
 
 				out.print("\n\t Nome:\t");
-				String nome = in.next();
-				out.print("\n\t Vitórias:\t");
-				int vitorias = in.nextInt();
-				out.print("\n\t Empates:\t");
-				int empates = in.nextInt();
-				out.print("\n\t Derrotas:\t");
-				int derrotas = in.nextInt();
-
-				out.print("\n\t Gols Prós:\t");
-				int gols_pros = in.nextInt();
-				out.print("\n\t Gols Contras:\t");
-				int gols_contra = in.nextInt();
 
 				// Criando um novo time
-				times.add(new Time(nome, vitorias, empates, derrotas, gols_pros, gols_contra));
-
+				times.add(new Time(in.nextLine()));
+				in.nextLine();
 				do {
 					out.print("\n\t Gostaria de inserir um novo Time? (S/N)" + "\n\t > ");
 					resp = in.nextLine().toUpperCase();
 				} while (!(resp.contains("S") || resp.contains("Y") || resp.contains("N")));
 			} while (resp.contains("S") || resp.contains("Y"));
 
-			out.println("\n\n\t Fim da inserção de time.");
-			out.println("\n\n\t " + times.size() + "  Time(s) inserido(s): ");
+			out.print("\n\t E qual seria o nome deste Campeonato? ");
 
-			for (Time time : times) {
-				out.println(time.toString());
+			Tabela c = new Tabela(in.next(), times);
+			out.print(". \n");
+
+			resp = "";
+			in.nextLine();
+			do {
+				out.println("\n\t Gostaria que os jogos fossem sorteado ao invés de inserir manualmente? (S/N)");
+				resp = in.nextLine().toUpperCase();
+			} while (!(resp.contains("S") || resp.contains("Y") || resp.contains("N")));
+
+			if (resp.contains("S") || resp.contains("Y")) {
+				c.sortearCampeonato();
+
+			} else {
+
 			}
+			out.println(c.toString());
 
 		}
 
