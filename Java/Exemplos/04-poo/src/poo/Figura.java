@@ -30,4 +30,8 @@ public abstract class Figura {
 		
 		return false;
 	}
+	
+	public void mover(Ponto destino) {
+		setPonto(destino);
+	}
 }
