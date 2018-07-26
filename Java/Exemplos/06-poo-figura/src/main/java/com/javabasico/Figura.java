@@ -2,7 +2,7 @@ package com.javabasico;
 
 public abstract class Figura {
 
-	private Ponto ponto;
+	protected Ponto ponto;
 
 	public abstract double perimetro();
 	

@@ -7,6 +7,13 @@ public class Circulo extends Figura {
 	public Circulo(double raio) {
 		this.raio = raio;
 	}
+	
+	public double distancia(Ponto destino) {
+		return Math.sqrt(
+				Math.pow(destino.getX()-ponto.getX(), 2) + 
+				Math.pow(destino.getY()-ponto.getY(), 2)
+		);
+	}
 
 	@Override
 	public double perimetro() {
