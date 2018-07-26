@@ -6,32 +6,28 @@ public class Quadrado extends Retangulo {
 		super(lado, lado);
 	}
 
+	@Override
 	public boolean equals(Object object) {
-		if (super.equals(object) && object instanceof Quadrado) {
-			Quadrado outro = (Quadrado) object;
-			return outro.getAltura() == this.getAltura();
-		} else {
-			return false;
-		}
+		return super.equals(object) && object instanceof Quadrado;
 	}
 
 	public double getLado() {
-		return this.getAltura();
+		return getAltura();
 	}
 
 	public void setLado(double lado) {
 		this.setAltura(lado);
-		this.setBase(lado);
+		this.setLargura(lado);
 	}
 
 	public void setAltura(double lado) {
 		this.setAltura(lado);
-		this.setBase(lado);
+		this.setLargura(lado);
 	}
 
-	public void setBase(double lado) {
+	public void setLargura(double lado) {
 		this.setAltura(lado);
-		this.setBase(lado);
+		this.setLargura(lado);
 	}
 
 }
