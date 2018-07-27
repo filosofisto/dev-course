@@ -5,6 +5,10 @@ public class Pessoa {
 	private String nome;
 	private int idade;
 	
+	public Pessoa() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Pessoa(String nome, int idade) {
 		super();
 		this.nome = nome;

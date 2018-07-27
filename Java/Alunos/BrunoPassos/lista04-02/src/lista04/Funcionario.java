@@ -6,7 +6,7 @@ public class Funcionario extends Pessoa {
 	private double salarioBase;
 	private int anosTrabalhados;
 	private double salarioFinal;
-
+	
 	public Funcionario(String nome, int idade, int numeroMatricula, double salarioBase, int anosTrabalhados) {
 		super(nome, idade);
 		setNumeroMatricula(numeroMatricula);
@@ -43,15 +43,17 @@ public class Funcionario extends Pessoa {
 	}
 
 	public void setSalarioBase(double salarioBase) {
+		this.salarioBase = salarioBase;
+	}
+
+	public double calculaSalario() {
 
 		double salario = 0;
-		if(getAnosTrabalhados() > 0) {
-			salario = (salarioBase * getAnosTrabalhados()) / 100;	
-			this.salarioBase += salario;
+		if (getAnosTrabalhados() > 0) {
+			salario = (getSalarioBase() * getAnosTrabalhados()) / 100;
 		}
-		
+
+		return this.salarioBase += salario;
 	}
-	
-	
 
 }
