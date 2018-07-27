@@ -8,10 +8,13 @@ public class Main {
 		p.setNome("Maradona");
 		
 		try {
-			p.setIdade(-1);
+			p.setIdade(Integer.parseInt(args[0]));
 		} catch (Exception e) {
 			System.out.println("Sr usuario lamendo mas a idade nao eh valida");
+			System.exit(-1);
 			//e.printStackTrace();
 		}
+		
+		System.out.println("Pessoa criada com sucesso");
 	}
 }
