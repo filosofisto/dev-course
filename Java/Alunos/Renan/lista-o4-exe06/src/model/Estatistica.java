@@ -1,8 +1,15 @@
 package model;
 
 public final class Estatistica {
+	
+	private Estatistica() {
+		
+	}
 
 	public static double mediaAritetica(double[] valores) {
+		if (valores.length == 0)
+			return 0;
+		
 		double soma = 0;
 		for (double valor : valores) {
 			soma = +valor;
@@ -14,6 +21,7 @@ public final class Estatistica {
 		float soma = 0;
 		for (float valor : valores) {
 			soma = +valor;
+			//soma += valor;
 		}
 		return soma / valores.length;
 	}
@@ -48,13 +56,23 @@ public final class Estatistica {
 
 		return produtorio;
 	}
+	
+	public static int produtorio(double[] valores) {
+		int produtorio = 1;
+
+		for (double valor: valores) {
+			produtorio *= valor;
+		}
+
+		return produtorio;
+	}
 
 	public static double mediana(double[] valores) {
 		if (valores.length % 2 == 1) {
-			// Tamanho do conjunto é par.
+			// Tamanho do conjunto ï¿½ par.
 			return (valores[valores.length / 2] + valores[valores.length / 2 + 1]) / 2;
 		} else {
-			// Tamanho do conjunto é impar.
+			// Tamanho do conjunto ï¿½ impar.
 			return valores[(valores.length / 2) + 1];
 		}
 
@@ -62,10 +80,10 @@ public final class Estatistica {
 
 	public static float mediana(float[] valores) {
 		if (valores.length % 2 == 1) {
-			// Tamanho do conjunto é par.
+			// Tamanho do conjunto ï¿½ par.
 			return (valores[valores.length / 2] + valores[valores.length / 2 + 1]) / 2;
 		} else {
-			// Tamanho do conjunto é impar.
+			// Tamanho do conjunto ï¿½ impar.
 			return valores[(valores.length / 2) + 1];
 		}
 
@@ -73,10 +91,10 @@ public final class Estatistica {
 
 	public static int mediana(int[] valores) {
 		if (valores.length % 2 == 1) {
-			// Tamanho do conjunto é par.
+			// Tamanho do conjunto ï¿½ par.
 			return (valores[valores.length / 2] + valores[valores.length / 2 + 1]) / 2;
 		} else {
-			// Tamanho do conjunto é impar.
+			// Tamanho do conjunto ï¿½ impar.
 			return valores[(valores.length / 2) + 1];
 		}
 

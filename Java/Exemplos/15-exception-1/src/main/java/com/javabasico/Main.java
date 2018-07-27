@@ -10,7 +10,7 @@ public class Main {
 		System.out.printf("x = %d", x);*/
 		
 		try {
-			int x = 3 / 1;
+			int x = 3 / 0;
 			System.out.printf("x = %d\n", x);
 			
 			int[] array = new int[10];
@@ -20,7 +20,7 @@ public class Main {
 		} catch (Exception e) {
 			System.err.println("Erro de array: " + e.getMessage());
 		} finally {
-			System.err.println("Bye;)");
+			System.out.println("Bye;)");
 		}
 		
 		/*int[] array = new int[10];

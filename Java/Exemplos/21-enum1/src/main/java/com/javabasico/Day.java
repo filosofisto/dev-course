@@ -1,7 +1,7 @@
 package com.javabasico;
 
 public interface Day {
-    int SUNDAY = 0; 
+    int SUNDAY = 0; // public static final int SUNDAY = 0; 
     int MONDAY = 1; 
     int TUESDAY = 2; 
     int WEDNESDAY = 3; 

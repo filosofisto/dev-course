@@ -41,11 +41,12 @@ public class Conta {
 		this.saldo = saldo;
 	}
 
-	public void deposita(double valor) {
+	public void deposita(double valor) throws Exception {
 		if (valor > 0) {
 			this.saldo += valor;
 		} else {
-			System.out.println("Valor informado é invalido");
+			//System.out.println("Valor informado ï¿½ invalido");
+			throw new Exception("Valor informado invalido");
 		}
 
 	}
