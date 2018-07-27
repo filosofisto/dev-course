@@ -49,7 +49,7 @@ public class Conta {
 		adicionarOperacao(operacao);
 	}
 	
-	public void transfere (double valor, Conta contaDestino) throws Exception{
+	public void transfere (double valor, Conta contaDestino) throws Exception {
 		this.retira(valor);
 		contaDestino.deposita(valor);
 	}

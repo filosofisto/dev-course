@@ -1,11 +1,11 @@
 package lista04.itemsPersonagem;
 
-public class Mapa {
+public class Posicao {
 
 	private int pontoX;
 	private int pontoy;
 	
-	public Mapa(int pontoX, int pontoY) {
+	public Posicao(int pontoX, int pontoY) {
 		this.pontoX = pontoX;
 		this.pontoy = pontoY;
 	}
