@@ -2,7 +2,7 @@ package model;
 
 import java.awt.Point;
 
-public class Guerreiro extends Personagem {
+public abstract class Guerreiro extends Personagem {
 
 	protected Arma arma;
 
@@ -19,5 +19,4 @@ public class Guerreiro extends Personagem {
 	public Arma atacar() {
 		return this.arma;
 	}
-
 }
