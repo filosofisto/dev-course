@@ -12,7 +12,7 @@ public abstract class Personagem {
 	protected int vida;
 	protected Status estado;
 	protected boolean pode_atacar;
-	protected int percepcao;
+	protected int percepcao;	//	<-- A remover, não vai ser utilizado.
 	
 	public Personagem(Lado lado, int vida, boolean pode_atacar, int percepcao) {
 	}
@@ -29,6 +29,10 @@ public abstract class Personagem {
 	
 	public boolean isVivo() {
 		return this.vida > 0;
+	}
+	
+	public void acao() {
+		
 	}
 	
 }
