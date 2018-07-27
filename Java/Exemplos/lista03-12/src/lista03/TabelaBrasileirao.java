@@ -2,6 +2,10 @@ package lista03;
 
 import static java.lang.System.out;
 
+import java.util.Arrays;
+
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+
 public class TabelaBrasileirao {
 
 	private ItemTabela[] items;
@@ -22,20 +26,20 @@ public class TabelaBrasileirao {
 		ItemTabela itemTimeB = procurarItemPorTime(jogo.getTimeB());
 		// Atualizar o item conforme resultado do jogo
 		atualizarItem(itemTimeB, jogo);
-		
-		// Ordenar a tabela
-		// TODO: Implementar
 	}
 	
 	public void exibirResultado() {
+		ItemTabela[] result = Arrays.copyOfRange(items, 0, posicao+1);
+		Arrays.sort(result);
+		
 		out.println("=============================================");
 		out.println("Pos Time            Jog Vit Emp Der Pto GP GC");
 		out.println("=============================================");
 		
 		ItemTabela it;
 		
-		for (int i = 0; i <= posicao; i++) {
-			it = items[i];
+		for (int i = 0; i < result.length; i++) {
+			it = result[i];
 			
 			out.printf(
 					"%d  %s %d  %d  %d  %d  %d  %d  %d\n", 

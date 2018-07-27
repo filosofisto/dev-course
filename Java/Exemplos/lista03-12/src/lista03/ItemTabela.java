@@ -1,6 +1,6 @@
 package lista03;
 
-public class ItemTabela {
+public class ItemTabela implements Comparable<ItemTabela>{
 
 	private Time time;
 	private int vitorias;
@@ -87,5 +87,16 @@ public class ItemTabela {
 	
 	public void incGolsSofridos(int gols) {
 		golsSofridos += gols;
+	}
+
+	@Override
+	public int compareTo(ItemTabela o) {
+		int ret = o.getPontuacao()-getPontuacao();
+		
+		if (ret == 0) {
+			ret = o.getVitorias()-getVitorias();
+		}
+		
+		return ret;
 	}
 }
