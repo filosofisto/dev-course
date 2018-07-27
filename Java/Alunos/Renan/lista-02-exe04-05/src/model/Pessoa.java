@@ -93,6 +93,11 @@ public class Pessoa {
 		this.rg = rg;
 	}
 
+	public String toString() {
+		return "\n\t Nome:\t" + this.nome + "\n\t Data de Nascimento:\t" + this.nascimento.toString() + "\n\t CPF:\t"
+				+ this.cpf + "\n\t RG:\t" + this.rg;
+	}
+
 	protected void finalize() {
 		Pessoa.instancias--;
 	}
