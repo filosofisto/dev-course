@@ -9,9 +9,12 @@ public class Pessoa {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Pessoa(String nome, int idade) {
-		super();
+	public Pessoa(String nome) {
 		this.nome = nome;
+	}
+	
+	public Pessoa(String nome, int idade) {
+		this(nome);
 		this.idade = idade;
 	}
 
