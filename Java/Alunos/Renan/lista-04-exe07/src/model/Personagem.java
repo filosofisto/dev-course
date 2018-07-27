@@ -2,7 +2,7 @@ package model;
 
 import java.awt.Point;
 
-public class Personagem {
+public abstract class Personagem {
 	
 	protected boolean lado;
 	
@@ -12,7 +12,7 @@ public class Personagem {
 	protected int vida;
 	protected Status estado;
 	protected boolean pode_atacar;
-	protected int percepcao;
+	protected int percepcao;	//	<-- A remover, não vai ser utilizado.
 	
 	public Personagem(Lado lado, int vida, boolean pode_atacar, int percepcao) {
 	}
@@ -29,6 +29,10 @@ public class Personagem {
 	
 	public boolean estaVivo() {
 		return this.vida > 0;
+	}
+	
+	public void acao() {
+		
 	}
 	
 }
