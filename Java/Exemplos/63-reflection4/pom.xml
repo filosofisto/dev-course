@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.javabasico</groupId>
-	<artifactId>reflection-framework</artifactId>
+	<artifactId>63-reflection4</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>reflection-framework</name>
+	<name>reflection2</name>
 	
 	<properties>
 		<jdk.version>1.7</jdk.version>
