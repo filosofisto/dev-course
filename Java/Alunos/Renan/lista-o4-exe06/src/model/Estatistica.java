@@ -18,6 +18,9 @@ public final class Estatistica {
 	}
 
 	public static float mediaAritetica(float[] valores) {
+		if (valores.length == 0)
+			return 0;
+		
 		float soma = 0;
 		for (float valor : valores) {
 			soma = +valor;
@@ -27,6 +30,9 @@ public final class Estatistica {
 	}
 
 	public static double mediaPonderada(double[] valores, double pesos[]) {
+		if (valores.length == 0)
+			return 0;
+		
 		double soma_valores = 0;
 		double soma_pesos = 0;
 		for (int i = 0; i < valores.length; i++) {
@@ -37,6 +43,9 @@ public final class Estatistica {
 	}
 
 	public static float mediaPonderada(float[] valores, float pesos[]) {
+		if (valores.length == 0)
+			return 0;
+		
 		float soma_valores = 0;
 		float soma_pesos = 0;
 		for (int i = 0; i < valores.length; i++) {
