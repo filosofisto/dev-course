@@ -63,9 +63,9 @@ public class Ponto implements Cloneable {
 
 	public float distancia(Ponto ponto) {
 
-		float distancia = ((getPontoX() - ponto.getPontoX()) + (getPontoY() - ponto.getPontoY()));
+//		float distancia = ((getPontoX() - ponto.getPontoX()) + (getPontoY() - ponto.getPontoY()));
 
-		return distancia;
+		return (float) Math.sqrt(Math.pow(this.pontoX - ponto.getPontoX(), 2) + Math.pow(this.pontoY - ponto.getPontoY(), 2));
 	}
 
 	/*
