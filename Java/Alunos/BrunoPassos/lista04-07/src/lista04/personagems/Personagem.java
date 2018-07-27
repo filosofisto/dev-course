@@ -2,17 +2,17 @@
 package lista04.personagems;
 
 import lista04.itemsPersonagem.EnergiaPrana;
-import lista04.itemsPersonagem.Mapa;
+import lista04.itemsPersonagem.Posicao;
 
 public abstract class Personagem {
 
 	private EnergiaPrana energiaPrana;
-	private Mapa mapa;
+	private Posicao posicao;
 	
 	// locomover de um ponto a outro
 	
 	public void locomover(int pontoX, int pontoY) {
-		this.mapa = new Mapa(pontoX, pontoY);
+		this.posicao = new Posicao(pontoX, pontoY);
 	}
 	
 	// ataca personagem
@@ -26,12 +26,12 @@ public abstract class Personagem {
 		this.energiaPrana = energiaPrana;
 	}
 
-	public Mapa getMapa() {
-		return mapa;
+	public Posicao getMapa() {
+		return posicao;
 	}
 
-	public void setMapa(Mapa mapa) {
-		this.mapa = mapa;
+	public void setMapa(Posicao mapa) {
+		this.posicao = mapa;
 	}
 
 }

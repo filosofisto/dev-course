@@ -2,7 +2,7 @@ package lista04.personagems;
 
 import lista04.armas.ArcoFlecha;
 
-public class Arqueiro extends Personagem{
+public class Arqueiro extends Personagem {
 
 	private ArcoFlecha arcoFlecha;
 
