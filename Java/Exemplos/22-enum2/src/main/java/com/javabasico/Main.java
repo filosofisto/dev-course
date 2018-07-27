@@ -40,5 +40,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		showDay(Day.FRIDAY);
+		
+		//Erro
+		//showDay(new Day(5000));
 	}
 }

@@ -14,7 +14,7 @@ public class Main {
 		} catch (IdadeMuitoGrandeException e) {
 			System.err.println("Aviso: a data nao foi atualizada");
 		} finally {
-			System.err.println("Este bloco sera executado independente de erro");
+			System.out.println("Este bloco sera executado independente de erro");
 		}
 	}
 }
