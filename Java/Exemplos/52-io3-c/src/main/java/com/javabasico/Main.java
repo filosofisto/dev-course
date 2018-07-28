@@ -1,5 +1,8 @@
 package com.javabasico;
 
+import static java.lang.System.out;
+
+import java.io.Console;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,12 +10,13 @@ import java.util.List;
 public class Main {
 
 	public static void main(String[] args) {
-		Teclado teclado = new Teclado();
+		Console c = System.console();
 		
-		String toFind = teclado.ler(
-			"Entre com o nome do arquivo desejado");
-		String dirName = "/home/filosofisto/CPB/cpb-treinamento";
+		out.println("Entre com o nome do arquivo desejado: ");
+		String toFind = c.readLine();
+		String dirName = System.getProperty("user.dir");
 		File dir = new File(dirName);
+		
 		List<String> arquivos = new ArrayList<String>();
 		
 		findFile(dir, toFind, arquivos);

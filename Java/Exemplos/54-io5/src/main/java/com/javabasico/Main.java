@@ -12,7 +12,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
-			File file = new File("/home/filosofisto/CPB/cpb-treinamento/workspace-treinamento-cpb/io5/project.obj");
+			File file = new File("/home/filosofisto/temp/project.obj");
 			
 			if (!file.exists()) {
 				persistProject(file);

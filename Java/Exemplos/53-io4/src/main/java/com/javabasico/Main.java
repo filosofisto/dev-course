@@ -14,7 +14,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
-			File file = new File("/home/filosofisto/CPB/cpb-treinamento/workspace-treinamento-cpb/io4/dados.dat");
+			File file = new File("/home/filosofisto/temp/dados.dat");
 			
 			if (!file.exists()) {
 				gerarDados(file);
