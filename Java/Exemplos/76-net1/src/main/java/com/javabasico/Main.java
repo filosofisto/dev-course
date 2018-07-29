@@ -16,6 +16,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		ByteBuffer buffer = ByteBuffer.allocateDirect(1024);
+		//Correcao solicitada por PR pelo Kleber
 		
 		//create a new server socket channel
 		try (ServerSocketChannel serverSocketChannel = ServerSocketChannel.open()) {
