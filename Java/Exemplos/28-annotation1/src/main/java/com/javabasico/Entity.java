@@ -4,14 +4,16 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class Entity {
+public abstract class Entity {
 
 	@Override
 	public boolean equals(Object object) {
 		if (getClass().equals(object.getClass())) {
 			try {
-				Object myId = getGetterId().invoke(this);
-				Object otherId = getGetterId().invoke(object);
+				Method getterId = getGetterId();
+				
+				Object myId = getterId.invoke(this);
+				Object otherId = getterId.invoke(object);
 
 				if (myId == null && otherId == null) {
 					return true;

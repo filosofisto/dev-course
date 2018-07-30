@@ -8,7 +8,7 @@ public class Main {
 		navegador.go(new Page("http://www.google.com"));
 		navegador.go(new Page("http://www.hotmail.com"));
 		navegador.go(new Page("http://www.gmail.com"));
-		navegador.go(new Page("http://www.x25.com.br"));
+		navegador.go(new Page("http://www.cpb.org.br"));
 		
 		System.out.println(navegador.currentPage());
 		navegador.back();

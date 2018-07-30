@@ -2,13 +2,19 @@ package com.javabasico;
 
 import static java.lang.System.out;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 public class Main {
 	
 	public static void main(String[] args) {
+		List list = new LinkedList();/*new ArrayList();*/
+		list.add("Eduardo");
+		list.add("Bruno");
+		list.add("Renan");
+		list.add("Lenilson");
+		
+		out.printf("Lista Vazia: %s\n", list.isEmpty() ? "Sim" : "Nao");
+		out.printf("Quantidade de itens: %d\n", list.size());
+		out.printf("Posicao de 'Lenilson': %d\n", list.indexOf("Lenilson"));
+		
 		/*MyList extrato = new MyList();
 		
 		extrato.add("Eduardo");
@@ -22,7 +28,7 @@ public class Main {
 			System.out.println("Vazio");
 		}*/
 		
-		Collection<Integer> coll = new ArrayList<Integer>();
+		/*Collection<Integer> coll = new ArrayList<Integer>();
 		
 		for (int i = 1; i < 1000; i++) {
 			coll.add(i);
@@ -45,6 +51,6 @@ public class Main {
 				list.get(0));
 		
 		out.printf("Soma dos numeros pares = %d\n", total);
-		out.printf("Quantidade de elementos: %d", coll.size());
+		out.printf("Quantidade de elementos: %d", coll.size());*/
 	}
 }

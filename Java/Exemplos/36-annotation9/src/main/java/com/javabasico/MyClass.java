@@ -6,6 +6,6 @@ public class MyClass {
 
 	@Deprecated
 	public void oldMethod() {
-		out.println("Existe outro método melhor");
+		out.println("Existe outro metodo melhor");
 	}
 }

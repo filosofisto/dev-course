@@ -1,6 +1,6 @@
 package com.javabasico;
 
-@PrettyPrinter(value=A4Formatter.class)
+@PrettyPrinter(value=A3Formatter.class)
 public class MyClass {
 
 }

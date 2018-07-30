@@ -8,7 +8,7 @@ package com.javabasico;
  */
 public class MySubclass {
 
-	/*@Override //a anotação causa erro de compilação
+	/*@Override //a anotaï¿½ï¿½o causa erro de compilaï¿½ï¿½o
 	public boolean equals(MySubclass other) {
 		return false;
 	}*/

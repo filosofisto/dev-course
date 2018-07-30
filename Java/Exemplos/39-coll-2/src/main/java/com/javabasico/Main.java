@@ -1,6 +1,7 @@
 package com.javabasico;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import static java.lang.System.out;
@@ -16,7 +17,8 @@ public class Main {
 		show(set);
 		
 		long t2 = System.currentTimeMillis();
-		System.out.printf("Tempo de processamento: %dms", (t2-t1));
+		System.out.printf("Tempo de processamento: %dms\n", (t2-t1));
+		System.out.printf("Quantidade de itens: %d\n", set.size());
 	}
 	
 	private static void populate(Set<Veiculo> set) {

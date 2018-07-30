@@ -46,6 +46,6 @@ public class Veiculo implements Comparable<Veiculo> {
 
 	@Override
 	public int compareTo(Veiculo other) {
-		return getRenavam().compareTo(other.getRenavam());
+		return -getRenavam().compareTo(other.getRenavam());
 	}
 }
