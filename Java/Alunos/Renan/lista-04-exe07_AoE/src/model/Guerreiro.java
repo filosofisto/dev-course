@@ -24,18 +24,20 @@ public abstract class Guerreiro extends Personagem {
 		Guerreiro.guerreiros_criados++;
 	}
 
-	
+	public boolean podeAtacar(Personagem inimigo) {
+		return inimigo.getLado() != this.lado && this.posicao.distance(inimigo.getPosicao()) <= this.arma.getAlcance();
+	}
+
 	public Personagem atacar(Personagem personagem) {
-		personagem.receberDano(this.arma.getDano());
+		if (podeAtacar(personagem)) {
+			personagem.receberDano(this.arma.getDano());
+		}
 		return personagem;
 	}
 
-
-
-
 	@Override
 	public String toString() {
-		return super.toString()+" Guerreiro [arma=" + arma + "]";
+		return super.toString() + " Guerreiro [arma=" + arma + "]";
 	}
 
 	public static int quantidadeDeInstancias() {

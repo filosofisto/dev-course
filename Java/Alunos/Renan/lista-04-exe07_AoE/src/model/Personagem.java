@@ -51,12 +51,11 @@ public abstract class Personagem {
 	}
 
 	public boolean notaInimigo(Personagem inimigo) {
-		if (inimigo.getLado() != this.lado) {
-			return this.posicao.distance(inimigo.getPosicao()) <= this.percepcao;
-		} else {
-			return false;
-		}
+		
+			return inimigo.getLado() != this.lado && this.posicao.distance(inimigo.getPosicao()) <= this.percepcao;
+		
 	}
+	
 
 	public void mover() {
 		if (destino.equals(posicao)) {
@@ -78,7 +77,12 @@ public abstract class Personagem {
 	}
 
 	public void receberDano(int dano) {
-		this.vida -= dano;
+		if (dano > this.vida) {
+			this.vida = 0;
+		} else {
+			this.vida -= dano;
+		}
+
 	}
 
 	public void receberDano(Arma arma) {
@@ -170,7 +174,7 @@ public abstract class Personagem {
 		return "Personagem [lado=" + lado + ", posicao=" + this.posicaoToString() + ", destino="
 				+ this.destinoToString() + ", vida=" + vida + ", percepcao=" + percepcao + ", estado=" + estado + "]";
 	}
-	
+
 	@Override
 	public void finalize() throws Throwable {
 		super.finalize();

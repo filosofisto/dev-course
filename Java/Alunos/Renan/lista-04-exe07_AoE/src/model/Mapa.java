@@ -8,8 +8,7 @@ public class Mapa {
 
 	private int[] area = new int[2];
 
-	private List<Personagem> aliados = new ArrayList<Personagem>();
-	private List<Personagem> inimigos = new ArrayList<Personagem>();
+	private List<Personagem> atores = new ArrayList<Personagem>();
 
 	public Mapa(int tamanho_x, int tamanho_y) {
 		this.area = new int[] { tamanho_x, tamanho_y };
@@ -40,11 +39,7 @@ public class Mapa {
 	public void adicionarPersonagem(Personagem... personagens) {
 		for (Personagem personagem : personagens) {
 			if (personagem.getPosicao() != null && this.isDentro(personagem.getPosicao())) {
-				if (personagem.getLado() == Lado.ALIADO) {
-					this.aliados.add(personagem);
-				} else if (personagem.getLado() == Lado.INIMIGO) {
-					this.inimigos.add(personagem);
-				}
+				this.atores.add(personagem);
 			}
 		}
 	}
@@ -52,20 +47,43 @@ public class Mapa {
 	public void adicionarPersonagem(List<Personagem> personagens) {
 		for (Personagem personagem : personagens) {
 			if (personagem.getPosicao() != null && this.isDentro(personagem.getPosicao())) {
-				if (personagem.getLado() == Lado.ALIADO) {
-					this.aliados.add(personagem);
-				} else if (personagem.getLado() == Lado.INIMIGO) {
-					this.inimigos.add(personagem);
-				}
+				this.atores.add(personagem);
 			}
 		}
 	}
 
 	public void acao() {
-		for (int i = 0; i < aliados.size(); i++) {
-			for (int j = 0; j < inimigos.size(); j++) {
-				this.aliados.get(i).notaInimigo(this.inimigos.get(j));
-				this.inimigos.get(j).notaInimigo(this.aliados.get(i));
+		/*
+		 *	Ativa a ação de cada Personagem no campo
+		 */
+		for (int i = 0; i < this.atores.size(); i++) {
+			for (int j = i + 1; j < this.atores.size(); j++) {
+				
+				//	Verifca quem pode atacar quem
+				
+				if (this.atores.get(i).isVivo() 
+						&& this.atores.get(i) instanceof Guerreiro
+						&& this.atores.get(i).getEstado() != Estado.ATACANDO
+						&& this.atores.get(i).notaInimigo(this.atores.get(j))) {
+					Guerreiro atacante = (Guerreiro) this.atores.get(i);
+					atacante.setEstado(Estado.ATACANDO);
+					this.atores.set(j, atacante.atacar(this.atores.get(j)));
+					this.atores.set(i, atacante);
+				} else {
+					this.atores.get(i).setEstado(Estado.DESCANSANDO);
+				}
+				
+				if (this.atores.get(j).isVivo() 
+						&& this.atores.get(j) instanceof Guerreiro
+						&& this.atores.get(j).getEstado() != Estado.ATACANDO
+						&& this.atores.get(j).notaInimigo(this.atores.get(i))) {
+					Guerreiro atacante = (Guerreiro) this.atores.get(j);
+					atacante.setEstado(Estado.ATACANDO);
+					this.atores.set(i, atacante.atacar(this.atores.get(i)));
+					this.atores.set(j, atacante);
+				} else {
+					this.atores.get(j).setEstado(Estado.DESCANSANDO);
+				}
 			}
 		}
 	}
@@ -79,15 +97,33 @@ public class Mapa {
 	}
 
 	public int getQuantidadeDePesonagens() {
-		return this.aliados.size() + this.inimigos.size();
+		return this.atores.size();
 	}
-	
+
 	public int getTamanhoX() {
 		return this.area[0];
 	}
-	
+
 	public int getTamanhoY() {
 		return this.area[1];
 	}
+
+	public int[] getArea() {
+		return area;
+	}
+
+	public void setArea(int[] area) {
+		this.area = area;
+	}
+
+	public List<Personagem> getAtores() {
+		return atores;
+	}
+
+	public void setAtores(List<Personagem> atores) {
+		this.atores = atores;
+	}
+	
+	
 
 }

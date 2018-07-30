@@ -18,9 +18,11 @@ public class TestandoContadorDeInstancia {
 
 	public static void main(String[] args) {
 
-		int n = r.nextInt(100) + 1;
+		int n = r.nextInt(50) + 1;
 
-		Mapa m = new Mapa(r.nextInt(n) + 1, r.nextInt(n) + 4);
+		Mapa m = new Mapa(r.nextInt(n) + 4, r.nextInt(n) + 4);
+
+		long t1 = System.currentTimeMillis();
 
 		while (n > 0) {
 
@@ -60,7 +62,26 @@ public class TestandoContadorDeInstancia {
 			n--;
 		}
 
-		System.gc(); // Chamando o Garbage Collector
+		long t2 = System.currentTimeMillis();
+
+		out.println();
+
+		out.println("Tempo de Execução: " + (t2 - t1) + " ms");
+
+		out.println();
+
+		m.acao();
+		
+		out.println();
+		
+		out.println("\t Personagens no Mapa");
+		for(Personagem personagem : m.getAtores()) {
+			out.println(personagem.toString());
+		}
+		
+		out.println();
+
+		System.gc(); // Chamada do Garbage Collector
 
 		out.println();
 
@@ -89,10 +110,10 @@ public class TestandoContadorDeInstancia {
 				+ Cavaleiro.quantidadeDeInstancias() + " Ainda na memória.");
 		out.println(" Operarios \t " + Operario.quantidadeDeInstanciasCriadas() + " Instancias criadas, \t"
 				+ Operario.quantidadeDeInstancias() + " Ainda na memória.");
-		out.println(" Operarios \t " + Soldado.quantidadeDeInstanciasCriadas() + " Instancias criadas, \t"
+		out.println(" Soldados \t " + Soldado.quantidadeDeInstanciasCriadas() + " Instancias criadas, \t"
 				+ Soldado.quantidadeDeInstancias() + " Ainda na memória.");
 
-		m.acao();
+		out.println();
 
 	}
 
