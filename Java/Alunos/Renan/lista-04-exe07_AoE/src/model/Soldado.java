@@ -8,13 +8,13 @@ public class Soldado extends Guerreiro {
 	private static int soldados_criados = 0;
 
 	public Soldado(Lado lado) {
-		super(lado, Classe.SOLDADO);
+		super(lado, 50, 50, Arma.ESPADA);
 		Soldado.instancias_soldado++;
 		Soldado.soldados_criados++;
 	}
 
 	public Soldado(Lado lado, Point posicao) {
-		super(lado, Classe.SOLDADO, posicao);
+		super(lado, 50, 75, Arma.ESPADA, posicao);
 		Soldado.instancias_soldado++;
 		Soldado.soldados_criados++;
 	}

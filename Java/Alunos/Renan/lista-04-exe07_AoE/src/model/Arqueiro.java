@@ -8,13 +8,13 @@ public class Arqueiro extends Guerreiro {
 	private static int arqueiros_criados = 0;
 
 	public Arqueiro(Lado lado) {
-		super(lado, Classe.ARQUEIRO);
+		super(lado, 25, 100, Arma.ARCO);
 		Arqueiro.instancias_arqueiro++;
 		Arqueiro.arqueiros_criados++;
 	}
 
 	public Arqueiro(Lado lado, Point posicao) {
-		super(lado, Classe.ARQUEIRO, posicao);
+		super(lado, 25, 100, Arma.ARCO, posicao);
 		Arqueiro.instancias_arqueiro++;
 		Arqueiro.arqueiros_criados++;
 	}

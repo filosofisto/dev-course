@@ -1,7 +1,7 @@
 package model;
 
 public enum Arma {
-	ARCO(1, 10, 5), ESPADA(10, 1, 5), LANCA(5, 2, 1);
+	ARCO(10, 10, 5), ESPADA(50, 1, 5), LANCA(25, 2, 1);
 
 	private int dano;
 	private int alcance;

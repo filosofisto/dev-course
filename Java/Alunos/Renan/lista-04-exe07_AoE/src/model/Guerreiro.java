@@ -9,36 +9,33 @@ public abstract class Guerreiro extends Personagem {
 
 	protected Arma arma;
 
-	public Guerreiro(Lado lado, Classe classe) {
-		super(lado);
-		this.classe = classe;
-		this.aplicarAtributos();
+	public Guerreiro(Lado lado, int vida, int percepcao, Arma arma) {
+		super(lado, vida, percepcao);
+		this.arma = arma;
 
 		Guerreiro.instancias_guerreiro++;
 		Guerreiro.guerreiros_criados++;
 	}
 
-	public Guerreiro(Lado lado, Classe classe, Point posicao) {
-		super(lado, posicao);
-		this.classe = classe;
-		this.aplicarAtributos();
-
-		this.percepcao = classe.getPercepcao();
-		this.vida = classe.getVida_maxima();
-
+	public Guerreiro(Lado lado, int vida, int percepcao, Arma arma, Point posicao) {
+		super(lado, vida, percepcao, posicao);
+		this.arma = arma;
 		Guerreiro.instancias_guerreiro++;
 		Guerreiro.guerreiros_criados++;
 	}
 
-	@Override
-	protected void aplicarAtributos() {
-		super.aplicarAtributos();
-		this.arma = classe.getArma();
-	}
-
+	
 	public Personagem atacar(Personagem personagem) {
 		personagem.receberDano(this.arma.getDano());
 		return personagem;
+	}
+
+
+
+
+	@Override
+	public String toString() {
+		return super.toString()+" Guerreiro [arma=" + arma + "]";
 	}
 
 	public static int quantidadeDeInstancias() {

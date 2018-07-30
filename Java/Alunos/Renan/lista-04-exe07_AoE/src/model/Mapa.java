@@ -74,8 +74,20 @@ public class Mapa {
 		return (ponto.x >= 0 && ponto.y >= 0) && (ponto.x < this.area[0] && ponto.y < this.area[1]);
 	}
 
+	public int calcularArea() {
+		return this.area[0] * this.area[1];
+	}
+
 	public int getQuantidadeDePesonagens() {
 		return this.aliados.size() + this.inimigos.size();
+	}
+	
+	public int getTamanhoX() {
+		return this.area[0];
+	}
+	
+	public int getTamanhoY() {
+		return this.area[1];
 	}
 
 }

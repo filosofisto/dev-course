@@ -8,13 +8,13 @@ public class Operario extends Personagem {
 	private static int operarios_criados = 0;
 
 	public Operario(Lado lado) {
-		super(lado, Classe.OPERARIO);
+		super(lado, 35, 35);
 		Operario.instancias_operario++;
 		Operario.operarios_criados++;
 	}
 
 	public Operario(Lado lado, Point posicao) {
-		super(lado, Classe.OPERARIO, posicao);
+		super(lado, 35,35, posicao);
 		Operario.instancias_operario++;
 		Operario.operarios_criados++;
 	}

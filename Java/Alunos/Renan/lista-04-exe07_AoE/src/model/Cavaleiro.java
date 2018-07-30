@@ -6,16 +6,15 @@ public class Cavaleiro extends Guerreiro {
 
 	private static int instancias_cavaleiro = 0;
 	private static int cavaleiros_criados = 0;
-	
+
 	public Cavaleiro(Lado lado) {
-		super(lado, Classe.CAVALEIRO);
+		super(lado, 100, 75, Arma.LANCA);
 		Cavaleiro.instancias_cavaleiro++;
 		Cavaleiro.cavaleiros_criados++;
 	}
 
-	
 	public Cavaleiro(Lado lado, Point posicao) {
-		super(lado, Classe.CAVALEIRO, posicao);
+		super(lado, 100, 75, Arma.LANCA, posicao);
 	}
 
 	public static int quantidadeDeInstancias() {
@@ -29,5 +28,5 @@ public class Cavaleiro extends Guerreiro {
 	public void finalize() {
 		Cavaleiro.instancias_cavaleiro--;
 	}
-	
+
 }

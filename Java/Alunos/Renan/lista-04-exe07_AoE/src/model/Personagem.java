@@ -11,11 +11,9 @@ public abstract class Personagem {
 	protected Point posicao;
 	protected Point destino;
 
-	protected Classe classe;
-
 	protected int vida;
 	protected int percepcao;
-	protected Estado estado;
+	protected Estado estado = Estado.DESCANSANDO;
 
 	public Personagem(Lado lado) {
 		this.lado = lado;
@@ -27,33 +25,29 @@ public abstract class Personagem {
 	public Personagem(Lado lado, Point posicao) {
 		this.lado = lado;
 		this.posicao = posicao;
+		this.destino = posicao;
 
 		Personagem.instancias++;
 		Personagem.criacoes++;
 	}
 
-	public Personagem(Lado lado, Classe classe, Point posicao) {
+	public Personagem(Lado lado, int vida, int percepcao, Point posicao) {
 		this.lado = lado;
-		this.classe = classe;
+		this.vida = vida;
+		this.percepcao = percepcao;
 		this.posicao = posicao;
-		this.aplicarAtributos();
+		this.destino = posicao;
 
 		Personagem.instancias++;
 		Personagem.criacoes++;
 	}
 
-	public Personagem(Lado lado, Classe classe) {
+	public Personagem(Lado lado, int vida, int percepcao) {
 		this.lado = lado;
-		this.classe = classe;
-		this.aplicarAtributos();
+		;
 
 		Personagem.instancias++;
 		Personagem.criacoes++;
-	}
-
-	protected void aplicarAtributos() {
-		this.vida = classe.getVida_maxima();
-		this.percepcao = classe.getPercepcao();
 	}
 
 	public boolean notaInimigo(Personagem inimigo) {
@@ -153,6 +147,28 @@ public abstract class Personagem {
 
 	public void setEstado(Estado estado) {
 		this.estado = estado;
+	}
+
+	public String posicaoToString() {
+		if (this.posicao != null) {
+			return "(" + posicao.x + "," + posicao.y + ")";
+		} else {
+			return null;
+		}
+	}
+
+	public String destinoToString() {
+		if (this.destino != null) {
+			return "(" + destino.x + "," + destino.y + ")";
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Personagem [lado=" + lado + ", posicao=" + this.posicaoToString() + ", destino="
+				+ this.destinoToString() + ", vida=" + vida + ", percepcao=" + percepcao + ", estado=" + estado + "]";
 	}
 
 }
