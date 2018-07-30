@@ -24,6 +24,7 @@ public class Pessoa implements Cloneable {
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
 	}
+	
 	/*@Override
 	public Pessoa clone() {
 		try {
