@@ -66,10 +66,11 @@ public class Mapa {
 						&& this.atores.get(i).getEstado() != Estado.ATACANDO
 						&& this.atores.get(i).notaInimigo(this.atores.get(j))) {
 					Guerreiro atacante = (Guerreiro) this.atores.get(i);
-					atacante.setEstado(Estado.ATACANDO);
 					this.atores.set(j, atacante.atacar(this.atores.get(j)));
 					this.atores.set(i, atacante);
-				} else {
+				} else if (this.atores.get(i).getEstado() == Estado.DESCANSANDO){
+					this.atores.get(i).setEstado(Estado.PRONTO);
+				}else {
 					this.atores.get(i).setEstado(Estado.DESCANSANDO);
 				}
 				
@@ -78,10 +79,11 @@ public class Mapa {
 						&& this.atores.get(j).getEstado() != Estado.ATACANDO
 						&& this.atores.get(j).notaInimigo(this.atores.get(i))) {
 					Guerreiro atacante = (Guerreiro) this.atores.get(j);
-					atacante.setEstado(Estado.ATACANDO);
 					this.atores.set(i, atacante.atacar(this.atores.get(i)));
 					this.atores.set(j, atacante);
-				} else {
+				} else if (this.atores.get(j).getEstado() == Estado.DESCANSANDO){
+					this.atores.get(j).setEstado(Estado.PRONTO);
+				}else {
 					this.atores.get(j).setEstado(Estado.DESCANSANDO);
 				}
 			}

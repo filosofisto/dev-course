@@ -30,6 +30,7 @@ public abstract class Guerreiro extends Personagem {
 
 	public Personagem atacar(Personagem personagem) {
 		if (podeAtacar(personagem)) {
+			this.estado = Estado.ATACANDO;
 			personagem.receberDano(this.arma.getDano());
 		}
 		return personagem;
