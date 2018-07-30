@@ -8,8 +8,8 @@ public class Mapa {
 
 	private int[] area = new int[2];
 
-	private ArrayList<Personagem> aliados;
-	private ArrayList<Personagem> inimigos;
+	private ArrayList<Personagem> aliados = new ArrayList<Personagem>();
+	private ArrayList<Personagem> inimigos = new ArrayList<Personagem>();
 
 	public Mapa(int tamanho_x, int tamanho_y) {
 		this.area = new int[] { tamanho_x, tamanho_y };

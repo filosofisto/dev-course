@@ -4,6 +4,10 @@ import java.awt.Point;
 
 public abstract class Guerreiro extends Personagem {
 
+	private static int instancias_guerreiros = 0;
+	private static int guerreiros_criados = 0;
+
+	
 	protected Arma arma;
 
 	
@@ -12,9 +16,8 @@ public abstract class Guerreiro extends Personagem {
 		this.classe = classe;
 		this.aplicarAtributos();
 		
-		this.percepcao = classe.getPercepcao();
-		this.vida = classe.getVida_maxima();
-
+		Guerreiro.instancias_guerreiros++;
+		Guerreiro.guerreiros_criados++;
 	}
 	
 	public Guerreiro(Lado lado, Classe classe, Point posicao) {
@@ -36,5 +39,17 @@ public abstract class Guerreiro extends Personagem {
 	public Personagem atacar(Personagem personagem) {
 		personagem.receberDano(this.arma.getDano());
 		return personagem;
+	}
+	
+	public static int quantidadeDeInstancias() {
+		return Guerreiro.instancias_guerreiros;
+	}
+
+	public static int quantidadeDeInstanciasCriadas() {
+		return Guerreiro.guerreiros_criados;
+	}
+
+	public void finalize() {
+		Guerreiro.instancias_guerreiros--;
 	}
 }

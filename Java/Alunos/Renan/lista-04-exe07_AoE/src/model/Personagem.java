@@ -99,11 +99,11 @@ public abstract class Personagem {
 		return !isVivo();
 	}
 
-	protected int quantidadeDeInstanciasAtuais() {
+	public static int quantidadeDeInstancias() {
 		return Personagem.instancias;
 	}
 
-	protected int quantidadeDeInstanciasCriadas() {
+	public static int quantidadeDeInstanciasCriadas() {
 		return Personagem.criacoes;
 	}
 
