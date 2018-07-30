@@ -18,7 +18,7 @@ public class Operario extends Personagem {
 		Operario.instancias_operario++;
 		Operario.operarios_criados++;
 	}
-	
+
 	public static int quantidadeDeInstancias() {
 		return Operario.instancias_operario;
 	}

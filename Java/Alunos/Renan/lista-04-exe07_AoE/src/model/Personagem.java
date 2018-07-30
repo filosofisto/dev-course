@@ -12,7 +12,7 @@ public abstract class Personagem {
 	protected Point destino;
 
 	protected Classe classe;
-	
+
 	protected int vida;
 	protected int percepcao;
 	protected Estado estado;
@@ -23,7 +23,7 @@ public abstract class Personagem {
 		Personagem.instancias++;
 		Personagem.criacoes++;
 	}
-	
+
 	public Personagem(Lado lado, Point posicao) {
 		this.lado = lado;
 		this.posicao = posicao;
@@ -37,30 +37,30 @@ public abstract class Personagem {
 		this.classe = classe;
 		this.posicao = posicao;
 		this.aplicarAtributos();
-		
+
 		Personagem.instancias++;
 		Personagem.criacoes++;
 	}
-	
+
 	public Personagem(Lado lado, Classe classe) {
 		this.lado = lado;
 		this.classe = classe;
 		this.aplicarAtributos();
-		
+
 		Personagem.instancias++;
 		Personagem.criacoes++;
 	}
-	
+
 	protected void aplicarAtributos() {
 		this.vida = classe.getVida_maxima();
 		this.percepcao = classe.getPercepcao();
 	}
-	
+
 	public boolean notaInimigo(Personagem inimigo) {
-		if(inimigo.getLado() != this.lado) {
+		if (inimigo.getLado() != this.lado) {
 			return this.posicao.distance(inimigo.getPosicao()) <= this.percepcao;
-		}else {
-			return false;	
+		} else {
+			return false;
 		}
 	}
 
@@ -86,7 +86,7 @@ public abstract class Personagem {
 	public void receberDano(int dano) {
 		this.vida -= dano;
 	}
-	
+
 	public void receberDano(Arma arma) {
 		this.vida -= arma.getDano();
 	}
