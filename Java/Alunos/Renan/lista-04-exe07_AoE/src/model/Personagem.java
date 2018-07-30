@@ -170,5 +170,11 @@ public abstract class Personagem {
 		return "Personagem [lado=" + lado + ", posicao=" + this.posicaoToString() + ", destino="
 				+ this.destinoToString() + ", vida=" + vida + ", percepcao=" + percepcao + ", estado=" + estado + "]";
 	}
+	
+	@Override
+	public void finalize() throws Throwable {
+		super.finalize();
+		--Personagem.instancias;
+	}
 
 }

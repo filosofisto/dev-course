@@ -27,8 +27,10 @@ public class Arqueiro extends Guerreiro {
 		return Arqueiro.arqueiros_criados;
 	}
 
-	public void finalize() {
-		Arqueiro.instancias_arqueiro--;
+	@Override
+	public void finalize() throws Throwable {
+		super.finalize();
+		--Arqueiro.instancias_arqueiro;
 	}
 
 }

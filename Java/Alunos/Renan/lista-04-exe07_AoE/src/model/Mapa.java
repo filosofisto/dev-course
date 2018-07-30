@@ -8,8 +8,8 @@ public class Mapa {
 
 	private int[] area = new int[2];
 
-	private ArrayList<Personagem> aliados = new ArrayList<Personagem>();
-	private ArrayList<Personagem> inimigos = new ArrayList<Personagem>();
+	private List<Personagem> aliados = new ArrayList<Personagem>();
+	private List<Personagem> inimigos = new ArrayList<Personagem>();
 
 	public Mapa(int tamanho_x, int tamanho_y) {
 		this.area = new int[] { tamanho_x, tamanho_y };
@@ -65,7 +65,7 @@ public class Mapa {
 		for (int i = 0; i < aliados.size(); i++) {
 			for (int j = 0; j < inimigos.size(); j++) {
 				this.aliados.get(i).notaInimigo(this.inimigos.get(j));
-				this.inimigos.get(i).notaInimigo(this.aliados.get(j));
+				this.inimigos.get(j).notaInimigo(this.aliados.get(i));
 			}
 		}
 	}

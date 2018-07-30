@@ -27,8 +27,10 @@ public class Operario extends Personagem {
 		return Operario.operarios_criados;
 	}
 
-	public void finalize() {
-		Operario.instancias_operario--;
+	@Override
+	public void finalize() throws Throwable {
+		super.finalize();
+		--Operario.instancias_operario;
 	}
 
 }

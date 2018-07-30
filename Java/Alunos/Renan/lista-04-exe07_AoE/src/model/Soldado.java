@@ -27,8 +27,10 @@ public class Soldado extends Guerreiro {
 		return Soldado.soldados_criados;
 	}
 
-	public void finalize() {
-		Soldado.instancias_soldado--;
+	@Override
+	public void finalize() throws Throwable {
+		super.finalize();
+		--Soldado.instancias_soldado;
 	}
 
 }

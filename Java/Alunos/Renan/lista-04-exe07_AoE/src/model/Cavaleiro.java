@@ -15,6 +15,8 @@ public class Cavaleiro extends Guerreiro {
 
 	public Cavaleiro(Lado lado, Point posicao) {
 		super(lado, 100, 75, Arma.LANCA, posicao);
+		Cavaleiro.instancias_cavaleiro++;
+		Cavaleiro.cavaleiros_criados++;
 	}
 
 	public static int quantidadeDeInstancias() {
@@ -25,8 +27,9 @@ public class Cavaleiro extends Guerreiro {
 		return Cavaleiro.cavaleiros_criados;
 	}
 
-	public void finalize() {
-		Cavaleiro.instancias_cavaleiro--;
+	public void finalize() throws Throwable {
+		super.finalize();
+		--Cavaleiro.instancias_cavaleiro;
 	}
 
 }

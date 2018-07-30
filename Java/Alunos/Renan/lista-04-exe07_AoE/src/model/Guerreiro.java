@@ -46,7 +46,9 @@ public abstract class Guerreiro extends Personagem {
 		return Guerreiro.guerreiros_criados;
 	}
 
-	public void finalize() {
-		Guerreiro.instancias_guerreiro--;
+	@Override
+	public void finalize() throws Throwable {
+		super.finalize();
+		--Guerreiro.instancias_guerreiro;
 	}
 }
