@@ -62,3 +62,7 @@ local.properties
 Java/~$sta*.docx
 
 **/target/*
+
+**/.idea/*
+
+
