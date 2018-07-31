@@ -53,7 +53,7 @@ public class Atleta implements Comparable<Atleta> {
 
 	@Override
 	public int compareTo(Atleta otherAtleta) {
-		return getNome().compareTo(otherAtleta.getNome());
+		return getNome().toUpperCase().compareTo(otherAtleta.getNome().toUpperCase());
 	}
 
 }
