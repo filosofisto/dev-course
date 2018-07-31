@@ -7,9 +7,6 @@ public class NumeroMedalhasComparator implements Comparator<Atleta> {
 	@Override
 	public int compare(Atleta o1, Atleta o2) {
 		
-		return 0;
+		return o1.getNumeroMedalhas().compareTo(o2.getNumeroMedalhas());
 	}
-
-	
-
 }
