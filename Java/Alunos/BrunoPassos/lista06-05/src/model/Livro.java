@@ -1,16 +1,22 @@
 package model;
 
-public class Livro {
+import java.util.Objects;
+
+public class Livro implements Comparable<Livro> {
 
 	private String autor;
 	private String titulo;
-	private String ISBN;
-	
-	public Livro(String autor, String titulo, String iSBN) {
+	private String isbn;
+
+	public Livro(String isbn) {
+		setIsbn(isbn);
+	}
+
+	public Livro(String autor, String titulo, String isbn) {
 		super();
 		this.autor = autor;
 		this.titulo = titulo;
-		ISBN = iSBN;
+		this.isbn = isbn;
 	}
 
 	public String getAutor() {
@@ -29,56 +35,34 @@ public class Livro {
 		this.titulo = titulo;
 	}
 
-	public String getISBN() {
-		return ISBN;
+	public String getIsbn() {
+		return isbn;
 	}
 
-	public void setISBN(String iSBN) {
-		ISBN = iSBN;
+	public void setIsbn(String iSBN) {
+		isbn = iSBN;
 	}
 
 	@Override
 	public String toString() {
-		return "Livro [autor=" + autor + ", titulo=" + titulo + ", ISBN=" + ISBN + "]";
+		return "Livro [autor=" + autor + ", titulo=" + titulo + ", isbn=" + isbn + "]";
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Livro livro = (Livro) o;
+		return Objects.equals(isbn, livro.isbn);
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
-		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
-		return result;
+		return Objects.hash(isbn);
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Livro other = (Livro) obj;
-		if (autor == null) {
-			if (other.autor != null)
-				return false;
-		} else if (!autor.equals(other.autor))
-			return false;
-		if (titulo == null) {
-			if (other.titulo != null)
-				return false;
-		} else if (!titulo.equals(other.titulo))
-			return false;
-		return true;
+	public int compareTo(Livro o) {
+		return getTitulo().compareTo(o.getTitulo());
 	}
-	
-	
-	
-	
-
-
-	
-	
-
 }
