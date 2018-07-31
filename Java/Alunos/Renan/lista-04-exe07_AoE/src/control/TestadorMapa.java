@@ -14,7 +14,7 @@ import model.Personagem;
 import model.Soldado;
 import static java.lang.System.out;
 
-public class TestandoContadorDeInstancia {
+public class TestadorMapa {
 
 	public static void main(String[] args) {
 
