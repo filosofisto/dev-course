@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import static java.lang.System.out;
 
 public class Main {
 
@@ -15,13 +16,10 @@ public class Main {
 			Class clsPessoa = Class.forName("com.javabasico.Pessoa");
 			Object oPessoa = clsPessoa.newInstance();
 		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -29,36 +27,36 @@ public class Main {
 		Object b = new Object();
 		Class c = b.getClass();
 		
-		System.out.printf("Nome: %s\nNome simples: %s\n", 
+		out.printf("Nome: %s\nNome simples: %s\n",
 				c.getName(), c.getSimpleName());
 		
 		Field[] fields = c.getDeclaredFields();
 		for (Field f: fields) {
-			System.out.printf("%s: %s\n", f.getName(), f.getType().getSimpleName());
+			out.printf("%s: %s\n", f.getName(), f.getType().getSimpleName());
 		}
 		
 		Constructor[] constructors = c.getConstructors();
-		System.out.println("Construtores ==================== " 
+		out.println("Construtores ==================== "
 				+ constructors.length);
 		for (Constructor constr: constructors) {
 			for (Class paramClass: constr.getParameterTypes()) {
-				System.out.printf("%s, ", paramClass.getName());
+				out.printf("%s, ", paramClass.getName());
 			}
-			System.out.println();
+			out.println();
 		}
 		
 		Method[] methods = c.getDeclaredMethods();
-		System.out.println("Metodos ==================== " 
+		out.println("Metodos ==================== "
 				+ methods.length);
 		
 		for (Method m: methods) {
-			System.out.printf("%s %s\n", 
+			out.printf("%s %s\n",
 					m.getReturnType().getName(), m.getName());
 			
 			if (m.getName().equals("length")) {
 				try {
 					Integer tamanho = (Integer) m.invoke(b);
-					System.out.printf("%d\n", tamanho);
+					out.printf("%d\n", tamanho);
 				} catch (IllegalAccessException e) {
 					e.printStackTrace();
 				} catch (IllegalArgumentException e) {
@@ -72,10 +70,10 @@ public class Main {
 		//System.out.printf("Superclass: %s\n", c.getSuperclass().getName());
 		
 		Class[] interfaces = c.getInterfaces();
-		System.out.println("Interfaces ================== "
+		out.println("Interfaces ================== "
 				+ interfaces.length);
 		for (Class intf: interfaces) {
-			System.out.printf("%s ", intf.getSimpleName());
+			out.printf("%s ", intf.getSimpleName());
 		}
 	}
 }
