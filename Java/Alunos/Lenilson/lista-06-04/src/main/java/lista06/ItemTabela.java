@@ -95,6 +95,10 @@ public class ItemTabela implements Comparable<ItemTabela>{
 		
 		if (ret == 0) {
 			ret = o.getVitorias()-getVitorias();
+
+			if (ret == 0) {
+				ret = o.getSaldoGols()-getSaldoGols();
+			}
 		}
 		
 		return ret;

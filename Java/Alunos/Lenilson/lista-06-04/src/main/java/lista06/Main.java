@@ -31,7 +31,7 @@ public class Main {
 			brasileirao.adicionarJogo(jogo);
 			
 			out.println("Continuar [S/N]");
-			if (c.readLine().equals("N")) {
+			if (c.readLine().equalsIgnoreCase("N")) {
 				break;
 			}
 		}

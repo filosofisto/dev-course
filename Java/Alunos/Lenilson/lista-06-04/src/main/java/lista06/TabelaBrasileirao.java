@@ -2,13 +2,10 @@ package lista06;
 
 import static java.lang.System.out;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 public class TabelaBrasileirao {
 
