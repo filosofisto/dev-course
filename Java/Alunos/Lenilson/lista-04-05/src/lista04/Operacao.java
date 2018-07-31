@@ -41,7 +41,19 @@ public class Operacao {
 
 	@Override
 	public String toString() {
-		return "Operacao [saldoAtual=" + saldoAtual + ", saldoAnterior=" + saldoAnterior + ", tipoOp=" + tipoOp + "]";
+		switch (this.tipoOp) {
+		case DEPOSITA:
+			return "DEPÓSITO - VALOR: R$ " + (saldoAtual - saldoAnterior) + "	SALDO ATUAL: R$ " + saldoAtual; 
+		case RETIRA:
+			return "SAQUE - VALOR: R$ " + (saldoAnterior - saldoAtual) + "	SALDO ATUAL: R$ " + saldoAtual;
+		case TRANSFERE:
+			if(saldoAtual < saldoAnterior) {
+				return "TRANSFERÊNCIA - VALOR: R$ " + (saldoAnterior - saldoAtual) + "	SALDO ATUAL: R$ " + saldoAtual;
+			}
+			return "TRANSFERÊNCIA - VALOR: R$ " + (saldoAtual - saldoAnterior) + "	SALDO ATUAL: R$ " + saldoAtual;
+		default:
+			return "";
+		}
 	}
 	
 	
