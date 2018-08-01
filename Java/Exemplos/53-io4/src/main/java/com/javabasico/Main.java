@@ -14,7 +14,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
-			File file = new File("/home/filosofisto/temp/dados.dat");
+			File file = new File("/home/eduardo/temp/dados.dat");
 			
 			if (!file.exists()) {
 				gerarDados(file);

@@ -1,4 +1,4 @@
-package com.x25.logicajava;
+package com.cursojava;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -9,5 +9,4 @@ public class NaoVazios implements FileFilter {
 	public boolean accept(File file) {
 		return file.length() > 0 && file.isFile();
 	}
-
 }

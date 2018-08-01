@@ -12,7 +12,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
-			File file = new File("/home/filosofisto/temp/project.obj");
+			File file = new File("/home/eduardo/temp/project.obj");
 			
 			if (!file.exists()) {
 				persistProject(file);
@@ -42,7 +42,10 @@ public class Main {
 
 	private static Projeto construirProjeto() {
 		Projeto p = new Projeto();
-		
+
+		p.setNaoQueroValorPersistido("Valor Alterado");
+		p.setNovoAttr("Bingo");
+
 		Pessoa gerente = new Pessoa();
 		gerente.setNome("Bill Gates");
 		p.setGerente(gerente);
@@ -64,7 +67,7 @@ public class Main {
 		m5.setNome("Rodrigo");
 		equipe.getMembros().add(m5);
 
-		//p.setEquipe(equipe);
+		p.setEquipe(equipe);
 		
 		Tarefa t1 = new Tarefa();
 		t1.setId(1);

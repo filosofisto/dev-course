@@ -1,4 +1,4 @@
-package com.x25.logicajava;
+package com.cursojava;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,17 +13,17 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
-			File fin = new File("/home/filosofisto/CPB/cpb-treinamento/workspace-treinamento-cpb/io10/pom.xml");
+			File fin = new File("/home/eduardo/temp/Treinamento Java-v2.doc");
 			System.out.printf("Tamanho original: %d\n", fin.length());
-			File fout = new File("/home/filosofisto/CPB/cpb-treinamento/workspace-treinamento-cpb/io10/pom.xml.gzip");
+			File fout = new File("/home/eduardo/temp/Treinamento Java-v2.doc.gzip");
 			compactarGZip(
 					new FileInputStream(fin),
 					new FileOutputStream(fout)
 			);
 			System.out.printf("Tamanho compactado: %d\n", fout.length());
-			System.out.printf("Percentual Ganho %f", fout.length()*1.0/fin.length()*100);
+			System.out.printf("Percentual Ganho %.0f %%", ((float)fout.length())/fin.length()*100f);
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 	}
 	

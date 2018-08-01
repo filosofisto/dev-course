@@ -10,10 +10,10 @@ import java.util.List;
 public class Main {
 
 	public static void main(String[] args) {
-		Console c = System.console();
+		//Console c = System.console();
 		
-		out.println("Entre com o nome do arquivo desejado: ");
-		String toFind = c.readLine();
+		//out.println("Entre com o nome do arquivo desejado: ");
+		String toFind = args[0]; //c.readLine();
 		String dirName = System.getProperty("user.dir");
 		File dir = new File(dirName);
 		

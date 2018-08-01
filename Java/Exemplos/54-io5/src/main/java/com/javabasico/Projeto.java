@@ -10,11 +10,11 @@ public class Projeto implements Serializable {
 	
 	private Pessoa gerente;
 	private List<Tarefa> tarefas;
-	//private Equipe equipe;
-	private transient String bla;
+	private Equipe equipe;
+	private transient String naoQueroValorPersistido;
 	private String novoAttr;
-	private int novoInt;
-	
+	//private int novoInt;
+
 	public Pessoa getGerente() {
 		return gerente;
 	}
@@ -23,7 +23,7 @@ public class Projeto implements Serializable {
 	}
 	public List<Tarefa> getTarefas() {
 		if (tarefas == null) {
-			tarefas = new ArrayList<Tarefa>();
+			tarefas = new ArrayList<>();
 		}
 
 		return tarefas;
@@ -31,15 +31,19 @@ public class Projeto implements Serializable {
 	public void setTarefas(List<Tarefa> tarefas) {
 		this.tarefas = tarefas;
 	}
-	/*public Equipe getEquipe() {
+
+	public Equipe getEquipe() {
 		return equipe;
 	}
+
 	public void setEquipe(Equipe equipe) {
 		this.equipe = equipe;
-	}*/
+	}
 	
 	public String toString() {
 		StringBuilder b = new StringBuilder();
+		b.append("NaoQueroValorPersistido: " + getNaoQueroValorPersistido() + "\n");
+		b.append("NovoAttr: " + getNovoAttr() + "\n");
 		b.append("Gerente: " + getGerente() + "\n");
 		b.append("Tarefas\n");
 		
@@ -47,22 +51,29 @@ public class Projeto implements Serializable {
 			b.append("\t" + t + "\n");
 		}
 		
-		//b.append(getEquipe());
+		b.append(getEquipe());
 		
 		return b.toString();
 	}
+
+	public String getNaoQueroValorPersistido() {
+		return naoQueroValorPersistido;
+	}
+
+	public void setNaoQueroValorPersistido(String naoQueroValorPersistido) {
+		this.naoQueroValorPersistido = naoQueroValorPersistido;
+	}
+
 	public String getNovoAttr() {
 		return novoAttr;
 	}
 	public void setNovoAttr(String novoAttr) {
 		this.novoAttr = novoAttr;
 	}
-	public int getNovoInt() {
+	/*public int getNovoInt() {
 		return novoInt;
 	}
 	public void setNovoInt(int novoInt) {
 		this.novoInt = novoInt;
-	}
-	
-	
+	}*/
 }

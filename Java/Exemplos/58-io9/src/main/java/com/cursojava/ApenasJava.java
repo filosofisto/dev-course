@@ -1,4 +1,4 @@
-package com.x25.logicajava;
+package com.cursojava;
 
 import java.io.File;
 import java.io.FilenameFilter;

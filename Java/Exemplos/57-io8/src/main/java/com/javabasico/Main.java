@@ -8,7 +8,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
-			PrintWriter out = new PrintWriter(new File("/home/filosofisto/CPB/cpb-treinamento/workspace-treinamento-cpb/io8/teste.html"));
+			PrintWriter out = new PrintWriter(
+					new File("/home/eduardo/temp/teste.html")
+			);
 			/*out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 			out.println("<elementos>");
 			out.println("\t<elemento>Linha 1</elemento>");

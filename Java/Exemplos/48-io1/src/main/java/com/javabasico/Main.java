@@ -1,16 +1,13 @@
 package com.javabasico;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class Main {
 
 	public static void main(String[] args) {
-		String dirName = 
+		String dirName =
 			ajustarSepadador(
-				"/home/filosofisto/CPB/cpb-treinamento"
+				"\\home\\eduardo\\temp"
 			);
 		File dir = new File(dirName);
 		
@@ -28,7 +25,7 @@ public class Main {
 	private static String ajustarSepadador(
 			String texto) {
 		return texto.replace(
-				"/", File.separator); 
+				"\\", File.separator);
 	}
 
 }

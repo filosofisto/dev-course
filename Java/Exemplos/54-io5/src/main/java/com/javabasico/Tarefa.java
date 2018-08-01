@@ -34,5 +34,4 @@ public class Tarefa implements Serializable {
 	public String toString() {
 		return getId() + "-" + getDescricao();
 	}
-
 }
