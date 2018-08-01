@@ -2,89 +2,28 @@ package lista05;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 
-public class ExportadorXml1 extends Exportador {
-
-	private StringBuilder buf;
-
-	public ExportadorXml1() {
-		buf = new StringBuilder();
-	}
-
-	public ExportadorXml1 cabecalho() {
-		buf.append("<?xml version=\"1.0\"encoding=UTF8?>\n");
-		return this;
-	}
+public class ExportadorXml1 implements Exportador {
 
 	@Override
 	public void exportar(File destino, List<Conta> contas) throws IOException {
+		PrintWriter out = new PrintWriter(destino);
+		out.println("<?xml version=\"1.0\"encoding=UTF8?>");
+		out.print("<contas>");
 
-	}
-
-	@Override
-	public String exportar(File destino, List<Conta> contas, String root) 
-			throws IOException, NoSuchMethodException,
-			SecurityException, IllegalAccessException, 
-			IllegalArgumentException, 
-			InvocationTargetException {
-
-		buf.append("<" + root + ">\n");
-
-		for (Object obj : contas) {
-			buf.append(exportar(obj) + "\n");
+		for (Conta conta: contas) {
+			out.printf("\n\t<conta>\n\t\t<cpf>%s</cpf>\n\t\t<banco>%s</banco>\n\t\t<agencia>%s</agencia>\n\t\t<saldo>%.2f</saldo>\n\t</conta>",
+					conta.getCpf(), conta.getNumeroDoBanco(), conta.getNumeroDaAgencia(), conta.getSaldoConta()
+			);
 		}
 
-		buf.append("</" + root + ">\n");
-		
-		return buf.toString();
+		out.println("\n</contas>");
 
+		out.close();
 	}
-
-	private String exportar(Object obj) throws NoSuchMethodException, SecurityException, IllegalAccessException,
-			IllegalArgumentException, InvocationTargetException {
-
-		Class cls = obj.getClass();
-
-		StringBuilder buf = new StringBuilder();
-
-		buf.append("<" + cls.getSimpleName().toLowerCase() + ">\n");
-
-		Field[] fields = cls.getDeclaredFields();
-
-		for (Field field : fields) {
-			buf.append("\t<" + field.getName() + ">");
-
-			Method getter = getter(cls, field);
-			Object value = getter.invoke(obj);
-
-			if (value != null) {
-				buf.append(value);
-			}
-
-			buf.append("</" + field.getName() + ">\n");
-
-		}
-
-		buf.append("</" + cls.getSimpleName().toLowerCase() + ">");
-
-		return buf.toString();
-
-	}
-
-	private Method getter(Class cls, Field field) throws NoSuchMethodException, SecurityException {
-		return cls.getMethod("get" + field.getName().substring(0, 1).toUpperCase() + field.getName().substring(1));
-	}
-
-	public StringBuilder getBuf() {
-		return buf;
-	}
-
-	public void setBuf(StringBuilder buf) {
-		this.buf = buf;
-	}
-
 }

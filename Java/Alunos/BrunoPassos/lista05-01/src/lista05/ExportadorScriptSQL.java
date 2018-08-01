@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-public class ExportadorScriptSQL extends Exportador {
+public class ExportadorScriptSQL implements Exportador {
 
 	@Override
 	public void exportar(File destino, List<Conta> contas) throws IOException {
