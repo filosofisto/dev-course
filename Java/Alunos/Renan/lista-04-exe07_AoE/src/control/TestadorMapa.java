@@ -17,7 +17,7 @@ import static java.lang.System.out;
 public class TestadorMapa {
 
 	public static void main(String[] args) {
-
+		
 		int n = r.nextInt(50) + 1;
 
 		Mapa m = new Mapa(r.nextInt(n) + 4, r.nextInt(n) + 4);
