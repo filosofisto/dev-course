@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface Exportador {
 
-    void exportar(File destino, List<Conta> contas) throw IOException;
+    void exportar(File destino, List<Conta> contas) throws IOException;
 }

@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Importador {
 
     public List<Conta> importar(File file) throws IOException {
-        List<Conta> list = new ArrayList<>();
+        List<Conta> list = new ArrayList<Conta>();
 
         String linha;
         Conta conta;
