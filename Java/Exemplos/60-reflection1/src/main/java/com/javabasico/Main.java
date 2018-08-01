@@ -11,20 +11,25 @@ public class Main {
 	public static void main(String[] args) {
 		//Pessoa p = new Pessoa();
 		//Class c = p.getClass();
-		
+
+		Object oPessoa = null;
+
 		try {
 			Class clsPessoa = Class.forName("com.javabasico.Pessoa");
-			Object oPessoa = clsPessoa.newInstance();
+			oPessoa = clsPessoa.newInstance();
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (InstantiationException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		
-		//String s = "sou um objeto";
-		Object b = new Object();
+		//String b = "sou um objeto";
+		Pessoa b = (Pessoa) oPessoa;
+		//Object b = new Object();
 		Class c = b.getClass();
 		
 		out.printf("Nome: %s\nNome simples: %s\n",

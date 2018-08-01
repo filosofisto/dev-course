@@ -33,5 +33,23 @@ public class Main {
 		} catch (IllegalArgumentException | IllegalAccessException | NoSuchMethodException | SecurityException | InvocationTargetException e) {
 			e.printStackTrace();
 		}
+
+		List<Veiculo> veiculos = new ArrayList<>();
+
+		veiculos.add(new Veiculo("AAA9876", "Fiat", "423432423"));
+		veiculos.add(new Veiculo("AAA3847", "Ford", "3842397432"));
+		veiculos.add(new Veiculo("AAA5285", "Ferrari", "582396324"));
+		veiculos.add(new Veiculo("AAA1111", "Hunday", "32376648792"));
+		veiculos.add(new Veiculo("AAA2456", "Porche", "3773749506"));
+		veiculos.add(new Veiculo("AAA0373", "Dodge", "459755757"));
+
+		try {
+			String xml = exportadorXML
+					.cabecalho()
+					.exportar(veiculos, "veiculos");
+			System.out.println(xml);
+		} catch (IllegalArgumentException | IllegalAccessException | NoSuchMethodException | SecurityException | InvocationTargetException e) {
+			e.printStackTrace();
+		}
 	}
 }

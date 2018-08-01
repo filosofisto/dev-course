@@ -69,14 +69,16 @@ public class ExportadorXML {
 		return buf.toString();
 	}
 	
-	public String exportar(Object obj) 
+	public String exportar(Object obj)
 			throws IllegalArgumentException, 
 				IllegalAccessException, 
 				NoSuchMethodException, 
 				SecurityException, 
 				InvocationTargetException {
 		Class cls = obj.getClass();
-		
+
+		StringBuilder buf = new StringBuilder();
+
 		buf.append(
 			"<" + cls.getSimpleName().toLowerCase() + ">\n"
 		);

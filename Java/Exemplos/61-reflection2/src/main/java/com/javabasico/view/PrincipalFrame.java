@@ -53,7 +53,7 @@ public class PrincipalFrame extends JFrame implements WindowListener {
 		menuTabelas.setMnemonic(KeyEvent.VK_T);
 		menuBar.add(menuTabelas);
 		
-		JMenu menuUtilitario = new JMenu("Utilitários");
+		JMenu menuUtilitario = new JMenu("Utilitarios");
 		menuUtilitario.setMnemonic(KeyEvent.VK_U);
 		menuBar.add(menuUtilitario);
 		

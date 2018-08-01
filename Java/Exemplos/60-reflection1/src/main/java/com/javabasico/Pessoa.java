@@ -4,7 +4,7 @@ public class Pessoa implements Cloneable, Comparable<Pessoa> {
 
 	private String nome;
 	private Integer idade;
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -30,7 +30,7 @@ public class Pessoa implements Cloneable, Comparable<Pessoa> {
 	}
 	
 	@Override
-	protected Object clone() throws CloneNotSupportedException {
+	public Object clone() throws CloneNotSupportedException {
 		return super.clone();
 	}
 

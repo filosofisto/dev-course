@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
-			Class classPessoa = Class.forName("com.x25.logicajava.Pessoa");
+			Class classPessoa = Class.forName("com.javabasico.Pessoa");
 			Object obj = classPessoa.newInstance();
 			
 			Method set = classPessoa.getMethod("setNome", String.class);

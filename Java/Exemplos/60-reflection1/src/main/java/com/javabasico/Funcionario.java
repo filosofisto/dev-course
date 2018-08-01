@@ -1,5 +1,5 @@
 package com.javabasico;
 
-public class Funcionario extends Pessoa {
+public class Funcionario /*extends Pessoa*/ {
 
 }
