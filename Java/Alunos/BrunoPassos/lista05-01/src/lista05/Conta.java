@@ -2,24 +2,24 @@ package lista05;
 
 public class Conta {
 
-	private int numeroDoBanco;
-	private int numeroDaAgencia;
+	private String numeroDoBanco;
+	private String numeroDaAgencia;
 	private String cpf;
 	private double saldoConta;
 
-	public int getNumeroDoBanco() {
+	public String getNumeroDoBanco() {
 		return numeroDoBanco;
 	}
 
-	public void setNumeroDoBanco(int numeroDoBanco) {
+	public void setNumeroDoBanco(String numeroDoBanco) {
 		this.numeroDoBanco = numeroDoBanco;
 	}
 
-	public int getNumeroDaAgencia() {
+	public String getNumeroDaAgencia() {
 		return numeroDaAgencia;
 	}
 
-	public void setNumeroDaAgencia(int numeroDaAgencia) {
+	public void setNumeroDaAgencia(String numeroDaAgencia) {
 		this.numeroDaAgencia = numeroDaAgencia;
 	}
 
