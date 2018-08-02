@@ -1,17 +1,17 @@
 package com.javabasico;
 
-import static java.lang.System.out;
-import static java.lang.System.err;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.StandardSocketOptions;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
-import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.util.Random;
+
+import static java.lang.System.err;
+import static java.lang.System.out;
 
 public class Main {
 	

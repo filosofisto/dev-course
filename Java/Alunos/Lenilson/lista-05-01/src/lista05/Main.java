@@ -11,14 +11,14 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
-			String pathIn = "C:\\dev-course\\Java\\Alunos\\Lenilson\\arquivos\\contas.txt";
-			//String pathIn = "/home/eduardo/temp/contas.txt";
+			//String pathIn = "C:\\dev-course\\Java\\Alunos\\Lenilson\\arquivos\\contas.txt";
+			String pathIn = "/home/eduardo/temp/contas.txt";
 			File fileInput = new File(pathIn);
 			Importador importador = new Importador();
 			List<Conta> contas = importador.importar(fileInput);
 
-			String pathOut = "C:\\dev-course\\Java\\Alunos\\Lenilson\\arquivos\\contasOBJ";
-			//String pathOut = "/home/eduardo/temp/conts.json";
+			//String pathOut = "C:\\dev-course\\Java\\Alunos\\Lenilson\\arquivos\\contasOBJ";
+			String pathOut = "/home/eduardo/temp/contas.obj";
 			File fileOutput = new File(pathOut);
 			ExportadorObjeto exportador = new ExportadorObjeto();
 			exportador.exportar(fileOutput, contas);

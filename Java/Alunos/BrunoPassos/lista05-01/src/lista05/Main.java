@@ -18,9 +18,9 @@ public class Main {
 			List<Conta> contas = importador.importar(fileInput);
 
 			//String pathOut = "\\workspace\\dev-course\\Java\\Alunos\\BrunoPassos\\arquivos\\contasJson.txt";
-			String pathOut = "/home/eduardo/temp/conts.obj";
+			String pathOut = "/home/eduardo/temp/contas.csv";
 			File fileOutput = new File(pathOut);
-			Exportador exportador = new ExportadorObject();
+			Exportador exportador = new ExportadorFormatoB();
 			exportador.exportar(fileOutput, contas);
 		} catch (IOException e) {
 			e.printStackTrace();

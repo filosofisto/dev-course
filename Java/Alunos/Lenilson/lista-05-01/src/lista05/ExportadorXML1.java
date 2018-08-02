@@ -11,7 +11,7 @@ public class ExportadorXML1 implements Exportador{
 	public void exportar(File destino, List<Conta> contas) throws IOException {
 		PrintWriter out = new PrintWriter(destino);
 		
-		out.println("<?xml version=”1.0” encoding=”UTF-8”?>");
+		out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 		out.println("<contas>");
 		
 		for (Conta conta: contas) {

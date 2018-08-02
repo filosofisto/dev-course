@@ -14,7 +14,7 @@ public class ExportadorFormatoB implements Exportador {
 		PrintWriter out = new PrintWriter(destino);
 		
 		for(Conta conta: contas) {
-			out.printf("%s;%s;%s;%.2f", conta.getNumeroDoBanco(), conta.getNumeroDaAgencia(), conta.getCpf(), conta.getSaldoConta());
+			out.printf("%s;%s;%s;%.2f\n", conta.getNumeroDoBanco(), conta.getNumeroDaAgencia(), conta.getCpf(), conta.getSaldoConta());
 		}
 		
 		out.close();
