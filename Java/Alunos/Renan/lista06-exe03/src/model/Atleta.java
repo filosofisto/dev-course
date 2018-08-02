@@ -3,20 +3,20 @@ package model;
 public class Atleta extends Pessoa {
 
 	protected Modalidade modalidade;
-	protected int medalhas_de_ouro;
-	protected int medalhas_de_prata;
-	protected int medalhas_de_bronze;
+	protected int medalhasDeOuro;
+	protected int medalhasDePrata;
+	protected int medalhasDeBronze;
 
 	public Atleta() {
 	}
 
-	public Atleta(String nome, String cpf, Modalidade modalidade, int medalhas_de_ouro, int medalhas_de_prata,
-			int medalhas_de_bronze) {
+	public Atleta(String nome, String cpf, Modalidade modalidade, int medalhasDeOuro, int medalhasDePrata,
+				  int medalhasDeBronze) {
 		super(nome, cpf);
 		this.modalidade = modalidade;
-		this.medalhas_de_ouro = medalhas_de_ouro;
-		this.medalhas_de_prata = medalhas_de_prata;
-		this.medalhas_de_bronze = medalhas_de_bronze;
+		this.medalhasDeOuro = medalhasDeOuro;
+		this.medalhasDePrata = medalhasDePrata;
+		this.medalhasDeBronze = medalhasDeBronze;
 	}
 
 	public Atleta(String nome, String cpf, Modalidade modalidade) {
@@ -36,28 +36,28 @@ public class Atleta extends Pessoa {
 		this.modalidade = modalidade;
 	}
 
-	public int getMedalhas_de_ouro() {
-		return medalhas_de_ouro;
+	public int getMedalhasDeOuro() {
+		return medalhasDeOuro;
 	}
 
-	public void setMedalhas_de_ouro(int medalhas_de_ouro) {
-		this.medalhas_de_ouro = medalhas_de_ouro;
+	public void setMedalhasDeOuro(int medalhasDeOuro) {
+		this.medalhasDeOuro = medalhasDeOuro;
 	}
 
-	public int getMedalhas_de_prata() {
-		return medalhas_de_prata;
+	public int getMedalhasDePrata() {
+		return medalhasDePrata;
 	}
 
-	public void setMedalhas_de_prata(int medalhas_de_prata) {
-		this.medalhas_de_prata = medalhas_de_prata;
+	public void setMedalhasDePrata(int medalhasDePrata) {
+		this.medalhasDePrata = medalhasDePrata;
 	}
 
-	public int getMedalhas_de_bronze() {
-		return medalhas_de_bronze;
+	public int getMedalhasDeBronze() {
+		return medalhasDeBronze;
 	}
 
-	public void setMedalhas_de_bronze(int medalhas_de_bronze) {
-		this.medalhas_de_bronze = medalhas_de_bronze;
+	public void setMedalhasDeBronze(int medalhasDeBronze) {
+		this.medalhasDeBronze = medalhasDeBronze;
 	}
 
 	@Override
@@ -81,15 +81,11 @@ public class Atleta extends Pessoa {
 
 	@Override
 	public String toString() {
-		return super.toString()+ " Atleta [modalidade=" + modalidade + ", medalhas_de_ouro=" + medalhas_de_ouro + ", medalhas_de_prata="
-				+ medalhas_de_prata + ", medalhas_de_bronze=" + medalhas_de_bronze + "]";
+		return super.toString()+ " Atleta [modalidade=" + modalidade + ", medalhasDeOuro=" + medalhasDeOuro + ", medalhasDePrata="
+				+ medalhasDePrata + ", medalhasDeBronze=" + medalhasDeBronze + "]";
 	}
 
-	@Override
-	public int compareTo(Pessoa o) {
-		
-		return this.nome.compareTo(o.getNome());
-	}
+
 	
 	
 

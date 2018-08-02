@@ -1,7 +1,10 @@
 package control;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Random;
+import java.util.Set;
+
 import static java.lang.System.out;
 import model.Atleta;
 import model.Modalidade;
@@ -9,7 +12,7 @@ import model.Modalidade;
 public class Teste {
 
 	public static void main(String[] args) {
-		HashSet<Atleta> atletas = new HashSet<Atleta>();
+		Set<Atleta> atletas = construirColecaoAtletas();
 
 		Random r = new Random();
 
@@ -99,4 +102,7 @@ public class Teste {
 
 	}
 
+	static Set<Atleta> construirColecaoAtletas() {
+		return new LinkedHashSet<>();
+	}
 }

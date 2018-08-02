@@ -2,6 +2,7 @@ package control;
 
 import static java.lang.System.out;
 
+import java.util.Comparator;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
@@ -12,7 +13,26 @@ import model.Modalidade;
 public class Teste {
 
 	public static void main(String[] args) {
-		Set<Atleta> atletas = new TreeSet<Atleta>();
+		Set<Atleta> atletas = new TreeSet<Atleta>(new Comparator<Atleta>() {
+			@Override
+			public int compare(Atleta o1, Atleta o2) {
+				int ret = o2.getMedalhasDeOuro()-o1.getMedalhasDeOuro();
+
+				if (ret == 0) {
+					ret = o2.getMedalhasDePrata()-o1.getMedalhasDePrata();
+
+					if (ret == 0) {
+						ret = o2.getMedalhasDeBronze()-o1.getMedalhasDeBronze();
+
+						if (ret == 0) {
+							ret = o1.compareTo(o2);
+						}
+					}
+				}
+
+				return ret;
+			}
+		});
 
 		Random r = new Random();
 

@@ -14,14 +14,14 @@ public class CadastroLivro {
 		this.adicionarLivro(livros);
 	}
 	
-	//	Inclusão
+	//	Inclusï¿½o
 	public void adicionarLivro(Livro... livros) {
 		for (Livro livro : livros) {
 			this.colecao.add(livro);
 		}
 	}
 	
-	//	Alteração
+	//	Alteraï¿½ï¿½o
 	public void alterarLivro(Livro...livros) {
 		for(Livro livro : livros) {
 			if(this.colecao.contains(livro)) {
@@ -43,7 +43,7 @@ public class CadastroLivro {
 		return achado;
 	}
 	
-	//	Exclusão
+	//	Exclusï¿½o
 	public void removerLivro(String... ISBNs) {
 		for (String ISBN : ISBNs) {
 			for (Livro livro : this.colecao) {
@@ -87,7 +87,7 @@ public class CadastroLivro {
 
 	@Override
 	public String toString() {
-		String txt = "CadastroLivro [ Coleção de Livros = "  ;
+		String txt = "CadastroLivro [ Colecao de Livros = "  ;
 		for(Livro livro : this.colecao) {
 			txt += "\n "+livro.toString();
 			

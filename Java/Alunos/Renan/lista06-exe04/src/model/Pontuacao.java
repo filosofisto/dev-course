@@ -113,9 +113,7 @@ public class Pontuacao implements Comparable<Pontuacao> {
 			ret = o.getVitorias() - this.getVitorias();
 			if (ret == 0) {
 				ret = o.getSaldoGols() - this.getSaldoGols();
-				return ret;
 			}
-			return ret;
 		}
 
 		return ret;
