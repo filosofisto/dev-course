@@ -1,4 +1,0 @@
-Número do Banco: 07575
-Número da Agência: 243453
-CPF do cliente: 12456345353
-Saldo da Conta: 1000                          

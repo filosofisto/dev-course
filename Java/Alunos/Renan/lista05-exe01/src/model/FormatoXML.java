@@ -8,19 +8,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class FormatoXML1 {
+public class FormatoXML {
 
 	private static String arquivo = "FormatoXML1.xml";
 
-	public static void serializarConta(Conta... contas) {
-		for (Conta conta : contas) {
-			FormatoSQL.serializarConta(conta);
-		}
-	}
-
-	public static void serializarConta(Conta conta) throws Exception {
+	public static void serializarConta(Conta... contas) throws Exception {
 
 		XMLEncoder encoder = null;
 
@@ -30,7 +25,7 @@ public class FormatoXML1 {
 			} catch (FileNotFoundException fileNotFound) {
 				throw new FileNotFoundException("Erro equanto criava ou abia o arquivo " + arquivo);
 			}
-			encoder.writeObject(conta);
+			encoder.writeObject(contas);
 		} catch (IOException io) {
 			io.printStackTrace();
 		} finally {
@@ -46,12 +41,9 @@ public class FormatoXML1 {
 		try {
 			leitor = new FileInputStream(arquivo);
 			decodificador = new XMLDecoder(leitor);
-			Conta conta = null;
-			do {
-				conta = (Conta) decodificador.readObject();
 
-				contas.add(conta);
-			} while (conta != null);
+			contas = new ArrayList<Conta>(Arrays.asList((Conta[]) decodificador.readObject()));
+
 		} catch (IOException i) {
 			i.printStackTrace();
 		} finally {

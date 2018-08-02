@@ -4,7 +4,7 @@ import model.Conta;
 import model.FormatoA;
 import model.FormatoB;
 import model.FormatoSQL;
-import model.FormatoXML1;
+import model.FormatoXML;
 
 import static java.lang.System.out;
 
@@ -44,9 +44,9 @@ public class Main {
 			out.println(conta.toString());
 		}
 		
-		out.println("\n\t Formato XML 1");
-		FormatoXML1.serializarConta(c);
-		List<Conta> contas2 = FormatoXML1.deserializarConta();
+		out.println("\n\t Formato XML (Encoder e Decoder do Java)");
+		FormatoXML.serializarConta(c);
+		List<Conta> contas2 = FormatoXML.deserializarConta();
 		for (Conta conta : contas) {
 			out.println(conta.toString());
 		}
