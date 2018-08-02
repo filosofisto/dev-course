@@ -13,13 +13,13 @@ public class Main {
 
 	public static void main(String[] args) {
 		if (args.length != 1) {
-			System.err.println("Passe o nome do diretoria para criar");
+			System.err.println("Passe o nome do diretorio para criar");
 			System.exit(-1);
 		}
 		
 		Path newdir = FileSystems.getDefault().getPath(args[0]);
 		Set<PosixFilePermission> perms = 
-				PosixFilePermissions.fromString("rwxr-x---");
+				PosixFilePermissions.fromString("rw-rw-r--");
 		FileAttribute<Set<PosixFilePermission>> attrs = 
 				PosixFilePermissions.asFileAttribute(perms);
 		

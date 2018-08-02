@@ -10,7 +10,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		if (args.length != 1) {
-			System.err.println("Passe o nome do diretorio para listar os arquivos e o pattern para filtro (Ex: *.{png,jpg,bmp})");
+			System.err.println("Passe o nome do diretorio para listar os arquivos");
 			System.exit(-1);
 		}
 		
@@ -19,10 +19,10 @@ public class Main {
 		DirectoryStream.Filter<Path> filter = new DirectoryStream.Filter<Path>() {
 			@Override
 			public boolean accept(Path entry) throws IOException {
-				return Files.isDirectory(entry);
+				return Files.isDirectory(entry) && !Files.isHidden(entry) && !Files.newDirectoryStream(entry).iterator().hasNext();
 			}
 		};
-		
+
 		try(DirectoryStream<Path> ds = Files.newDirectoryStream(path, filter)) {
 			for (Path file: ds) {
 				System.out.println(file.toAbsolutePath());
