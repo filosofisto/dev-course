@@ -21,7 +21,6 @@ import model.FormatoXML;
 
 public class Main {
 
-	@SuppressWarnings("resource")
 	public static void main(String[] args) throws Exception {
 
 		String nome = "Arquivo";
@@ -29,10 +28,9 @@ public class Main {
 		out.println("\n\t\t Roteiro deste Programa:" + "\n\t 1. Escrever� no Formato A (posicional)"
 				+ "\n\t 2. Ir� ler no Formato A" + "\n\t 2. Depois ir� Exportar para os seguintes formatos:"
 				+ "\n\t 2.1. Formato B (cvs)" + "\n\t 2.2. Script SQL" + "\n\t 2.3. XML 1" + "\n\t 2.4. XML 2"
-				+ "\n\t 2.5. JSON" + "\n\t 2.6. Objeto"
-						+ "\n\t Arquivos s�o gerados na raiz do projeto."
-						+ "\n\n\t\t Pressione [ENTER] para continuar.");
-		
+				+ "\n\t 2.5. JSON" + "\n\t 2.6. Objeto" + "\n\t Arquivos s�o gerados na raiz do projeto."
+				+ "\n\n\t\t Pressione [ENTER] para continuar.");
+
 		new Scanner(System.in).nextLine();
 		System.gc();
 
@@ -57,7 +55,7 @@ public class Main {
 		}
 
 		out.println("\n\t Formato A:");
-		FormatoA fa = new FormatoA();		
+		FormatoA fa = new FormatoA();
 		String arquivo = nome + ".txt";
 		out.println(fa.demonstrarCodificacao(contas));
 		fa.codificar(arquivo, contas);
@@ -80,20 +78,20 @@ public class Main {
 		for (Conta conta : lidas) {
 			out.println(conta.toString());
 		}
-		
+
 		out.println("\n\t Importa do Formato A e Exporta para o Formato XML:");
 		FormatoXML fxml = new FormatoXML();
 
 		arquivo = nome + ".xml";
-		//out.println(fxml.demonstrarCodificacao(lidas));
+		// out.println(fxml.demonstrarCodificacao(lidas));
 		fxml.codificar(arquivo, lidas);
 		lidas = fxml.decodificar(arquivo);
 
-		out.println("\n\t Contas lidas a partir do arquivo "+arquivo);
+		out.println("\n\t Contas lidas a partir do arquivo " + arquivo);
 		for (Conta conta : lidas) {
 			out.println(conta.toString());
 		}
-		
+
 		out.println("\n\t Importa do Formato A e Exporta para o Formato SQL Script:");
 		FormatoSQL fsql = new FormatoSQL();
 
@@ -102,31 +100,29 @@ public class Main {
 		fsql.codificar(arquivo, lidas);
 		lidas = fsql.decodificar(arquivo);
 
-		out.println("\n\t Contas lidas a partir do arquivo "+arquivo);
+		out.println("\n\t Contas lidas a partir do arquivo " + arquivo);
 		for (Conta conta : lidas) {
 			out.println(conta.toString());
 		}
-		
 
 		out.println("\n\t Importa do Formato A e Exporta para o Formato JSON:");
 		FormatoJSON fjson = new FormatoJSON();
 
 		arquivo = nome + ".json";
-		//out.println(fxml.demonstrarCodificacao(lidas));
+		// out.println(fxml.demonstrarCodificacao(lidas));
 		fjson.codificar(arquivo, lidas);
 		lidas = fjson.decodificar(arquivo);
 
-		out.println("\n\t Contas lidas a partir do arquivo "+arquivo);
+		out.println("\n\t Contas lidas a partir do arquivo " + arquivo);
 		for (Conta conta : lidas) {
 			out.println(conta.toString());
 		}
-		
-				
+
 		// SERIALIZAÇÃO
 		out.println("\n\t Serialização de um objeto Conta");
 		Conta c = new Conta("Fulano", "343424", "BANCO", "PERTO", 1000.00);
 		out.println(c.toString());
-		
+
 		arquivo = "classeSerializada";
 
 		// Codigo Serializado
@@ -149,9 +145,9 @@ public class Main {
 			ois.close();
 			fileIn.close();
 
-			out.println("\t Deserializada do arquivo "+arquivo);
+			out.println("\t Deserializada do arquivo " + arquivo);
 			out.println(desceliarizada.toString());
-			
+
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 		} catch (ClassNotFoundException cnfe) {
