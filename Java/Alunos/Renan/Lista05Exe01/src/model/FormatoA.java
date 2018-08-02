@@ -61,13 +61,10 @@ public class FormatoA implements Formato<Conta> {
 				try {
 					conta.banco = linha.substring(i, tamanhoBanco);
 					i = tamanhoBanco;
-					conta.agencia = linha.substring(i, tamanhoAgencia);
-					i = tamanhoAgencia;
-					conta.cpf = linha.substring(i, tamanhoCpf);
-					i = tamanhoCpf;
-					System.err.println(linha.substring(linha.length()-tamanhoSaldo));
+					conta.agencia = linha.substring(i, i+tamanhoAgencia);
+					i = linha.length() - (tamanhoCpf+tamanhoSaldo);
+					conta.cpf = linha.substring(i, i+tamanhoCpf);
 					conta.saldo = Double.parseDouble(linha.substring(linha.length()-tamanhoSaldo)) / 100;
-					System.err.println(conta.saldo);
 
 					contas.add(conta);
 				} catch (NullPointerException npe) {
