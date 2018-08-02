@@ -32,8 +32,8 @@ public class CadastroLivro {
 		}
 	}
 	
-	//	Obter
-	public Livro obterLivro(String ISBN) {
+	//	Obter por ISBN
+	public Livro obterLivroPorISBN(String ISBN) {
 		Livro achado = null;
 		for(Livro livro : this.colecao) {
 			if(livro.getISBN().equals(ISBN)) {
@@ -43,7 +43,29 @@ public class CadastroLivro {
 		return achado;
 	}
 	
-	//	Exclus�o
+	//	Obter por Autor
+	public Livro obterLivroPorAutor(String autor) {
+		Livro achado = null;
+		for(Livro livro : this.colecao) {
+			if(livro.getAutor().equals(autor)) {
+				achado = livro;
+			}
+		}
+		return achado;
+	}
+	
+	//	Obter por Titulo
+	public Livro obterLivroPorTitulo(String titulo) {
+		Livro achado = null;
+		for(Livro livro : this.colecao) {
+			if(livro.getTitulo().equals(titulo)) {
+				achado = livro;
+			}
+		}
+		return achado;
+	}
+	
+	//	Exclusão
 	public void removerLivro(String... ISBNs) {
 		for (String ISBN : ISBNs) {
 			for (Livro livro : this.colecao) {

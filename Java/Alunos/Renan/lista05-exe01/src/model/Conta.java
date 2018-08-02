@@ -7,9 +7,6 @@ import java.io.Serializable;
 
 public class Conta implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1056998189693275103L;
 	protected transient String dono;
 	protected String cpf;
