@@ -18,7 +18,7 @@ public class Main {
 		
 		try(DirectoryStream<Path> ds = Files.newDirectoryStream(path, args[1])) {
 			for (Path file: ds) {
-				System.out.println(file.getFileName());
+				System.out.println(file.toAbsolutePath());
 			}
 		} catch (IOException e) {
 			System.err.println(e);

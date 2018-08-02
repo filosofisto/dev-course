@@ -1,5 +1,6 @@
 package com.javabasico;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.FileSystems;
@@ -18,7 +19,7 @@ public class Main {
 		
 		try(DirectoryStream<Path> ds = Files.newDirectoryStream(path)) {
 			for (Path file: ds) {
-				System.out.println(file.getFileName());
+				System.out.println(file.toAbsolutePath());
 			}
 		} catch (IOException e) {
 			System.err.println(e);
