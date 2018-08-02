@@ -12,7 +12,7 @@ public class ExportadorXml2 implements Exportador {
 
 		PrintWriter out = new PrintWriter(destino);
 		
-		out.println("<?xml version=”1.0” encoding=”UTF-8”?>");
+		out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 		out.println("<contas>");
 		
 			for(Conta conta: contas) {
