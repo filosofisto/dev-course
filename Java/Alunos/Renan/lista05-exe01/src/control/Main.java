@@ -1,16 +1,18 @@
 package control;
 
+import static java.lang.System.out;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.text.StyleConstants.ColorConstants;
+
 import model.Conta;
 import model.FormatoA;
 import model.FormatoB;
+import model.FormatoJSON;
 import model.FormatoSQL;
 import model.FormatoXML;
-
-import static java.lang.System.out;
-
-import java.util.List;
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class Main {
 
@@ -50,6 +52,11 @@ public class Main {
 		for (Conta conta : contas) {
 			out.println(conta.toString());
 		}
+		
+		out.println("\n\t Formato JSON");
+		Conta[] array = new Conta[contas.size()];
+		array = contas.toArray(array);
+		FormatoJSON.serializarConta(contas.toArray(array));
 
 	}
 
