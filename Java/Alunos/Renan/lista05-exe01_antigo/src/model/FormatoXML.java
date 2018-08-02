@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class FormatoXML {
+public class FormatoXML{
 
 	private static String arquivo = "FormatoXML1.xml";
 
-	public static void serializarConta(Conta... contas) throws Exception {
+	public static void serializarConta(Conta... contas) {
 
 		XMLEncoder encoder = null;
 

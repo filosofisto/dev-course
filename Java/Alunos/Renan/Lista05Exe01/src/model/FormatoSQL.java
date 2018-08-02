@@ -7,28 +7,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FormatoSQL {
+public class FormatoSQL implements Formato<Conta>{
 
-	private static String arquivo = "FormatoSQL.sql";
 
-	public static void serializarConta(Conta... contas) {
-		for (Conta conta : contas) {
-			FormatoSQL.serializarConta(conta);
-		}
-	}
-
-	public static void serializarConta(Conta conta) {
-
+	public void codificar(String arquivo, Conta... contas) throws Exception {
 		FileWriter escritor = null;
 
 		try {
 			escritor = new FileWriter(arquivo, true);
-
-			escritor.write("insert into TB001_MOVIMENTACAO (CPF, COD_BANCO, COD_AGENCIA, SALDO) ");
-
-			escritor.write(" values ('" + conta.cpf + "', '" + conta.banco + "', '" + conta.agencia + "', '"
-					+ conta.saldo + "'); " + System.lineSeparator());
-
+			escritor.write(demonstrarCodificacao(contas));
 		} catch (IOException i) {
 			i.printStackTrace();
 		} finally {
@@ -41,7 +28,22 @@ public class FormatoSQL {
 
 	}
 
-	public static ArrayList<Conta> deserializarConta() throws IOException {
+
+	@Override
+	public String demonstrarCodificacao(Conta... contas) throws Exception {
+		StringBuilder registros = new StringBuilder();
+		for(Conta conta : contas) {
+			registros.append("insert into TB001_MOVIMENTACAO (CPF, COD_BANCO, COD_AGENCIA, SALDO) ");
+
+			registros.append(" values ('" + conta.cpf + "', '" + conta.banco + "', '" + conta.agencia + "', '"
+					+ conta.saldo + "'); " + System.lineSeparator());
+		}
+		return registros.toString();
+	}
+
+	
+	@Override
+	public Conta[] decodificar(String arquivo) throws IOException {
 		ArrayList<Conta> contas = new ArrayList<Conta>();
 
 		BufferedReader leitorBuff = null;
@@ -53,33 +55,33 @@ public class FormatoSQL {
 			String linha;
 			String temp;
 			while ((linha = leitorBuff.readLine()) != null) {
-				
+
 				linha = linha.substring(linha.lastIndexOf("values"));
-				
+
 				Conta c = new Conta();
-				
-				
+
 				// Insert into TABLE FIELDS... values (VALUES...);
-				linha = linha.substring(linha.indexOf('(')+1, linha.indexOf(')'));
+				linha = linha.substring(linha.indexOf('(') + 1, linha.indexOf(')'));
 				for (int n = 1; n < 4; ++n) {
-					temp = linha.substring(2, linha.indexOf(',')-1);
-					
+					temp = linha.substring(2, linha.indexOf(',') - 1);
+
 					switch (n) {
-					case 1:	// CPF
+					case 1: // CPF
 						c.setCpf(temp);
-					case 2:	// Banco
+					case 2: // Banco
 						c.setBanco(temp);
 						break;
-					case 3:	// Agência
-						c.setAgencia(temp);;
+					case 3: // Agência
+						c.setAgencia(temp);
+						;
 						break;
 					}
 
 					int i = linha.indexOf(',') + 1;
 					linha = linha.substring(i);
 				}
-				//	Saldo
-				temp = linha.substring(2,linha.length()-1);
+				// Saldo
+				temp = linha.substring(2, linha.length() - 1);
 				c.setSaldo(Double.parseDouble(temp));
 
 				contas.add(c);
@@ -94,7 +96,7 @@ public class FormatoSQL {
 			}
 		}
 
-		return contas;
+		return contas.toArray(new Conta[contas.size()]);
 	}
 
 }
