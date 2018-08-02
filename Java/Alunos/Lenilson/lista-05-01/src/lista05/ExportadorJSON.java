@@ -15,7 +15,7 @@ public class ExportadorJSON implements Exportador{
 		out.println("\t\"contas\": [");
 		
 		for (Conta conta: contas) {
-			out.printf("\t\t{ \"cpf\":\"%s\", \"banco\":\"%s\", \"agencia\":\"%s\", \"saldo\":%.2f},\n", 
+			out.printf("\t\t{ \"cpf\":\"%s\", \"banco\":\"%s\", \"agencia\":\"%s\", \"saldo\":%d},\n", 
 					conta.getCpf(), conta.getBanco(), conta.getAgencia(), conta.getSaldo());
 		}
 		
