@@ -36,6 +36,10 @@ public class Conta implements Serializable{
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
+	@Override
+	public String toString() {
+		return "Conta [banco=" + banco + ", agencia=" + agencia + ", cpf=" + cpf + ", saldo=" + saldo + "]";
+	}
 	
 	
 

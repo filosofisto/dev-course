@@ -34,7 +34,7 @@ public class Main {
 		
 		String ISBN =  in.nextLine();
 		
-		if(cl.obterLivro(ISBN) != null) {
+		if(cl.obterLivroPorISBN(ISBN) != null) {
 			out.println("Achado!");
 		}else {
 			out.println("Não existe!");
