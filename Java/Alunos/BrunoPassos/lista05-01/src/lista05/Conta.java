@@ -2,10 +2,10 @@ package lista05;
 
 import java.io.Serializable;
 
-public class Conta implements Serializable{
+public class Conta implements Serializable {
 
-	
 	private static final long serialVersionUID = 1117871575536821659L;
+
 	private String numeroDoBanco;
 	private String numeroDaAgencia;
 	private String cpf;

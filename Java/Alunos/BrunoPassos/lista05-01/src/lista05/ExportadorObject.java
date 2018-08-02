@@ -12,18 +12,9 @@ public class ExportadorObject implements Exportador {
 	public void exportar(File destino, List<Conta> contas) throws IOException {
 
 		FileOutputStream fileOut = new FileOutputStream(destino);
+
 		ObjectOutputStream outObject = new ObjectOutputStream(fileOut);
-		
-		Conta conta = new Conta();
-		
-		for(Conta c: contas) {
-			conta.setCpf(c.getCpf());
-			conta.setNumeroDaAgencia(c.getNumeroDaAgencia());
-			conta.setNumeroDoBanco(c.getNumeroDoBanco());
-			conta.setSaldoConta(c.getSaldoConta());
-		}
-		
-		outObject.writeObject(conta);
+		outObject.writeObject(contas);
 		outObject.close();
 	}
 
