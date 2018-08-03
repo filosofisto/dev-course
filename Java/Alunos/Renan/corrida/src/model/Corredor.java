@@ -75,15 +75,14 @@ public class Corredor extends Thread implements Comparable<Corredor> {
 			// do outro)
 			ret = outro.distanciaPercorrida - this.distanciaPercorrida;
 			if (ret == 0) {
-				//	Comprara pela tamanho da corrida	(SE as distancias percorridas fossem a mesma)
+				// Comprara pela tamanho da corrida (SE as distancias percorridas forem iguais)
 				ret = outro.chegada - this.chegada;
-				if(ret == 0) {
+				if (ret == 0) {
 					// Compara pelo ID (SE nenhuma das condições anteriores forem satisfeitas)
 					ret = (int) (this.getId() - outro.getId());
 				}
 			}
 		}
-
 		return ret;
 	}
 
