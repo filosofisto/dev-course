@@ -25,13 +25,19 @@ public class Main {
 			Thread.sleep(100);
 		}
 		
-		System.out.println("\n\t Fim da Corrida!");
+		out.println("\n\t Fim da Corrida!");
 		Arrays.sort(corredores);
 		
-		System.out.println("\n\t Ordem de chegada: ");
+		out.println("\n\t Ordem de chegada: ");
 		for (Corredor c : corredores) {
 			out.println(c.toString());
 		}
+		
+		out.println("\n\t Vencedores: ");
+		out.println("\t	1º Lugar:\t"+corredores[0].toString());
+		out.println("\t	2º Lugar:\t"+corredores[1].toString());
+		out.println("\t	3º Lugar:\t"+corredores[2].toString());
+		out.println("\t	Último Lugar:\t"+corredores[corredores.length-1].toString());
 	}
 
 	private static Corredor[] instaciarCorredor(int quantidade, int chegada, boolean teraoSono) {
