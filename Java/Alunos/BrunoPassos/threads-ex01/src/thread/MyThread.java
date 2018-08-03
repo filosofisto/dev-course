@@ -9,7 +9,7 @@ public class MyThread implements Runnable {
 			System.out.printf("Corredor= %d metros= %d \n", Thread.currentThread().getId(), i);
 			Thread.yield();
 			if(i==100) {
-				System.out.println("LINHA DE CHEGADA");
+				System.out.printf("%d - LINHA DE CHEGADA\n", Thread.currentThread().getId());
 			}
 		}
 	}
