@@ -15,10 +15,10 @@ public class Main {
 		Random r = new Random();
 		chegada = r.nextInt(100)+25;
 		
+		
+		
 		System.out.println("\n\t Que comece a corrida de "+chegada+" unidades!");
 		corredores = instaciarCorredor(chegada, r.nextInt(10)+3, true);
-		
-		
 	}
 	
 	private static Corredor[] instaciarCorredor(int quantidade, int chegada, boolean teraoSono) {

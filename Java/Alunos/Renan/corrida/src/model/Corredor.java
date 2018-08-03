@@ -6,8 +6,6 @@ public class Corredor extends Thread{
 	
 	private static int contador;
 	
-	private final int id = Corredor.contador+1;
-	
 	private int chegada;
 	private int distanciaPercorrida;
 	
@@ -36,21 +34,21 @@ public class Corredor extends Thread{
 				e.printStackTrace();
 			}
 		}
-		
+		Random r = new Random();
 		while(this.distanciaPercorrida < this.chegada) {
-			if(this.comSono && new Random().nextBoolean()) {
+			if(this.comSono && r.nextBoolean()) {
 				try {
-					Thread.sleep(new Random().nextInt(chegada)+1);
+					Thread.sleep(r.nextInt(10)+1);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 			}
 			
 			++this.distanciaPercorrida;
-			System.out.println("\t Corredor de ID nº"+this.id+"\t percorreu "+this.distanciaPercorrida+", faltando "+(this.chegada-this.distanciaPercorrida)+" para a chegada em sua corrida de "+this.chegada+".");
+			System.out.println("\t Corredor de ID nº"+this.getId()+"\t percorreu "+this.distanciaPercorrida+", faltando "+(this.chegada-this.distanciaPercorrida)+" para a chegada em sua corrida de "+this.chegada+".");
 		}
 		
-		System.out.println("\t Corredor de ID nº"+this.id+"\t chegou na chegada!");
+		System.out.println("\t Corredor de ID nº"+this.getId()+"\t chegou na chegada!");
 	}
 	
 	
