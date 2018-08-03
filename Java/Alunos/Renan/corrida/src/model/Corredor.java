@@ -46,7 +46,7 @@ public class Corredor extends Thread implements Comparable<Corredor> {
 			}
 
 			++this.distanciaPercorrida;
-			System.out.println("\t Corredor de ID nº" + this.getId() + "\t percorreu " + this.distanciaPercorrida
+			System.out.println("\t Corredor de ID nÂº" + this.getId() + "\t percorreu " + this.distanciaPercorrida
 					+ ",\t faltando " + (this.chegada - this.distanciaPercorrida) + " para a chegada em sua corrida de "
 					+ this.chegada + ".");
 		}
@@ -54,25 +54,24 @@ public class Corredor extends Thread implements Comparable<Corredor> {
 
 		this.tempoDeCorrida = fim - inicio;
 
-		System.out.println("\t Corredor de ID nº" + this.getId() + "\t CHEGOU na linha de chegada levando "
+		System.out.println("\t Corredor de ID nÂº" + this.getId() + "\t CHEGOU na linha de chegada levando "
 				+ this.tempoDeCorrida + "ms!");
 	}
 
-	public boolean chegou() {
+	public boolean isChegou() {
 		return this.distanciaPercorrida >= this.chegada;
 	}
 
 	@Override
 	public int compareTo(Corredor outro) {
 		int ret = 0;
-		if (outro.chegou() && this.chegou()) {
+		if (outro.isChegou() && this.isChegou()) {
 			// Compara pelo tempo de corrida (SE ambos terminaram a corrida)
 			ret = (int) (this.tempoDeCorrida - outro.tempoDeCorrida);
 		}
 
 		if (ret == 0) {
-			// Compara pela distanciaPercorrida (SE a distanciaPercorrida for diferente um
-			// do outro)
+			// Compara pela distanciaPercorrida (SE a distanciaPercorrida for diferente um do outro)
 			ret = outro.distanciaPercorrida - this.distanciaPercorrida;
 			if (ret == 0) {
 				// Comprara pela tamanho da corrida (SE as distancias percorridas forem iguais)
