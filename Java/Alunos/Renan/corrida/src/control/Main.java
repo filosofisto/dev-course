@@ -17,6 +17,8 @@ public class Main {
 
 		System.out.println("\n\t Que comece a corrida de " + chegada + " unidades!");
 		corredores = instaciarCorredor(r.nextInt(10) + 3, chegada, true);
+		
+		
 	}
 
 	private static Corredor[] instaciarCorredor(int quantidade, int chegada, boolean teraoSono) {

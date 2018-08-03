@@ -2,16 +2,14 @@ package model;
 
 import java.util.Random;
 
-public class Corredor extends Thread {
+public class Corredor extends Thread implements Comparable<Corredor>{
 
-	private static int contador;
-
-	private int chegada;
-	private int distanciaPercorrida;
-	private long tempoDeCorrida;
+	protected int chegada;
+	protected int distanciaPercorrida;
+	protected long tempoDeCorrida;
 	
 	
-	private boolean comSono;
+	protected boolean comSono;
 
 	public Corredor(int chegada, boolean comSono) {
 		this.chegada = chegada;
@@ -19,8 +17,6 @@ public class Corredor extends Thread {
 		
 		this.distanciaPercorrida = 0;
 		this.tempoDeCorrida = 0;
-
-		Corredor.contador++;
 	}
 
 	public Corredor(int chegada) {
@@ -52,5 +48,20 @@ public class Corredor extends Thread {
 
 		System.out.println("\t Corredor de ID nº" + this.getId() + "\t CHEGOU na linha de chegada levando "+this.tempoDeCorrida+"ms!");
 	}
+	
+	public boolean chegou() {
+		return this.distanciaPercorrida >= this.chegada;
+	}
+
+	@Override
+	public int compareTo(Corredor outro) {
+		if(outro.chegou() && this.chegou()) {
+			return (int) (outro.tempoDeCorrida - this.tempoDeCorrida);
+		}
+		
+		return outro.distanciaPercorrida - this.distanciaPercorrida; 
+	}
+	
+	
 
 }
