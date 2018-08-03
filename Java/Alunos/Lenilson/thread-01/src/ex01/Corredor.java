@@ -15,9 +15,9 @@ public class Corredor extends Thread {
 	@Override
 	public void run() {
 		long t1 = System.currentTimeMillis();
-		for (int i = 0; i < 100; i++) {
-			Random rnd = new Random();
-			
+        Random rnd = new Random();
+
+        for (int i = 0; i < 100; i++) {
 				try {
 					Thread.sleep(rnd.nextInt(10)+1);
 				} catch (InterruptedException e) {
@@ -26,6 +26,6 @@ public class Corredor extends Thread {
 		}
 
 		long t2 = System.currentTimeMillis();
-		out.printf("Corredor na raia %d chegou na posição %d!        TEMPO: %d ms\n", this.identificador, ++posicao, t2-t1);
+		out.printf("Corredor na raia %d chegou na posisao %d!        TEMPO: %d ms\n", this.identificador, ++posicao, t2-t1);
 	}
 }
