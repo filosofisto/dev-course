@@ -46,7 +46,7 @@ public class Corredor extends Thread implements Comparable<Corredor> {
 			}
 
 			++this.distanciaPercorrida;
-			System.out.println("\t Corredor de ID nº" + this.getId() + "\t percorreu " + this.distanciaPercorrida
+			System.out.println("\t Corredor de ID " + this.getId() + "\t percorreu " + this.distanciaPercorrida
 					+ ",\t faltando " + (this.chegada - this.distanciaPercorrida) + " para a chegada em sua corrida de "
 					+ this.chegada + ".");
 		}
@@ -54,7 +54,7 @@ public class Corredor extends Thread implements Comparable<Corredor> {
 
 		this.tempoDeCorrida = fim - inicio;
 
-		System.out.println("\t Corredor de ID nº" + this.getId() + "\t CHEGOU na linha de chegada levando "
+		System.out.println("\t Corredor de ID " + this.getId() + "\t CHEGOU na linha de chegada levando "
 				+ this.tempoDeCorrida + "ms!");
 	}
 
@@ -78,7 +78,7 @@ public class Corredor extends Thread implements Comparable<Corredor> {
 				// Comprara pela tamanho da corrida (SE as distancias percorridas forem iguais)
 				ret = outro.chegada - this.chegada;
 				if (ret == 0) {
-					// Compara pelo ID (SE nenhuma das condições anteriores forem satisfeitas)
+					// Compara pelo ID (SE nenhuma das condiï¿½ï¿½es anteriores forem satisfeitas)
 					ret = (int) (this.getId() - outro.getId());
 				}
 			}
