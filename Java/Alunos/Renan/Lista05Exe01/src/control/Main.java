@@ -120,7 +120,7 @@ public class Main {
 
 		// SERIALIZAÇÃO
 		out.println("\n\t Serialização de um objeto Conta");
-		Conta c = new Conta("Fulano", "343424", "BANCO", "PERTO", 1000.00);
+		Conta c = new Conta("Fulano", "343424", "34989834", "00450230", 1000.01);
 		out.println(c.toString());
 
 		arquivo = "classeSerializada";
