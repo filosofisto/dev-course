@@ -89,7 +89,7 @@ public class Corredor extends Thread implements Comparable<Corredor> {
 
 	@Override
 	public String toString() {
-		return "Corredor [id =" + this.getId() + ", chegada=" + chegada + ", distanciaPercorrida=" + distanciaPercorrida
+		return "Corredor [id=" + this.getId() + ", chegada=" + chegada + ", distanciaPercorrida=" + distanciaPercorrida
 				+ ", tempoDeCorrida=" + tempoDeCorrida + ", comSono=" + comSono + "]";
 	}
 
