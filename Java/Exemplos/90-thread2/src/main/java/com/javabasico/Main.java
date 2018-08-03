@@ -1,6 +1,5 @@
 package com.javabasico;
 
-
 /**
  * Exemplo demonstrando utilizacao de threads paralelas.
  * 

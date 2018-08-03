@@ -11,13 +11,11 @@ package com.javabasico;
 public class Main {
 
 	public static void main(String[] args) {
-		MyRunnable[] runnables = new MyRunnable[10];
 		Thread[] threads = new Thread[10];
 		
-		//Constroi as runnables e threads
-		for (int i = 0; i < runnables.length; i++) {
-			runnables[i] = new MyRunnable();
-			threads[i] = new Thread(runnables[i]);
+		//Constroi as threads
+		for (int i = 0; i < threads.length; i++) {
+			threads[i] = new Thread(new MyRunnable());
 		}
 		
 		//Starta as threads

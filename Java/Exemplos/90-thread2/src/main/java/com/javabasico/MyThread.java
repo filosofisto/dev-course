@@ -12,9 +12,11 @@ public class MyThread extends Thread {
 	
 	@Override
 	public void run() {
+		long t1 = System.currentTimeMillis();
+
 		for (int i = 0; i < 100; i++) {
 			out.printf("id: %d, valor do i=%d\n", identificador, i);
-			Thread.yield();
+			//Thread.yield();
 			/*if (i % 10 == 0) {
 				try {
 					Thread.sleep(50);
@@ -23,5 +25,8 @@ public class MyThread extends Thread {
 				}
 			}*/
 		}
+
+		long t2 = System.currentTimeMillis();
+		System.out.printf("Thread %d finalizou em %d ms\n", identificador, (t2-t1));
 	}
 }
