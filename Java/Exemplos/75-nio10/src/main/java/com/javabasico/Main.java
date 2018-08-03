@@ -18,7 +18,7 @@ public class Main {
 		
 		try {
 			long t1 = currentTimeMillis();
-			List<String> lines = Files.readAllLines(txtPath);
+			List<String> lines = Files.readAllLines(txtPath, charset);
 			long t2 = currentTimeMillis();
 			
 			out.printf("Linhas lidas: %d\n", lines.size());

@@ -16,8 +16,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		ByteBuffer buffer = ByteBuffer.allocateDirect(1024);
-		//Correcao solicitada por PR pelo Kleber
-		
+
 		//create a new server socket channel
 		try (ServerSocketChannel serverSocketChannel = ServerSocketChannel.open()) {
 			//continue if it was successfully created
@@ -56,7 +55,7 @@ public class Main {
 					}
 				}
 			} else {
-				System.out.println("The server socket channel cannot be opened!");
+				System.err.println("The server socket channel cannot be opened!");
 			}
 		} catch (IOException e) {
 			err.println(e);

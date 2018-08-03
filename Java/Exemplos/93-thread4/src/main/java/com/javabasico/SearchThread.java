@@ -38,7 +38,7 @@ public class SearchThread extends Thread {
 				}
 			}
 			
-			out.println(getClass().getName() + " - ok");
+			out.println(getClass().getName() + " - finished");
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

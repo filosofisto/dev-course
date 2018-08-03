@@ -13,6 +13,7 @@ public class PopulatorThread extends Thread {
 		this.list = list;
 	}
 
+	@Override
 	public void run() {
 		out.println(getClass().getName() + " started");
 		
@@ -22,6 +23,7 @@ public class PopulatorThread extends Thread {
 			value = rnd.nextInt(1000);
 			list.add(value);
 			out.printf("\tAdicionado item %d\n", value);
+
 			try {
 				Thread.sleep(20);
 			} catch (InterruptedException e) {
@@ -29,6 +31,6 @@ public class PopulatorThread extends Thread {
 			}
 		}
 		
-		out.println(getClass().getName() + " - ok");
+		out.println(getClass().getName() + " - finished");
 	}
 }
