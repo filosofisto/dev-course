@@ -14,7 +14,7 @@ public class Main {
 		PopulatorThread populatorThread = new PopulatorThread(list);
 		SortThread sortThread = new SortThread(list, populatorThread);
 		SearchThread search = new SearchThread(list, sortThread);
-		
+
 		search.start();
 		sortThread.start();
 		populatorThread.start();

@@ -31,7 +31,7 @@ public class SortThread extends Thread {
 			out.print("Iniciando ordenacao dos dados...");
 			Collections.sort(list); 
 			
-			out.println(" - ok " + getClass().getName());
+			out.println(" - finished " + getClass().getName());
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

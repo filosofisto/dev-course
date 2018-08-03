@@ -37,9 +37,8 @@ public class ConnectionPool {
 	public void returnConnection(Connection conn) {
 		synchronized (connections) {
 			connections.add(conn);
-			connections.notify();
-			//connections.notifyAll();
+			//connections.notify();
+			connections.notifyAll();
 		}
 	}
-
 }
