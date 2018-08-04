@@ -19,7 +19,7 @@ public class Main {
             }
 
             DomParserContas domParserContas = new DomParserContas();
-            List<Conta> contas = domParserContas.parser(args[0]);
+            List<Conta> contas = domParserContas.parse(args[0]);
 
             for (Conta conta: contas) {
                 out.println(conta);
