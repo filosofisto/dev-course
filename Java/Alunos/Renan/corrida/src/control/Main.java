@@ -14,10 +14,10 @@ public class Main {
 	public static void main(String[] args) throws InterruptedException {
 
 		Random r = new Random();
-		chegada = r.nextInt(100) + 25;
+		chegada = r.nextInt(200) + 25;
 
 		System.out.println("\n\t Que comece a corrida de " + chegada + " unidades!");
-		corredores = instaciarCorredor(r.nextInt(10) + 3, chegada, true);
+		corredores = instaciarCorredor(r.nextInt(10) + 5, chegada, true);
 
 		
 
@@ -54,12 +54,11 @@ public class Main {
 		boolean terminou = true;
 
 		for (Corredor c : corredores) {
-			if (!c.chegou()) {
+			if (!c.isChegou()) {
 				terminou = false;
 				break;
 			}
 		}
-
 		return terminou;
 	}
 
