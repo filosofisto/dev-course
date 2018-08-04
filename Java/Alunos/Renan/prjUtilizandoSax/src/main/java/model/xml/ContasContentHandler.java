@@ -44,18 +44,18 @@ public class ContasContentHandler extends DefaultHandler {
 			inside = Inside.NONE;
 		} else if ("conta".equals(localName)) {
 			conta = new Conta();
-			contas.add(conta);
 			conta.setBanco(attributes.getValue("banco"));
-			inside = Inside.NONE;
+			conta.setAgencia(attributes.getValue("agencia"));
+			conta.setCpf(attributes.getValue("cpf"));
+			conta.setSaldo(Double.parseDouble(attributes.getValue("saldo")));
+			contas.add(conta);
+			
 		} else if ("banco".equals(localName)) {
 			inside = Inside.BANCO;
-			conta.setAgencia(attributes.getValue("agencia"));
 		} else if ("agencia".equals(localName)) {
 			inside = Inside.AGENCIA;
-			conta.setCpf(attributes.getValue("cpf"));
 		} else if ("cpf".equals(localName)) {
 			inside = Inside.CPF;
-			conta.setSaldo(Double.parseDouble(attributes.getValue("saldo")));
 		} else if ("saldo".equals(localName)) {
 			inside = Inside.SALDO;
 		} else {
