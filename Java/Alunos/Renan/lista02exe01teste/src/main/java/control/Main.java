@@ -13,7 +13,7 @@ public class Main {
 			n = new Nadador(args[0], Integer.parseInt(args[1]));
 		} catch (Exception e) {
 			System.out.println("\n\t Insira o nome e idade do nadador");
-			Scanner in = new Scanner(System.in);
+			Scanner in = new Scanner(System.in); in.close();
 			n = new Nadador(in.nextLine(), in.nextInt());
 		} finally {
 			System.out.println(n.toString());

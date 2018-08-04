@@ -42,6 +42,7 @@ public class ContasContentHandler extends DefaultHandler {
         } else if ("conta".equals(localName)) {
             conta = new Conta();
             contas.add(conta);
+            //conta.setBanco(attributes.getValue("banco"));
             inside = Inside.NONE;
         } else if ("banco".equals(localName)) {
             inside = Inside.BANCO;
