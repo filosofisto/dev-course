@@ -37,6 +37,6 @@ public class ConversorContaXML {
 		if (!caminho.startsWith("/")) {
 			caminho = "/" + caminho;
 		}
-		return "arquivo:" + caminho;
+		return "file:" + caminho;
 	}
 }
