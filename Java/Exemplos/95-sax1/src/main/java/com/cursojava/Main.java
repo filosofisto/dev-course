@@ -37,6 +37,8 @@ public class Main {
         }
     }
 
+    // C:\\workspace\temp\contas.xml
+    // => file:/C:/workspace/temp/contas.xml
     private static String convertToFileURL(String filename) {
         String path = new File(filename).getAbsolutePath();
         if (File.separatorChar != '/') {

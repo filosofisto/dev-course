@@ -12,7 +12,8 @@ import java.util.List;
 
 public class SAXParserContas {
 
-    List<Conta> parse(String filename) throws ParserConfigurationException, SAXException, IOException {
+    public List<Conta> parse(String filename)
+            throws ParserConfigurationException, SAXException, IOException {
         SAXParserFactory spf = SAXParserFactory.newInstance();
         spf.setNamespaceAware(true);
         SAXParser saxParser = spf.newSAXParser();
