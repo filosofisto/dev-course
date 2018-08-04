@@ -36,13 +36,10 @@ public class Nadador {
 	}
 
 	public void setClassificacaoNadador(int idade) throws Exception {
-		
 		this.classificacaoNadador = verificaIdadeNadador(idade);
-
 	}
 
 	public String verificaIdadeNadador(int idade) throws Exception{
-
 		if (idade <= 4)
 			throw new RuntimeException("IDADE INVALIDA");
 		if (idade >= 5 && idade <= 7)
@@ -58,5 +55,4 @@ public class Nadador {
 			return "ADULTO";
 		}
 	}
-
 }

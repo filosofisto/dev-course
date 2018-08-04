@@ -1,81 +1,39 @@
 package com.cursojava;
 
-import static java.lang.System.currentTimeMillis;
-import static java.lang.System.out;
-
-import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
+import org.xml.sax.XMLReader;
 
-import java.util.ArrayList;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
-public class SAXParserContas extends DefaultHandler {
+public class SAXParserContas {
 
-    enum Inside { BANCO, AGENCIA, CPF, SALDO, NONE };
+    List<Conta> parse(String filename) throws ParserConfigurationException, SAXException, IOException {
+        SAXParserFactory spf = SAXParserFactory.newInstance();
+        spf.setNamespaceAware(true);
+        SAXParser saxParser = spf.newSAXParser();
 
-    private long t1, t2;
-    private List<Conta> contas;
-    private Conta conta;
-    private Inside inside;
+        XMLReader xmlReader = saxParser.getXMLReader();
+        ContasContentHandler contasContentHandler = new ContasContentHandler();
+        xmlReader.setContentHandler(contasContentHandler);
+        xmlReader.parse(convertToFileURL(filename));
 
-    public List<Conta> getContas() {
-        return contas;
+        return  contasContentHandler.getContas();
     }
 
-    @Override
-    public void startDocument() throws SAXException {
-        t1 = currentTimeMillis();
-    }
-
-    @Override
-    public void endDocument() throws SAXException {
-        t2 = currentTimeMillis();
-        out.printf("Tempo de processamento: %d ms\n", (t2-t1));
-    }
-
-    @Override
-    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-        if ("contas".equals(localName)) {
-            contas = new ArrayList<Conta>();
-            inside = Inside.NONE;
-        } else if ("conta".equals(localName)) {
-            conta = new Conta();
-            contas.add(conta);
-            inside = Inside.NONE;
-        } else if ("banco".equals(localName)) {
-            inside = Inside.BANCO;
-        } else if ("agencia".equals(localName)) {
-            inside = Inside.AGENCIA;
-        } else if ("cpf".equals(localName)) {
-            inside = Inside.CPF;
-        } else if ("saldo".equals(localName)) {
-            inside = Inside.SALDO;
-        } else {
-            inside = Inside.NONE;
-        }
-    }
-
-    @Override
-    public void characters(char[] ch, int start, int length) throws SAXException {
-        String content = new String(ch, start, length);
-        if (content.isEmpty()) {
-            return;
+    private String convertToFileURL(String filename) {
+        String path = new File(filename).getAbsolutePath();
+        if (File.separatorChar != '/') {
+            path = path.replace(File.separatorChar, '/');
         }
 
-        switch (inside) {
-            case BANCO:
-                conta.setBanco(content);
-                break;
-            case AGENCIA:
-                conta.setAgencia(content);
-                break;
-            case CPF:
-                conta.setCpf(content);
-                break;
-            case SALDO:
-                conta.setSaldo(Double.parseDouble(content));
-                break;
+        if (!path.startsWith("/")) {
+            path = "/" + path;
         }
+        return "file:" + path;
     }
 }

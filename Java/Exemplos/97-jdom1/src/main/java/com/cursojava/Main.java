@@ -1,17 +1,13 @@
 package com.cursojava;
 
-import static java.lang.System.exit;
-import static java.lang.System.out;
-
 import org.xml.sax.SAXException;
-import org.xml.sax.XMLReader;
 
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
+
+import static java.lang.System.exit;
+import static java.lang.System.out;
 
 public class Main {
 
@@ -22,8 +18,8 @@ public class Main {
                 exit(-1);
             }
 
-            SAXParserContas saxParserContas = new SAXParserContas();
-            List<Conta> contas = saxParserContas.parse(args[0]);
+            DomParserContas domParserContas = new DomParserContas();
+            List<Conta> contas = domParserContas.parser(args[0]);
 
             for (Conta conta: contas) {
                 out.println(conta);
