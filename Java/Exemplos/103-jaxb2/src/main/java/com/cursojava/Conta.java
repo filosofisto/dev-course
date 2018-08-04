@@ -13,6 +13,16 @@ public class Conta {
     private String agencia;
     private double saldo;
 
+    public Conta() {
+    }
+
+    public Conta(String cpf, String banco, String agencia, double saldo) {
+        this.cpf = cpf;
+        this.banco = banco;
+        this.agencia = agencia;
+        this.saldo = saldo;
+    }
+
     @XmlElement(name = "banco")
     public String getBanco() {
         return banco;

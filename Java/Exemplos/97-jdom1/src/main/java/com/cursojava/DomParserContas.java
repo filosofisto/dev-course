@@ -19,7 +19,7 @@ import java.util.List;
 
 public class DomParserContas {
 
-    public List<Conta> parser(String filename) throws ParserConfigurationException, IOException, SAXException {
+    public List<Conta> parse(String filename) throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         documentBuilderFactory.setValidating(false);
         documentBuilderFactory.setIgnoringComments(true);
@@ -28,6 +28,8 @@ public class DomParserContas {
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
         OutputStreamWriter errorWriter = new OutputStreamWriter(System.err, "UTF-8");
         documentBuilder.setErrorHandler(new ContasErrorHandler(new PrintWriter(errorWriter, true)));
+
+        long t1 = System.currentTimeMillis();
 
         Document doc = documentBuilder.parse(new File(filename));
 
@@ -57,6 +59,9 @@ public class DomParserContas {
                 }
             }
         }
+
+        long t2 = System.currentTimeMillis();
+        System.out.printf("Tempo de processmento: %d ms\n", (t2-t1));
 
         return contas;
     }
