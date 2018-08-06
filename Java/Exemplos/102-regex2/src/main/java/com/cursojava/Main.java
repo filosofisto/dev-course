@@ -5,7 +5,8 @@ import java.util.regex.Pattern;
 
 public class Main {
 
-    public static final String EXAMPLE_TEST = "This is my small example string which I'm going to use for pattern matching.";
+    public static final String EXAMPLE_TEST =
+            "This is my small example string which I'm going to use for pattern matching.";
 
     public static void main(String[] args) {
         Pattern pattern = Pattern.compile("\\w+");
@@ -16,7 +17,9 @@ public class Main {
 
         // check all occurance
         while (matcher.find()) {
-            System.out.printf("%s [%d, %d]\n", matcher.group(), matcher.start(), matcher.end());
+            System.out.printf("%s [%d, %d]\n",
+                    matcher.group(), matcher.start(), matcher.end());
         }
+        //System.out.println(EXAMPLE_TEST.replaceAll("\\w+", "***"));
     }
 }
