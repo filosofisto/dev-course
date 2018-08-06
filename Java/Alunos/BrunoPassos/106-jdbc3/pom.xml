@@ -2,21 +2,22 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.javabasico</groupId>
-	<artifactId>104-jdbc1</artifactId>
+	<artifactId>106-jdbc3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>104-jdbc1</name>
+	<name>106-jdbc3</name>
 
 	<properties>
 		<jdk.version>1.7</jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven-compiler-plugin.version>2.0.2</maven-compiler-plugin.version>
+		<hsqldb.version>2.0.0</hsqldb.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
-		    <groupId>mysql</groupId>
-		    <artifactId>mysql-connector-java</artifactId>
-		    <version>5.1.38</version>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.30</version>
 		</dependency>
 	</dependencies>
 
