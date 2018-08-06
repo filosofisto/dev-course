@@ -1,0 +1,41 @@
+No Linux
+===========================
+1) Acessar o banco de dados
+
+mysql -h localhost -u root -p
+Senha: socrates
+
+2) Criar o banco de dados
+
+create database devcourse;
+
+3) Criar o usuario para o banco de dados
+
+create user 'devcourse-user' identified by '123456';
+
+4) Dar acesso de uso ao servidor de banco para o usuario criado
+
+grant usage on *.* to 'devcourse-user'@localhost identified by '123456';
+
+5) Dar acesso completo ao banco de dados para o usuario
+
+grant all privileges on devcourse.* TO 'devcourse-user'@localhost;
+
+6) Aplicar mudanças de segurança
+
+flush privileges;
+
+7) Confirmar se os privilegios estao corretos
+
+show grants for 'devcourse-user'@localhost;
+
+Saída deve ser:
+
++-----------------------------------------------------------------------------------------------------------------------+
+| Grants for devcourse-user@localhost                                                                                   |
++-----------------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'devcourse-user'@'localhost' IDENTIFIED BY PASSWORD '*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9' |
+| GRANT ALL PRIVILEGES ON `devcourse`.* TO 'devcourse-user'@'localhost'                                                 |
++-----------------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
