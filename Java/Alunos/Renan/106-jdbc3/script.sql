@@ -1,10 +1,11 @@
-drop table pessoa;
 
-create table pessoa (
-  cpf varchar(11) not null primary key,
-  nome varchar(30) not null,
-  idade integer not null
-);
 
-insert into pessoa (cpf, nome, idade) values ("81646674987", "Eduardo Ribeiro da Silva", 39);
-insert into pessoa (cpf, nome, idade) values ("88877766685", "Djovana Souza Vieira", 25);
+VEICULO
+
+placa, modelo, fabricante, ano
+
+
+create database devcourse;
+use devcourse;
+
+CREATE TABLE IF NOT EXISTS `veiculo` (	`id` int(10) NOT NULL auto_increment,	`placa` varchar(255),	`modelo` varchar(255),	`fabricante` varchar(255),	`ano` integer(4),	PRIMARY KEY( `id` ));

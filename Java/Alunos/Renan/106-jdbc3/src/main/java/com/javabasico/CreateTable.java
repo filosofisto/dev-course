@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 public class CreateTable {
 
-	private static final String SQL_CREATE_VEICULO = "CREATE TABLE IF NOT EXISTS `veiculo` (	`id` int(10) NOT NULL auto_increment,	`placa` varchar(255),	`modelo` varchar(255),	`fabricante` varchar(255),	`ano` integer(4),	PRIMARY KEY( `id` ));";
+	private static final String SQL_CREATE_VEICULO = "CREATE TABLE IF NOT EXISTS `VEICULO` (	`id` int(10) NOT NULL auto_increment,	`placa` varchar(255),	`modelo` varchar(255),	`fabricante` varchar(255),	`ano` integer(4),	PRIMARY KEY( `id` ));";
 
 	private Connection conn;
 
@@ -52,7 +52,7 @@ public class CreateTable {
 		Statement stm = getConnection().createStatement();
 
 		try {
-			stm.execute("select cpf from pessoa");
+			stm.execute("select PLACA from veiculo");
 
 			return true;
 		} catch (Exception e) {
