@@ -10,7 +10,7 @@ public class Main {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String url = "jdbc:mysql://localhost/dev-course";
+			String url = "jdbc:mysql://localhost/devcourse";
 			Connection c = DriverManager.getConnection(url, "devcourse-user", "123456");
 			
 			System.out.println("Conexao realizada com sucesso");
