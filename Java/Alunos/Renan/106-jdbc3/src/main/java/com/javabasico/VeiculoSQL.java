@@ -2,11 +2,12 @@ package com.javabasico;
 
 public enum VeiculoSQL {
 
-	INSERT("INSERT INTO VEICULO(PLACA, MODELO, FABRICANTE, ANO) VALUES(?,?,?,?)"),
-	UPDATE("UPDATE VEICULO SET MODELO=?,FABRICANTE=?,ANO=? WHERE (PLACA=?)"),
-	DELETE("DELETE FROM VEICULO WHERE PLACA=?"),
-	READ("SELECT * FROM VEICULO WHERE PLACA=?"),
-	LIST("SELECT * FROM VEICULO ORDER BY FABRICANTE");
+	INSERT("insert into veiculo(placa, modelo, fabricante, ano) values(?,?,?,?)"),
+	UPDATE("update veiculo set modelo=?,fabricante=?,ano=? where (placa=?)"),
+	DELETE("delete from veiculo where placa=?"),
+	READ("select * from veiculo where placa=?"),
+	LIST("select * from veiculo order by fabricante");
+
 	
 	private String sql;
 	

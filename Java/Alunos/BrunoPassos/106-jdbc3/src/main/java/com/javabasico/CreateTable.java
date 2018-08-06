@@ -5,26 +5,27 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class CreateTable {
-
-	private static final String SQL_CREATE_VEICULO = "CREATE TABLE IF NOT EXISTS `veiculo` (	`id` int(10) NOT NULL auto_increment,	`placa` varchar(255),	`modelo` varchar(255),	`fabricante` varchar(255),	`ano` integer(4),	PRIMARY KEY( `id` ));";
+	
+	private static final String SQL_CREATE_PESSOA = 
+		"CREATE TABLE PESSOA (CPF CHAR(11) NOT NULL PRIMARY KEY, NOME VARCHAR(30) NOT NULL, IDADE INTEGER NOT NULL)";
 
 	private Connection conn;
-
-	public boolean createVeiculo() throws SQLException, ClassNotFoundException {
-		if (!existVeiculo()) {
-			createTableVeiculo();
-
+	
+	public boolean createPessoa() throws SQLException, ClassNotFoundException {
+		if (!existPessoa()) {
+			createTablePessoa();
+			
 			return true;
 		}
-
+		
 		return false;
 	}
-
-	private void createTableVeiculo() throws SQLException, ClassNotFoundException {
+	
+	private void createTablePessoa() throws SQLException, ClassNotFoundException {
 		Statement stm = null;
 		try {
 			stm = getConnection().createStatement();
-			stm.executeUpdate(SQL_CREATE_VEICULO);
+			stm.executeUpdate(SQL_CREATE_PESSOA);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -32,7 +33,7 @@ public class CreateTable {
 				try {
 					stm.close();
 				} catch (SQLException e) {
-					// Ignore
+					//Ignore
 					e.printStackTrace();
 				}
 			}
@@ -44,16 +45,16 @@ public class CreateTable {
 			Connector connector = new Connector();
 			conn = connector.makeConnection();
 		}
-
+		
 		return conn;
 	}
 
-	private boolean existVeiculo() throws SQLException, ClassNotFoundException {
+	private boolean existPessoa() throws SQLException, ClassNotFoundException {
 		Statement stm = getConnection().createStatement();
-
+		
 		try {
-			stm.execute("select PLACA from veiculo");
-
+			stm.execute("select cpf from pessoa");
+			
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -61,7 +62,7 @@ public class CreateTable {
 			try {
 				stm.close();
 			} catch (SQLException e) {
-				// Ignore
+				//Ignore
 				e.printStackTrace();
 			}
 		}
