@@ -32,7 +32,7 @@ public class Main {
 			// if (true) throw new RuntimeException("Simula Erro");
 
 			Query query = entityManager
-					.createQuery("from Message order by text");
+					.createQuery("select m from Message m order by text");
 			@SuppressWarnings("unchecked")
 			List<Message> resultList = query.getResultList();
 
