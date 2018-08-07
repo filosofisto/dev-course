@@ -50,6 +50,12 @@ public class Main {
 			List<Funcionario> funcionarios = queryF.getResultList();
 			
 			System.out.println("Funcionarios: " + funcionarios.size());
+
+			Query queryD = entityManager
+					.createQuery("select d from Diretor d");
+			List<Diretor> diretors = queryD.getResultList();
+
+			System.out.println("Diretores: " + diretors.size());
 			
 			transaction.commit();
 		} catch (Exception e) {
