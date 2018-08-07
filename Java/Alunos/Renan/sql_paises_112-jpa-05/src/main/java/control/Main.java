@@ -28,7 +28,7 @@ public class Main {
 		exibir("Exercício JPA de 1 para N", "Um País tem vários Estados, e um Estado tem várias Cidades.");
 
 		inserirGeografia();
-
+		procurarPais();
 	}
 
 	private static void inserirGeografia() {
@@ -116,7 +116,7 @@ public class Main {
 		Set<Cidade> cidades = new LinkedHashSet<Cidade>();
 
 		do {
-			exibir((cidades.size() + 1) + "Cidade");
+			exibir((cidades.size() + 1) + "º Cidade");
 			Cidade c = new Cidade();
 
 			c.setEstado(estado);
