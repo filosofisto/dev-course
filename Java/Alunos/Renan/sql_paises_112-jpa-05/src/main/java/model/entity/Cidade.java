@@ -22,7 +22,7 @@ public class Cidade {
 	protected int habitantes;
 	
 	@ManyToOne
-    @JoinColumn(name="ID_ESTADO", nullable=false)
+    @JoinColumn(name="ID_ESTADO")
     private Estado estado;
 
 	public long getId() {
