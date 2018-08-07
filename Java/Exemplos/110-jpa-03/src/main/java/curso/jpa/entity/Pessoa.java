@@ -22,7 +22,8 @@ public class Pessoa {
 	@Column(name="NOME", nullable=false)
 	private String nome;
 	
-	@OneToOne(fetch=FetchType.LAZY, cascade={CascadeType.REMOVE})
+	//@OneToOne(fetch=FetchType.LAZY, cascade={CascadeType.REMOVE})
+	@OneToOne(fetch=FetchType.EAGER, cascade={CascadeType.REMOVE})
 	//@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="ID_ENDERECO")
 	private Endereco endereco;

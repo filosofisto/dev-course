@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/templates/default.xhtml">
+	<ui:define name="content">
+		<div class="page-header">
+			<h1>Aeroporto</h1>
+		</div>
+		<h:form id="form" class="form-horizontal">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label"><span class="obrigatorio">*</span>
+						País:</label>
+					<div class="controls">
+						<p:selectOneMenu id="paises" value="#{aeroportoController.pais}"
+							converter="#{paisConverter}" required="true"
+							requiredMessage="Selecione um país." filter="true"
+							filterMatchMode="contains">
+							<f:selectItem itemLabel="(Selecione)" itemValue="" />
+							<f:selectItems value="#{paises}" var="pais" noSelectionValue=""
+								itemValue="#{pais}" itemLabel="#{pais.nome}" />
+							<p:ajax event="valueChange"
+								listener="#{aeroportoController.paisChange}"
+								update="grupoBrasil" />
+							<f:ajax event="valueChange" render="estados"
+								listener="#{aeroportoController.paisChange}" />
+							<f:ajax event="valueChange" render="cidades"
+								listener="#{aeroportoController.paisChange}" />
+						</p:selectOneMenu>
+						<p:message for="paises" />
+					</div>
+				</div>
+
+				<p:fragment id="grupoBrasil">
+					<h:outputLabel styleClass="control-label"
+						rendered="#{aeroportoController.brasil}">
+						<span class="obrigatorio">* </span>
+						<h:outputText value="Estado:" />
+					</h:outputLabel>
+					<div class="controls">
+						<p:selectOneMenu id="estados"
+							value="#{aeroportoController.estado}"
+							converter="#{estadoConverter}" required="true"
+							requiredMessage="Selecione um estado."
+							rendered="#{aeroportoController.brasil}" filter="true"
+							filterMatchMode="contains">
+							<f:selectItem itemLabel="(Selecione)" itemValue="" />
+							<f:selectItems value="#{aeroportoController.estados}"
+								var="estado" noSelectionValue="" itemValue="#{estado}"
+								itemLabel="#{estado.nome}" />
+							<f:ajax event="valueChange" render="cidades"
+								listener="#{aeroportoController.estadoChange}" />
+						</p:selectOneMenu>
+						<p:message for="estados" />
+					</div>
+				</p:fragment>
+
+				<div class="control-group">
+					<label class="control-label"><span class="obrigatorio">*</span>
+						Cidade:</label>
+					<div class="controls">
+						<p:selectOneMenu id="cidades"
+							value="#{aeroportoController.cidade}"
+							converter="#{cidadeConverter}" required="true"
+							requiredMessage="Selecione uma cidade." filter="true"
+							filterMatchMode="contains">
+							<f:selectItem itemLabel="(Selecione)" itemValue="" />
+							<f:selectItems value="#{aeroportoController.cidades}"
+								var="cidade" noSelectionValue="" itemValue="#{cidade}"
+								itemLabel="#{cidade.nome}" />
+						</p:selectOneMenu>
+						<p:message for="cidades" />
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label"><span class="obrigatorio">*</span>
+						Aeroporto:</label>
+					<div class="controls">
+						<p:inputText id="nome" styleClass="span4"
+							value="#{aeroporto.nome}">
+						</p:inputText>
+						<p:message id="msg" for="nome" />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label"><span class="obrigatorio">*</span>
+						Sigla:</label>
+					<div class="controls">
+						<p:inputText id="sigla" styleClass="span4"
+							value="#{aeroporto.sigla}">
+						</p:inputText>
+						<p:message for="sigla" />
+					</div>
+				</div>
+				<div class="form-actions">
+					<p:commandButton value="Salvar" styleClass="botao"
+						action="#{aeroportoController.salvar}" update="form" />
+					<p:commandButton value="Voltar" styleClass="botao"
+						action="#{aeroportoController.begin}" immediate="true" />
+				</div>
+			</fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html lang="pt-br"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<f:view contentType="text/html">
+<h:head>
+<f:facet name="first">
+	<title>Cadastro Geral - CPB</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- css -->
+	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/css/bootstrap.css" />
+	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/css/bootstrap-responsive.css" />
+	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/theme/default/style.css" />
+</f:facet>
+	<!-- Este css resolve o problema do combobox que, hora mostra o conteúdo, hora não mostra -->
+	<style type="text/css">
+                .ui-selectonemenu-label{
+                    width:100% !important;
+                }
+  	</style>
+	
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <h:outputScript name="resources/js/html5shiv.js" />
+    <![endif]-->
+</h:head>
+	<h:body>
+		<ul id="atalhos">
+			<li><a href="#container" accesskey="c" title="Ir para conteúdo, pressione {Alt+c}">Ir para conteúdo [1]</a></li>
+			<li><a href="#nav" accesskey="m" title="Ir para conteúdo, pressione {Alt+m}">Ir para menu principal[2]</a></li>
+			<li><a href="#navbar-search" accesskey="p" title="Ir para conteúdo, pressione {Alt+p}">Ir para pesquisa [3]</a></li>
+		</ul>
+		
+		<ui:include src="headerPublic.xhtml" />
+		
+		<!-- Conteudo -->
+		<div id="container" class="container">
+			<ui:insert name="content">
+				[Template content will be inserted here]
+			</ui:insert>
+			<p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">
+				<f:facet name="start">
+					<p:graphicImage value="/resources/img/loading.gif" />
+				</f:facet>
+
+				<f:facet name="complete">
+					<h:outputText value="" />
+				</f:facet>
+			</p:ajaxStatus> 
+		</div>
+
+		<ui:include src="footer.xhtml" />
+
+		<h:outputScript name="js/bootstrap.js" />
+		<h:outputScript name="js/jquery.maskedinput.js" />
+		<h:outputScript name="/js/global.js"/>
+		
+		<script type="text/javascript">
+			PrimeFaces.locales['pt'] = {
+				closeText: 'Fechar',
+				prevText: 'Anterior',
+				nextText: 'Próximo',
+				currentText: 'Começo',
+				monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+				monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun', 'Jul','Ago','Set','Out','Nov','Des'],
+				dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+				dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'],
+				dayNamesMin: ['D','S','T','Q','Q','S','S'],
+				weekHeader: 'Semana',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '',
+				timeOnlyTitle: 'Apenas Horas',
+				timeText: 'Tempo',
+				hourText: 'Hora',
+				minuteText: 'Minuto',
+				secondText: 'Segundo',
+				currentText: 'Data Atual',
+				ampm: false,
+				month: 'Mês',
+				week: 'Semana',
+				day: 'Dia',
+				allDayText : 'Todo Dia'
+			};
+		</script>
+	</h:body>
+</f:view>
+</html>

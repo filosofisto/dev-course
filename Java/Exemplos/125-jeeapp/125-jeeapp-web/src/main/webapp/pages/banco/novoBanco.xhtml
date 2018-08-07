@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+		<div class="page-header">
+        	<h1>Banco</h1>
+        </div>
+    	<h:form id="form" class="form-horizontal">
+    		<fieldset>
+				<h:panelGrid columns="2">
+					<h:panelGroup>
+						<div class="control-group">
+							<label class="control-label"><span class="obrigatorio">*</span> Nome:</label>
+							<div class="controls">
+								<p:inputText id="nome" style="width:300px" value="#{banco.nome}" />
+								<p:message id="msgNome" for="nome" />
+							</div>
+						</div>
+					</h:panelGroup>
+					
+					<h:panelGroup>
+						<div class="control-group">
+							<label class="control-label"><span class="obrigatorio">*</span> Código do Banco:</label>
+							<div class="controls">
+								<p:inputText id="codBanco" style="width:100px" value="#{banco.codBanco}" maxlength="7" 
+									required="true" requiredMessage="O campo código do banco deve ser preenchido."/>
+								<p:message id="msgCodBanco" for="codBanco" />
+							</div>
+						</div>
+					</h:panelGroup>
+				</h:panelGrid>
+
+				<div class="form-actions">
+					<p:commandButton value="Salvar" styleClass="botao"
+						action="#{bancoController.salvar}" update="form" />
+					<p:commandButton value="Voltar" styleClass="botao"
+						action="#{bancoController.begin}" immediate="true" />
+				</div>
+    		</fieldset>
+    	</h:form>
+	</ui:define>
+</ui:composition>   
+	

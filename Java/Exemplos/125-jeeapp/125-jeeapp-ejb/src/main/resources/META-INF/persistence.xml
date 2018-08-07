@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<!-- 
+		Linux: 	systemctl enable mysqld.service
+				systemctl start mysqld.service
+				mysql -u root -p
+				create database cpb_cadgeral;
+				create database cpb_eventos;
+    -->
+	<persistence-unit name="cadgeralDS" transaction-type="JTA">
+		<jta-data-source>java:/jboss/datasources/DevCourseDS</jta-data-source>
+		<mapping-file>META-INF/orm.xml</mapping-file>
+
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<!--<property name="hibernate.default_schema" value="cpb_cadgeral" />-->
+		    <property name="hibernate.archive.autodetection" value="class"/>
+	    	<property name="hibernate.hbm2ddl.auto" value="none"/>
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="true" />
+			<!-- <property name="hibernate.connection.isolation" value="2" /> -->
+			<property name="hibernate.connection.autocommit" value="false"/>
+			<property name="hibernate.default_batch_fetch_size" value="50"/>
+
+			<!--<property name="hibernate.cache.use_second_level_cache" value="true" />
+			<property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory" />-->
+		</properties>
+	</persistence-unit>
+</persistence>

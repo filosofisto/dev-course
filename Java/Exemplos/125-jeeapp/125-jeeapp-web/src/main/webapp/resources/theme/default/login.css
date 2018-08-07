@@ -1,0 +1,47 @@
+body {
+  background: url(/cadastro-geral-web/resources/theme/default/img/bgLogin.png) right top no-repeat;
+}
+
+
+#container{
+  z-index: 11 !important;
+  background: transparent !important;
+  background-color: none !important;
+  margin-top: 0;
+}
+.container{
+  background: transparent !important;
+  background-color: none !important;
+}
+
+
+.form-signin {
+  max-width: 875px;
+  padding: 19px 29px 29px;
+  margin: 15% auto 20px;
+  height: 100%;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+  font-size: 18px;
+  width: 300px;
+  height: auto;
+  padding: 11px 15px;
+  background: #ebebeb;
+  border: 0;
+  border-radius: 0;
+}
+.form-signin .btn-login{
+  margin-top: -10px;
+  border-radius: 0;
+  height: 40px;
+}
+
+input {
+  text-transform: none !important;
+}
