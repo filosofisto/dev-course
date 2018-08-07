@@ -5,10 +5,20 @@ import org.junit.Test;
 
 public class NadadorTest {
 
-	@Test(expected = Exception.class)
-	public void testCategoriaMenor5() throws Exception {
+	@Test
+	public void testCategoriaMenor5() {
 		Nadador nadador = new Nadador("Pedro", 3);
-		nadador.categoria();
+		
+		for (int i = -1; i < 5; i++) {
+			try {
+				nadador.setIdade(i);
+				nadador.categoria();
+				Assert.fail("Exception esperada!");
+			} catch (Exception e) {
+				// Exception esperada
+			}
+		}
+		
 	}
 	
 	@Test
@@ -66,4 +76,5 @@ public class NadadorTest {
 		
 		Assert.assertEquals(18, idade);
 	}
+
 }
