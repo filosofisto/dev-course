@@ -50,11 +50,21 @@ public class Main {
 			p.setId(1L);
 			p.setNome("Jose da Silva");
 			p.setEndereco(null);
-			
+
+			//entityManager.merge(p);
+
+			Endereco outroEnd = new Endereco();
+			outroEnd.setRua("Rua das Gaivotas");
+			outroEnd.setCep("81665544");
+			outroEnd.setCidade("Sao Paulo");
+			outroEnd.setEstado("SP");
+			outroEnd.setComplemento("Ed Harpia Ap 1234");
+
+			entityManager.persist(outroEnd);
+
+			p.setEndereco(outroEnd);
 			entityManager.merge(p);
-			
-			//entityManager.persist(p);
-			
+
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction.isActive()) {

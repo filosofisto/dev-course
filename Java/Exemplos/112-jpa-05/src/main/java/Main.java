@@ -15,7 +15,7 @@ public class Main {
 		EntityManager entityManager = factory.createEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 
-		try {
+		/*try {
 			transaction.begin();
 			
 			Pessoa p = new Pessoa();
@@ -53,15 +53,36 @@ public class Main {
 				transaction.rollback();
 			}
 			e.printStackTrace();
-		}
-		
+		}*/
+
 		try {
+			transaction.begin();
+
+			Pessoa p = entityManager.find(Pessoa.class, 1L);
+
+			for (Telefone t: p.getTelefones()) {
+				System.out.println(t.getTelefone());
+			}
+
+			System.out.println(p.getEndereco());
+
+			transaction.commit();
+		} catch (Exception e) {
+			if (transaction.isActive()) {
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		}
+
+		System.exit(0);
+
+		/*try {
 			transaction.begin();
 			
 			//Endereco orfao
 			Pessoa p = entityManager.find(Pessoa.class, new Long(1));
-			/*p.setEndereco(null);
-			p.getTelefones().clear();*/
+			*//*p.setEndereco(null);
+			p.getTelefones().clear();*//*
 			entityManager.remove(p);
 			
 			transaction.commit();
@@ -70,6 +91,6 @@ public class Main {
 				transaction.rollback();
 			}
 			e.printStackTrace();
-		}
+		}*/
 	}
 }
