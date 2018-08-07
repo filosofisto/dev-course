@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+                 version="2.0">
+                 
+    <named-query name="Cidade.Todas">
+        <query>
+            select new Cidade(c.nome, c.habitantes) from Cidade c order by c.nome
+        </query>
+    </named-query>
+    <named-query name="Cidade.PorEstado">
+        <query>
+            select new Cidade(c.nome, c.habitantes)
+            from Cidade c
+            where c.estado = :estado
+            order by c.nome
+        </query>
+    </named-query>
+
+    <!--<named-native-query name="InscricaoPessoaProva.existeInscricaoPessoaProvaPorSerie">
+        <query>
+            SELECT ps.ID_PESSOA_SERIE
+            FROM   cpb_competicao.PESSOA_SERIE ps
+                   INNER JOIN cpb_inscricao.INSCRICAO_PESSOA_PROVA ipp on ps.ID_INSCRICAO_PESSOA_PROVA = ipp.ID_INSCRICAO_PESSOA_PROVA
+                   INNER JOIN cpb_inscricao.INSCRICAO_PESSOA ip on ip.ID_INSCRICAO_PESSOA = ipp.ID_INSCRICAO_PESSOA
+            WHERE  ps.ID_SERIE = ?
+        </query>
+    </named-native-query>-->
+
+</entity-mappings>
