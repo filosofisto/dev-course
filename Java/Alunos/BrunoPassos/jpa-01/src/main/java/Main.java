@@ -15,43 +15,43 @@ public class Main {
 		EntityManager entityManager = factory.createEntityManager();
 		EntityTransaction transaction = entityManager.getTransaction();
 
-//		try {
-//			transaction.begin();
-//			
-//			Pessoa p = new Pessoa();
-//			p.setNome("Jose da Silva");
-//			
-//			Endereco e = new Endereco();
-//			e.setRua("Araucaria");
-//			e.setCidade("Brasilia");
-//			e.setEstado("DF");
-//			e.setCep("88000000");
-//			
-//			Veiculo v = new Veiculo();
-//			v.setPlaca("AAA-1122");
-//			v.setModelo("Siena");
-//			v.setFabricante("Fiat");
-//			v.setAno(2011);
-//			
-//			entityManager.persist(e);
-//			entityManager.persist(v);
-//			
-//			p.setEndereco(e);
-//			p.setVeiculo(v);
-//			
-//			entityManager.persist(p);			
-//			transaction.commit();
-//		} catch (Exception e) {
-//			if (transaction.isActive()) {
-//				transaction.rollback();
-//			}
-//			e.printStackTrace();
-//		}
+		try {
+			transaction.begin();
+
+			Pessoa p = new Pessoa();
+			p.setNome("Jose da Silva");
+
+			Endereco e = new Endereco();
+			e.setRua("Araucaria");
+			e.setCidade("Brasilia");
+			e.setEstado("DF");
+			e.setCep("88000000");
+
+			Veiculo v = new Veiculo();
+			v.setPlaca("AAA-1122");
+			v.setModelo("Siena");
+			v.setFabricante("Fiat");
+			v.setAno(2011);
+
+			entityManager.persist(e);
+			entityManager.persist(v);
+
+			p.setEndereco(e);
+			p.setVeiculo(v);
+
+			entityManager.persist(p);
+			transaction.commit();
+		} catch (Exception e) {
+			if (transaction.isActive()) {
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		}
 
 		try {
 			transaction.begin();
 			Pessoa p = entityManager.find(Pessoa.class, 1L);
-//			System.out.println("Endereço: " + p.getEndereco());
+//			System.out.println("Endereco: " + p.getEndereco());
 //			System.out.println(p.getVeiculo());
 			transaction.commit();
 		} catch (Exception e) {

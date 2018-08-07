@@ -12,16 +12,21 @@ import javax.persistence.Table;
 public class Veiculo {
 
 	@Id
+	@GeneratedValue
 	@Column(name="ID_VEICULO")
+	private Long id;
+
+	@Column(name="PLACA", unique = true)
 	private String placa;
 	
 	@Column(name="MODELO", nullable=false)
 	private String modelo;
+
 	@Column(name="FABRICANTE", nullable=false)
 	private String fabricante;
+
 	@Column(name="ANO", nullable=false)
 	private Integer ano;
-	
 
 	public String getPlaca() {
 		return placa;
@@ -57,9 +62,20 @@ public class Veiculo {
 
 	@Override
 	public String toString() {
-		return "Veiculo [placa=" + placa + ", modelo=" + modelo + ", fabricante=" + fabricante + ", ano=" + ano + "]";
+		return "Veiculo{" +
+				"id=" + id +
+				", placa='" + placa + '\'' +
+				", modelo='" + modelo + '\'' +
+				", fabricante='" + fabricante + '\'' +
+				", ano=" + ano +
+				'}';
 	}
-	
-	
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 }
