@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+.iconemobile {
+
+	
+}
+
+.menulateral {
+	position:absolute;
+	right:0px;
+	top:55px;
+	z-index:999;
+	
+}
+
+.menumobile {
+	position:absolute;
+	right:10px;
+	top:45px;
+	z-index:99999;
+	
+}
+.menuscreen {
+	display: none !important;
+	
+}
+
+/*-- Atalhos de navegação --*/
+#atalhos {
+	display: none;
+}
+
+.header {
+	width: 105%;
+	height: 105px;
+	background-color:#e99f00;
+	background-image:url(/cadastro-geral-web/resources/theme/default/img/bgheader-mobile.png);
+	background-repeat:no-repeat;
+	background-position:right;
+	
+}
+
+
+.header h1 {
+	display:block;
+	text-indent: -9999px;
+}
+
+
+
+#footer{
+
+	height:124px;
+	display:block;
+	width: 105%;
+  	top:105px;
+  	background-color:#145492;
+  	position: relative;
+  	background-image: url(/cadastro-geral-web/resources/theme/default/img/bgFooter-mobile.png);
+  	background-position: right;
+	background-repeat:no-repeat;
+  	z-index:9999;
+}
+

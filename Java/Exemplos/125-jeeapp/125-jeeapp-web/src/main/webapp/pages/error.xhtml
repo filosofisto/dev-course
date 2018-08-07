@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" 
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+		
+		<script type="text/javascript">
+			function redirectHome() {
+				window.location.href = "#{request.contextPath}//pages/home.xhtml?faces-redirect=true";			
+			}
+			setTimeout(redirectHome, 5000);
+		</script>
+		
+		<h1>Ops!</h1>
+		<br/>
+		<p>
+			O tempo de sessão ou a conversação em que você estava trabalhando expirou.
+		</p>
+		<p>
+			Em 5 segundos você será redirecionado para pagina principal ou <a href="#" onclick="javascript:redirectHome();">CLIQUE AQUI</a> para continuar.
+		</p>
+	</ui:define>
+</ui:composition>

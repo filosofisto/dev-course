@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html lang="pt-br"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:head>
+<f:facet name="first">
+	<title>Cadastro Geral - CPB</title>
+    <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="shortcut icon" href="#{request.contextPath}/resources/img/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="#{request.contextPath}/resources/img/favicon.ico" type="image/x-icon" />
+
+	<!-- css -->
+	
+	
+	
+	<!--[if IE]>
+		<link href="./resources/css/bootstrap.min.css" rel="stylesheet">
+ 	    <link href="./resources/css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="./resources/theme/default/style.css" type="text/css" />	
+		<link rel="stylesheet" href="./resources/theme/default/login.css" type="text/css" />
+	 <![endif]-->
+	
+
+	
+
+
+	<!-- <h:outputStylesheet name="/css/screen.css"  media="handheld, screen and (max-width:801px)" />--> 
+	<h:outputStylesheet name="/css/bootstrap.min.css"  media="handheld, screen and (max-width:801px)" />
+	<h:outputStylesheet name="/css/bootstrap-responsive.css"  media="handheld, screen and (max-width:801px)" /> 
+	<h:outputStylesheet name="/theme/default/style-mobile.css" media="handheld, screen and (max-width:801px)" />
+	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/css/bootstrap.css" media="handheld, screen and (max-width:801px)" />
+	
+	
+	
+	
+	
+	
+	
+	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/css/bootstrap.css" media="screen and (min-width:801px)" />
+	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/css/bootstrap-responsive.css" media="screen and (min-width:801px)" />
+	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/theme/default/style.css" media="screen and (min-width:801px)" /> 
+</f:facet>
+	<!-- Este css resolve o problema do combobox que, hora mostra o conteúdo, hora não mostra -->
+	<style type="text/css">
+	
+	  @import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic|Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic|Roboto:400,100italic,100,300,300italic,400italic,500,500italic,900italic,900,700italic,700|Roboto+Condensed:300italic,400italic,700italic,400,300,700|Roboto+Slab:400,300,100,700);                
+.ui-selectonemenu-label{
+                    width:100% !important;
+                }
+                          body {
+                	font-family: 'Roboto Condensed', sans-serif !important;
+                	font-size:13px !important;
+                }
+                *{
+                font-family: 'Roboto Condensed', sans-serif !important;
+                	font-size:13px !important;
+                }
+                h1 {
+                	font-family: 'Roboto Condensed', sans-serif !important;
+                	font-size:20px !important;
+                }
+                
+                 h2{
+                	font-family: 'Roboto Condensed', sans-serif !important;
+                	font-size:18px !important;
+                }
+                 h3 {
+                	font-family: 'Roboto Condensed', sans-serif !important;
+                	font-size:16px !important;
+                }
+                 h4 {
+                	font-family: 'Roboto Condensed', sans-serif !important;
+                	font-size:14px !important;
+                }
+                 h5 {
+                	font-family: 'Roboto  Condensed', sans-serif !important;
+                	font-size:13px !important;
+                }
+                 h6 {
+                	font-family: 'Roboto  Condensed', sans-serif  !important;
+                	font-size:13px !important;
+                }
+                
+                .menuscreen {font-family: 'Roboto  Condensed', sans-serif  !important;
+                	font-size:13px !important;}
+                .ui-menu {font-family: 'Roboto  Condensed', sans-serif  !important;
+                	font-size:13px !important;}
+                .ui-menubar {font-family: 'Roboto  Condensed', sans-serif  !important;
+                	font-size:13px !important;}
+             
+			.linha-branca {background-color: #fff !important;}
+			.linha-cinza {background-color: #ececec !important;}
+			
+                .ui-selectonemenu-label{
+                    width:100% !important;
+                }
+      .ui-icon {background-image: url("/cadastro-geral-web/javax.faces.resource/images/ui-icons_333333_256x240.png.xhtml?ln=primefaces-bootstrap") !important;}            
+             
+             .ui-widget-content{
+             color:#666 !important;
+             } 
+             .ui-datatable-even{
+             color:#666 !important;
+             } 
+             .ui-datatable-selectable{
+             color:#666 !important;
+             } 
+             .ui-state-highlight{
+  			 color: white !important;
+             } 
+             .ui-selection-column{
+             color: #666 !important;
+             } 
+             .ui-datatable-data{
+             color: #666 !important;
+             } 
+             
+             .ui-widget-content{
+             color: #666 !important;
+             } 
+             
+             .page-header { 
+             font-size:14px !important;
+             }
+             p{ 
+             font-size:14px !important;
+             }
+  	</style>
+	
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <h:outputScript name="resources/js/html5shiv.js" />
+    <![endif]-->
+    
+    <!-- <script language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>-->
+		<script>
+			$(document).ready(function(){
+				$('#ocultar').click(function(){ 
+				$('#menulateral').fadeToggle('slow');
+				});
+			});
+	
+			function start() {
+			    PF('statusDialog').show();
+			}
+			 
+			function stop() {
+			    PF('statusDialog').hide();
+			}
+		</script>
+
+		<ui:insert name="head" />
+</h:head>
+	<h:body>
+		<ul id="atalhos">
+			<li><a href="#container" accesskey="c" title="Ir para conteúdo, pressione {Alt+c}">Ir para conteúdo [1]</a></li>
+			<li><a href="#nav" accesskey="m" title="Ir para conteúdo, pressione {Alt+m}">Ir para menu principal[2]</a></li>
+			<li><a href="#navbar-search" accesskey="p" title="Ir para conteúdo, pressione {Alt+p}">Ir para pesquisa [3]</a></li>
+		</ul>
+		
+		<ui:include src="header.xhtml" />
+		
+		<!-- Container de mensagens -->
+		<div id="messageContainer" class="container msg-fixed-top">
+			<!-- <pe:ajaxErrorHandler
+		        title="Ops! Ocorreu um erro"
+		        body="Ocorreu um erro não esperado pela aplicação: {error-name}. Detalhes: {error-message}"
+		        button="Fechar"
+		        widgetVar="myAjaxErrorHandler" buttonOnclick="myAjaxErrorHandler.hide()"/> -->
+		        
+			<ui:include src="messages.xhtml"/>
+		</div>
+		
+		<!-- Conteudo -->
+		<div id="container" class="container">
+			<ui:insert name="content">
+				[Template content will be inserted here]
+			</ui:insert>
+			<p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">
+				<f:facet name="start">
+					<p:graphicImage value="/resources/img/loading.gif" />
+				</f:facet>
+
+				<f:facet name="complete">
+					<h:outputText value="" />
+				</f:facet>
+			</p:ajaxStatus> 
+		</div>
+
+		<ui:include src="footer.xhtml" />
+
+				<p:dialog modal="true" widgetVar="statusDialog" header="Download" draggable="false" closable="false" resizable="false">
+				    <p:graphicImage value="/resources/img/loading.gif" /> aguarde...
+				</p:dialog>
+
+
+		<h:outputScript name="js/bootstrap.js" />
+		<h:outputScript name="/js/global.js"/>
+		
+		<script type="text/javascript">
+			PrimeFaces.locales['pt'] = {
+				closeText: 'Fechar',
+				prevText: 'Anterior',
+				nextText: 'Próximo',
+				currentText: 'Começo',
+				monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+				monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun', 'Jul','Ago','Set','Out','Nov','Des'],
+				dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+				dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'],
+				dayNamesMin: ['D','S','T','Q','Q','S','S'],
+				weekHeader: 'Semana',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '',
+				timeOnlyTitle: 'Apenas Horas',
+				timeText: 'Tempo',
+				hourText: 'Hora',
+				minuteText: 'Minuto',
+				secondText: 'Segundo',
+				currentText: 'Data Atual',
+				ampm: false,
+				month: 'Mês',
+				week: 'Semana',
+				day: 'Dia',
+				allDayText : 'Todo Dia'
+			};
+		</script>
+	</h:body>
+</html>

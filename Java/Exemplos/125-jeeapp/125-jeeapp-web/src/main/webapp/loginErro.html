@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>CPB</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="shortcut icon" href="./resources/img/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="./resources/img/favicon.ico" type="image/x-icon" />
+
+<meta name="description" content="">
+<meta name="author" content="" />
+
+<link href="./resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="./resources/css/bootstrap-responsive.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" href="./resources/theme/default/style.css"
+	type="text/css" />
+<link rel="stylesheet" href="./resources/theme/default/login.css"
+	type="text/css" />
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="./resources/js/lib/html5shiv.js"></script>
+    <![endif]-->
+    <style></style>
+</head>
+<body>
+	<div class="container">
+		<form class="form-signin" action="j_security_check" method="POST">
+			<div class="logo">
+				<img src="./resources/theme/default/img/cpbLogoLogin.png"
+					width="778" height="79" alt="CPB" />
+			</div>
+
+			<h2 class="form-signin-heading">
+				<strong>Cadastro Geral</strong> | Login
+			</h2>
+
+			<div class="alert">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				Usuário ou senha inválidos, por favor, tente novamente!
+			</div>
+
+			<input type="text" id="usuario" name="j_username" class="input-large"
+				placeholder="* Usuário" /> <input type="password" id="senha"
+				name="j_password" class="input-large" placeholder="* Senha" />
+
+			<button class="btn btn-large btn-primary btn-login" type="submit">Acessar</button>
+			<br /> <a href="public/esqueciMinhaSenha.faces">Esqueci Minha
+				Senha (Clube e Confederações)</a> <br>* Campos de preenchimento
+			obrigatório.
+		</form>
+	</div>
+</body>
+</html>

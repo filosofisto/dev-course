@@ -1,0 +1,14 @@
+<jboss-deployment-structure>
+	<ear-subdeployments-isolated>true</ear-subdeployments-isolated>
+	<deployment>
+		<dependencies>
+			<module name="cpb" export="TRUE"/>
+		</dependencies>
+	</deployment>
+	<sub-deployment name="125-jeeapp-web.war">
+		<dependencies>
+			<module name="javax.faces.api"/>
+			<module name="deployment.125-jeeapp-ear.ear.125-jeeapp-ejb.jar"/>
+		</dependencies>
+	</sub-deployment>
+</jboss-deployment-structure>
