@@ -17,23 +17,20 @@ public class Main {
 			transaction.begin();
 			Pais pais = new Pais();
 			pais.setNomePais("Brasil");
+			entityManager.persist(pais);
 
 			Estado estado = new Estado();
 			estado.setNomeEstado("Rondonia");
+			estado.setPais(pais);
+			entityManager.persist(estado);
 
 			Cidade cidade = new Cidade();
 			cidade.setNomeCidade("Ouro Preto do Oeste");
-			
-			estado.getCidades().add(cidade);
-			pais.getEstados().add(estado);		
-			
-			
+			cidade.setEstado(estado);
 			entityManager.persist(cidade);
-			entityManager.persist(estado);
-			entityManager.persist(pais);
+				
 
 			transaction.commit();
-
 		} catch (Exception e) {
 			if (transaction.isActive()) {
 				transaction.rollback();

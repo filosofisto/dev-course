@@ -20,7 +20,7 @@ public class Estado {
 	@Column(name = "ID_ESTADO")
 	private String nomeEstado;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "estado",cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinColumn(name = "ID_CIDADE")
 	private List<Cidade> cidades;
 

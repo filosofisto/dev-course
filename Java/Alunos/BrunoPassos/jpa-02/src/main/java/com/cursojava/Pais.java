@@ -19,7 +19,7 @@ public class Pais {
 	@Column(name = "ID_PAIS")
 	private String nomePais;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pais", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "ID_ESTADO")
 	private List<Estado> estados;
 
