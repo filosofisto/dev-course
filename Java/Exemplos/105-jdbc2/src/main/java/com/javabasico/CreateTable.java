@@ -11,16 +11,32 @@ public class CreateTable {
 
 	private Connection conn;
 	
-	public boolean createPessoa() throws SQLException, ClassNotFoundException {
-		if (!existPessoa()) {
-			createTablePessoa();
-			
-			return true;
+	public boolean createPessoa() {
+		try {
+			conn = getConnection();
+
+			if (!existeTabelaPessoa()) {
+				createTablePessoa();
+
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
 		}
-		
+
 		return false;
 	}
-	
+
 	private void createTablePessoa() throws SQLException, ClassNotFoundException {
 		Statement stm = null;
 		try {
@@ -49,11 +65,11 @@ public class CreateTable {
 		return conn;
 	}
 
-	private boolean existPessoa() throws SQLException, ClassNotFoundException {
+	private boolean existeTabelaPessoa() throws SQLException, ClassNotFoundException {
 		Statement stm = getConnection().createStatement();
 		
 		try {
-			stm.execute("select cpf from pessoa");
+			stm.executeQuery("select cpf from pessoa");
 			
 			return true;
 		} catch (Exception e) {

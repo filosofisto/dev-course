@@ -1,0 +1,20 @@
+package com.javabasico;
+
+public enum PessoaSQL {
+
+	INSERT("INSERT INTO pessoa(cpf,nome,idade) VALUES(?,?,?)"),
+	UPDATE("UPDATE PESSOA SET NOME=?,IDADE=? WHERE (CPF=?)"),
+	DELETE("DELETE FROM PESSOA WHERE CPF=?"),
+	READ("SELECT * FROM PESSOA WHERE CPF=?"),
+	LIST("SELECT * FROM PESSOA ORDER BY NOME");
+	
+	private String sql;
+	
+	PessoaSQL(String sql) {
+		this.sql = sql;
+	}
+	
+	public String sql() {
+		return sql;
+	}
+}

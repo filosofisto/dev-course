@@ -30,7 +30,8 @@ public class Main {
 			System.out.println("2. Listar Pessoas");
 			System.out.println("3. Excluir Pessoa");
 			System.out.println("4. Obter Pessoa");
-			System.out.println("5. Sair da Aplicacao");
+			System.out.println("5. Editar Pessoa");
+			System.out.println("6. Sair da Aplicacao");
 			System.out.println("==============================");
 			
 			String opcao = t.read(">");
@@ -44,6 +45,8 @@ public class Main {
 			} else if (opcao.equals("4")) {
 				read();
 			} else if (opcao.equals("5")) {
+				editar();
+			} else if (opcao.equals("6")) {
 				System.out.println("By ;P");
 				break;
 			} else {
@@ -51,6 +54,31 @@ public class Main {
 			}
 		}
 		
+	}
+
+	private static void editar() throws SQLException, ClassNotFoundException, IOException {
+		Teclado t = new Teclado();
+		Connector connector = new Connector();
+		PessoaDAO dao = new PessoaDAO(connector.makeConnection());
+
+		System.out.println("Informe o CPF");
+
+		String cpf = t.read("CPF");
+
+		Pessoa p = dao.obter(cpf);
+
+		if (p != null) {
+			System.out.println(p);
+
+			p.setNome(t.read("Nome"));
+			p.setIdade(Integer.parseInt(t.read("Idade")));
+
+			dao.alterar(p);
+
+			System.out.print("Registro alterado com sucesso");
+		}
+
+		dao.closeConnection();
 	}
 
 	private static void clearConsole() {

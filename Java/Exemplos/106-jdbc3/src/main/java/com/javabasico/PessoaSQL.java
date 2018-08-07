@@ -2,11 +2,11 @@ package com.javabasico;
 
 public enum PessoaSQL {
 
-	INSERT("INSERT INTO cpb_treinamento.PESSOA(CPF,NOME,IDADE) VALUES(?,?,?)"),
-	UPDATE("UPDATE cpb_treinamento.PESSOA SET NOME=?,IDADE=? WHERE (CPF=?)"),
-	DELETE("DELETE FROM cpb_treinamento.PESSOA WHERE CPF=?"),
-	READ("SELECT * FROM cpb_treinamento.PESSOA WHERE CPF=?"),
-	LIST("SELECT * FROM cpb_treinamento.PESSOA ORDER BY NOME");
+	INSERT("INSERT INTO PESSOA(CPF,NOME,IDADE) VALUES(?,?,?)"),
+	UPDATE("UPDATE PESSOA SET NOME=?,IDADE=? WHERE (CPF=?)"),
+	DELETE("DELETE FROM PESSOA WHERE CPF=?"),
+	READ("SELECT * FROM PESSOA WHERE CPF=?"),
+	LIST("SELECT * FROM PESSOA ORDER BY NOME");
 	
 	private String sql;
 	

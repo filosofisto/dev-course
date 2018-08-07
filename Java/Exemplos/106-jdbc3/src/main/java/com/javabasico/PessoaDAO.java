@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,12 +15,48 @@ public class PessoaDAO {
 	private PreparedStatement pUpdate;
 	private PreparedStatement pDelete;
 	private PreparedStatement pRead;
+	private PreparedStatement pList;
 
 	public PessoaDAO(Connection connection) {
 		this.connection = connection;
 	}
 
 	public void closeConnection() {
+		if (pInsert != null) {
+			try {
+				pInsert.close();
+			} catch (SQLException e) {
+				//Ignore
+			}
+		}
+		if (pUpdate != null) {
+			try {
+				pUpdate.close();
+			} catch (SQLException e) {
+				//Ignore
+			}
+		}
+		if (pDelete != null) {
+			try {
+				pDelete.close();
+			} catch (SQLException e) {
+				//Ignore
+			}
+		}
+		if (pRead != null) {
+			try {
+				pRead.close();
+			} catch (SQLException e) {
+				//Ignore
+			}
+		}
+		if (pList != null) {
+			try {
+				pList.close();
+			} catch (SQLException e) {
+				//Ignore
+			}
+		}
 		if (connection != null) {
 			try {
 				connection.close();
@@ -34,23 +69,14 @@ public class PessoaDAO {
 	public void incluir(Pessoa pessoa) throws SQLException {
 		PreparedStatement p = null;
 
-		try {
-			p = getPInsert();
+		p = getPInsert();
 
-			p.setString(1, pessoa.getCpf());
-			p.setString(2, pessoa.getNome());
-			p.setInt(3, pessoa.getIdade());
+		p.setString(1, pessoa.getCpf());
+		p.setString(2, pessoa.getNome());
+		p.setInt(3, pessoa.getIdade());
 
-			p.executeUpdate();
-		} finally {
-			if (p != null) {
-				try {
-					p.close();
-				} catch (SQLException e) {
-					// Ignore
-				}
-			}
-		}
+		p.executeUpdate();
+
 	}
 	
 	private PreparedStatement getPInsert() throws SQLException {
@@ -64,57 +90,49 @@ public class PessoaDAO {
 	}
 
 	public void excluir(String cpf) throws SQLException {
-		PreparedStatement p = null;
+		PreparedStatement p = getPDelete();
 
-		try {
-			p = connection.prepareStatement(PessoaSQL.DELETE.sql());
+		p.setString(1, cpf);
 
-			p.setString(1, cpf);
+		p.executeUpdate();
+	}
 
-			p.executeUpdate();
-		} finally {
-			if (p != null) {
-				try {
-					p.close();
-				} catch (SQLException e) {
-					// Ignore
-				}
-			}
+	private PreparedStatement getPDelete() throws SQLException {
+		if (pDelete == null) {
+			pDelete = connection.prepareStatement(
+					PessoaSQL.DELETE.sql()
+			);
 		}
+
+		return pDelete;
 	}
 
 	public void alterar(Pessoa pessoa) throws SQLException {
-		PreparedStatement p = null;
+		PreparedStatement p = getPUpdate();
 
-		try {
-			p = connection.prepareStatement(
-					PessoaSQL.UPDATE.sql());
+		p.setString(1, pessoa.getNome());
+		p.setInt(2, pessoa.getIdade());
+		p.setString(3, pessoa.getCpf());
 
-			p.setString(1, pessoa.getNome());
-			p.setInt(2, pessoa.getIdade());
-			p.setString(3, pessoa.getCpf());
+		p.executeUpdate();
+	}
 
-			p.executeUpdate();
-		} finally {
-			if (p != null) {
-				try {
-					p.close();
-				} catch (SQLException e) {
-					// Ignore
-				}
-			}
+	private PreparedStatement getPUpdate() throws SQLException {
+		if (pUpdate == null) {
+			pUpdate = connection.prepareStatement(
+					PessoaSQL.UPDATE.sql()
+			);
 		}
+
+		return pUpdate;
 	}
 	
 	public Pessoa obter(String cpf) 
 			throws SQLException {
-		PreparedStatement stm = null;
 		ResultSet rs = null;
 
 		try {
-			stm = connection.prepareStatement(
-				PessoaSQL.READ.sql()
-			);
+			PreparedStatement stm = getPRead();
 			
 			stm.setString(1, cpf);
 			
@@ -139,24 +157,27 @@ public class PessoaDAO {
 					// Ignore
 				}
 			}
-
-			if (stm != null) {
-				try {
-					stm.close();
-				} catch (SQLException e) {
-					// Ignore
-				}
-			}
 		}
 	}
 
+	private PreparedStatement getPRead() throws SQLException {
+		if (pRead == null) {
+			pRead = connection.prepareStatement(
+					PessoaSQL.READ.sql()
+			);
+		}
+
+		return pRead;
+	}
+
+
 	public List<Pessoa> listar() throws SQLException {
-		Statement stm = null;
 		ResultSet rs = null;
 
 		try {
-			stm = connection.createStatement();
-			rs = stm.executeQuery(PessoaSQL.LIST.sql());
+			PreparedStatement stm = getPList();
+
+			rs = stm.executeQuery();
 
 			List<Pessoa> list = new ArrayList<Pessoa>();
 
@@ -179,15 +200,17 @@ public class PessoaDAO {
 					// Ignore
 				}
 			}
-
-			if (stm != null) {
-				try {
-					stm.close();
-				} catch (SQLException e) {
-					// Ignore
-				}
-			}
 		}
+	}
+
+	private PreparedStatement getPList() throws SQLException {
+		if (pList == null) {
+			pList = connection.prepareStatement(
+					PessoaSQL.LIST.sql()
+			);
+		}
+
+		return pList;
 	}
 
 	public void incluir(List<Pessoa> pessoas) 
