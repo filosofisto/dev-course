@@ -20,31 +20,35 @@ public class Main {
 		EntityTransaction transaction = entityManager.getTransaction();
 
 		try {
-			
-			Saida.exibir(true, "Inserção: Pessoa, Endereço e Veiculo.");
-			
+
+			Console.exibir(true, "Inserção de registros");
+
 			transaction.begin();
 
-			
-			
+			Console.exibir("Pessoa");
+
 			Pessoa p = new Pessoa();
-			p.setNome("Fulano Dital");
+			p.setNome(Console.ler("Nome"));
+
+			Console.exibir("Endereço");
 
 			Endereco e = new Endereco();
-			e.setRua("Avenida do Ciclano");
-			e.setCidade("São Paulo");
-			e.setEstado("SP");
-			e.setCep("88000000");
+			e.setRua(Console.ler("Rua"));
+			e.setCidade(Console.ler("Cidade"));
+			e.setEstado(Console.ler("Estado"));
+			e.setCep(Console.ler("CEP"));
 
 			entityManager.persist(e);
 
 			p.setEndereco(e);
 
+			Console.exibir("Veiculo");
+
 			Veiculo v = new Veiculo();
-			v.setPlaca("S093-V341");
-			v.setModelo("Fusca");
-			v.setFabricante("Volkswagen");
-			v.setAno(2020);
+			v.setPlaca(Console.ler("Placa"));
+			v.setModelo(Console.ler("Modelo"));
+			v.setFabricante(Console.ler("Fabricante"));
+			v.setAno(Integer.parseInt(Console.ler("Ano")));
 
 			entityManager.persist(v);
 
@@ -52,10 +56,10 @@ public class Main {
 
 			entityManager.persist(p);
 
+			Console.exibir(true, "Informações a serem inseridas no banco", p.toString());
+
 			transaction.commit();
-			
-			Saida.exibir("Registros inseridos no banco: ", p.toString());
-			
+
 		} catch (Exception e) {
 			if (transaction.isActive()) {
 				transaction.rollback();
@@ -64,13 +68,13 @@ public class Main {
 		}
 
 		try {
-			Saida.exibir(true, "Procura: Pessoa");
+			Console.exibir(true, "Procura: Pessoa");
 			transaction.begin();
 			Pessoa p = entityManager.find(Pessoa.class, new Long(1));
 			entityManager.remove(p);
 			transaction.commit();
-			
-			Saida.exibir("Pessoa encontrada: ", p.toString());
+
+			Console.exibir("Pessoa encontrada: ", p.toString());
 		} catch (Exception e) {
 			if (transaction.isActive()) {
 				transaction.rollback();
@@ -79,7 +83,7 @@ public class Main {
 		}
 	}
 
-	protected static class Saida {
+	protected static class Console {
 		private static Scanner in;
 
 		private static void prepararScanner() {
@@ -91,7 +95,7 @@ public class Main {
 		private static void exibir(boolean confirmacao, String... mensagens) {
 			out.println();
 			for (String m : mensagens) {
-				out.println("\t "+m);
+				out.println("\t " + m);
 			}
 
 			if (confirmacao) {
@@ -105,6 +109,18 @@ public class Main {
 			exibir(false, mensagens);
 		}
 
+		private static String ler(String mensagem) {
+			out.print("\t"+mensagem + ":\t");
+			return in.nextLine();
+		}
+
+		private static String[] ler(String... enunciados) {
+			String[] valores = new String[enunciados.length];
+			for (int i = 0; i < enunciados.length; i++) {
+				valores[i] = ler(enunciados[i]);
+			}
+			return valores;
+		}
 	}
 
 }
