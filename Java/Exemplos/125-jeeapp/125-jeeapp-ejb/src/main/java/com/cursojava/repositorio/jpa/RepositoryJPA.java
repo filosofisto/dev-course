@@ -10,7 +10,7 @@ import java.lang.reflect.Type;
 /**
  * Created by Eduardo on 19/07/2015.
  */
-public abstract class RepositoryBaseJPA<T,K> implements Repository<T,K> {
+public abstract class RepositoryJPA<T,K> implements Repository<T,K> {
 
     private Class<T> entityClass;
 

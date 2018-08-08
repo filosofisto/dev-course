@@ -17,7 +17,7 @@ public class Aeroporto implements Serializable {
 	private static final long serialVersionUID = -8072609416565074635L;
 
 	@Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue //(strategy=GenerationType.IDENTITY)
 	@Column(name="ID_AEROPORTO", nullable=false)
     private Long id;
 

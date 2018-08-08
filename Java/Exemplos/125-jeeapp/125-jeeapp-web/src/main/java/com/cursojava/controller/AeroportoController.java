@@ -6,13 +6,11 @@ import com.cursojava.util.lazydatamodel.AeroportoLazyDataModel;
 
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
-import javax.enterprise.inject.Produces;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.List;
 
 @Named
 @ConversationScoped
@@ -56,16 +54,33 @@ public class AeroportoController implements Serializable {
 	    return "novoAeroporto";
     }
 
-    public String salvar() {
-	    if (aeroporto.getId() != null) {
-            aeroportoServico.atualizar(aeroporto);
-        } else {
-	        aeroportoServico.incluir(aeroporto);
-        }
+    public void incluir() {
+		try {
+			aeroportoServico.incluir(aeroporto);
 
-        aeroportosDataModel.forceRefresh();
+			// Prepara para cadastrar outro aeroporto
+			setAeroporto(new Aeroporto());
 
-        return "listaAeroportos";
+			messageSucesso("Operação realizada com sucesso");
+
+			aeroportosDataModel.forceRefresh();
+		} catch (Exception e) {
+			messageException(e);
+		}
+	}
+
+    public String atualizar() {
+		try {
+			aeroportoServico.atualizar(aeroporto);
+			messageSucesso("Operação realizada com sucesso");
+
+			aeroportosDataModel.forceRefresh();
+
+			return "listaAeroportos";
+		} catch (Exception e) {
+			messageException(e);
+			return null;
+		}
     }
 
     public String cancelarEdicao() {
@@ -95,18 +110,16 @@ public class AeroportoController implements Serializable {
 		this.facesContext.validationFailed();
 	}
 
-	public void setAeroporto(Aeroporto aeroporto) {
-		this.aeroporto = aeroporto;
+	private void messageSucesso(String mensagem) {
+		FacesMessage m = new FacesMessage(
+				FacesMessage.SEVERITY_INFO,
+				mensagem, null
+		);
+		this.facesContext.addMessage(null, m);
 	}
 
-	public void incluir() {
-		try {
-			aeroportoServico.incluir(aeroporto);
-
-			//TODO: Mensagem de sucesso
-		} catch (Exception e) {
-			messageException(e);
-		}
+	public void setAeroporto(Aeroporto aeroporto) {
+		this.aeroporto = aeroporto;
 	}
 
     public AeroportoLazyDataModel getAeroportosDataModel() {

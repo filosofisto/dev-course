@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Eduardo on 19/07/2015.
  */
 public class BancoRepositorioJPA
-        extends RepositoryBaseJPA<Banco, Long>
+        extends RepositoryJPA<Banco, Long>
         implements BancoRepositorio {
 
 
