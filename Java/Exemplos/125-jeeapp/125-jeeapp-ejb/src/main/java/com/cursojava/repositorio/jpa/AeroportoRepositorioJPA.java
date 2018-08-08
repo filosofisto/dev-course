@@ -18,8 +18,21 @@ public class AeroportoRepositorioJPA
     private EntityManager entityManager;
 
     @Override
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
+
+    @Override
     public List<Aeroporto> listar() {
         return entityManager.createNamedQuery("Aeroporto.Listar")
+                .getResultList();
+    }
+
+    @Override
+    public List<Aeroporto> listar(int first, int pageSize) {
+        return entityManager.createNamedQuery("Aeroporto.Listar")
+                .setFirstResult(first)
+                .setMaxResults(pageSize)
                 .getResultList();
     }
 

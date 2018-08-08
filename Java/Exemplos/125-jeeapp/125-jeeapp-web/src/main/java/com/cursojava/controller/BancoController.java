@@ -1,31 +1,12 @@
-package br.org.cpb.cadgeral.controller;
+package com.cursojava.controller;
 
-import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import br.org.cpb.arquitetura.faces.CRUD;
-import br.org.cpb.arquitetura.stereotype.Controller;
-import com.cursojava.servico.bean.BancoServicoBean;
-import br.org.cpb.cadgeral.lazydatamodel.BancoLazyDataModel;
-import com.cursojava.dominio.Banco;
-
-
-@Controller
-@CRUD(
-	baseName="Banco",
-	beginNavigation="listBancos"
-)
-public class BancoController extends CRUDController {
+public class BancoController  {
 
 	private static final long serialVersionUID = -6199824374371124650L;
 
-	@Inject
+	/*@Inject
 	private BancoServicoBean bancoServicoBean;
 
-	@Inject
-	private BancoLazyDataModel bancoLazyDataModel;
-	
 	private Banco banco;
 	
 	//@PostConstruct
@@ -45,7 +26,7 @@ public class BancoController extends CRUDController {
 		this.banco = banco;
 	}
 
-	/*@Produces
+	*//*@Produces
 	@Named
 	public List<Banco> getBancos() {
 		try {
@@ -54,13 +35,13 @@ public class BancoController extends CRUDController {
 			messageException(e);
 			return null;
 		}
-	}*/
+	}*//*
 
 	@Override
 	protected void doCreate() throws Exception {
 		bancoServicoBean.incluir(banco);
 		initNovoBanco();
-		bancoLazyDataModel.invalidateCount();
+		bancoLazyDataModel.forceRefresh();
 	}
 
 	@Override
@@ -75,7 +56,7 @@ public class BancoController extends CRUDController {
 	@Override
 	protected void doDelete() throws Exception {
 		bancoServicoBean.remover(banco);
-		bancoLazyDataModel.invalidateCount();
+		bancoLazyDataModel.forceRefresh();
 	}
 	
 	public void salvar() {
@@ -96,7 +77,7 @@ public class BancoController extends CRUDController {
 	
 	protected String ler (){
 		try {
-			banco = bancoServicoBean.editar(banco);
+			banco = bancoServicoBean.obter(banco);
 			
 			return "createBanco";
 
@@ -108,5 +89,5 @@ public class BancoController extends CRUDController {
 
 	public BancoLazyDataModel getBancoLazyDataModel() {
 		return bancoLazyDataModel;
-	}
+	}*/
 }

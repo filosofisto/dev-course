@@ -2,8 +2,8 @@ package com.cursojava.repositorio.jpa;
 
 import com.cursojava.repositorio.Repository;
 
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
@@ -16,33 +16,38 @@ public abstract class RepositoryBaseJPA<T,K> implements Repository<T,K> {
 
     private Class<K> keyClass;
 
-    @Inject
-    protected EntityManager entityManager;
+    protected abstract EntityManager getEntityManager();
 
     @Override
     public void insert(T entity) {
-        entityManager.persist(entity);
+        getEntityManager().persist(entity);
     }
 
     @Override
     public void update(T entity) {
-        entityManager.merge(entity);
+        getEntityManager().merge(entity);
     }
 
     @Override
     public T find(K key) {
-        return entityManager.find(entityClass(), key);
+        return getEntityManager().find(entityClass(), key);
+    }
+
+    @Override
+    public Long count() {
+        Query query = getEntityManager().createQuery("select count(*) from " +entityClass().getSimpleName());
+        return (Long) query.getSingleResult();
     }
 
     @Override
     public void remove(T entity) {
-        entityManager.remove(entity);
+        getEntityManager().remove(entity);
     }
 
     @Override
     public void removeByKey(K key) {
         T entity = find(key);
-        entityManager.remove(entity);
+        getEntityManager().remove(entity);
     }
 
     protected Class<T> entityClass() {

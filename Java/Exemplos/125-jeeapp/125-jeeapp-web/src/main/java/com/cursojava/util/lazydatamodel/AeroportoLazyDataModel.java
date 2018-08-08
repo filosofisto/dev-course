@@ -1,30 +1,26 @@
-package br.org.cpb.cadgeral.lazydatamodel;
+package com.cursojava.util.lazydatamodel;
 
-import java.util.List;
+import com.cursojava.dominio.Aeroporto;
+import com.cursojava.servico.AeroportoServico;
 
 import javax.inject.Inject;
-
-import br.org.cpb.arquitetura.faces.SimpleLazyDataModel;
-import com.cursojava.servico.bean.AeroportoServicoBean;
-import com.cursojava.dominio.Aeroporto;
+import java.util.List;
 
 /**
  * Created by Eduardo on 09/04/2015.
  */
 public class AeroportoLazyDataModel extends SimpleLazyDataModel<Aeroporto> {
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 3755377974082724830L;
+
 	@Inject
-    private AeroportoServicoBean aeroportoServicoBean;
+    private AeroportoServico aeroportoServico;
 
     @Override
     public Aeroporto getRowData(String rowKey) {
         Long id = new Long(rowKey);
 
-        return aeroportoServicoBean.obter(id);
+        return aeroportoServico.obter(id);
     }
 
     @Override
@@ -34,11 +30,12 @@ public class AeroportoLazyDataModel extends SimpleLazyDataModel<Aeroporto> {
 
     @Override
     protected Long calcCount() {
-        return aeroportoServicoBean.count();
+        return aeroportoServico.count();
     }
 
     @Override
     protected List<Aeroporto> doQuery(int first, int pageSize) {
-        return aeroportoServicoBean.listar(first, pageSize);
+        return aeroportoServico.listar(first, pageSize);
     }
+
 }

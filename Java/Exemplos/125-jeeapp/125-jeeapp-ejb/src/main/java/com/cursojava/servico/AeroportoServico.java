@@ -14,7 +14,11 @@ public interface AeroportoServico {
 
     void remover(Aeroporto aeroporto);
 
-    Aeroporto editar(Long id);
+    Aeroporto obter(Long id);
 
     List<Aeroporto> listar();
+
+    List<Aeroporto> listar(int first, int pageSize);
+
+    long count();
 }

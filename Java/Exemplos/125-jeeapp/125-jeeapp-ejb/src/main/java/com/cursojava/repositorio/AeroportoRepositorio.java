@@ -15,4 +15,13 @@ public interface AeroportoRepositorio extends Repository<Aeroporto, Long> {
      * @return
      */
     List<Aeroporto> listar();
+
+    /**
+     * Lista de aeroportos paginado.
+     *
+     * @param first
+     * @param pageSize
+     * @return
+     */
+    List<Aeroporto> listar(int first, int pageSize);
 }

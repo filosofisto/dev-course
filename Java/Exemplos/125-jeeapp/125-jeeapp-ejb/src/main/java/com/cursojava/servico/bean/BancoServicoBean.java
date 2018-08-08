@@ -1,27 +1,22 @@
 package com.cursojava.servico.bean;
 
-import java.util.List;
-import java.util.logging.Logger;
-
-import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
-import javax.ejb.TransactionManagement;
-import javax.ejb.TransactionManagementType;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-
 import com.cursojava.dominio.Banco;
 import com.cursojava.repositorio.BancoRepositorio;
 import com.cursojava.servico.BancoServico;
 
+import javax.ejb.*;
+import javax.inject.Inject;
+import java.io.Serializable;
+import java.util.List;
+import java.util.logging.Logger;
+
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
 @TransactionAttribute(TransactionAttributeType.REQUIRED)
-public class BancoServicoBean implements BancoServico {
+public class BancoServicoBean implements BancoServico, Serializable {
 
-    /*@Inject
-    private Logger log;*/
+    @Inject
+    private Logger log;
 
     @Inject
     private BancoRepositorio bancoRepositorio;
@@ -42,12 +37,22 @@ public class BancoServicoBean implements BancoServico {
     }
 
     @Override
-    public Banco editar(Long id) {
+    public Banco obter(Long id) {
         return bancoRepositorio.find(id);
     }
 
     @Override
     public List<Banco> listar() {
         return bancoRepositorio.listar();
+    }
+
+    @Override
+    public List<Banco> listar(int first, int pageSize) {
+        return bancoRepositorio.listar(first, pageSize);
+    }
+
+    @Override
+    public Long count() {
+        return bancoRepositorio.count();
     }
 }

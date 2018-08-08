@@ -6,34 +6,12 @@
 	xmlns:p="http://primefaces.org/ui" 
 	template="/templates/default.xhtml">
 	<ui:define name="content">
-	<f:event listener="#{pessoaController.verificarPessoaFotoReprovadas}" type="preRenderView" />
 		<div class="page-header" style="height: 300px !important; font-size:13px !important;">
-			<h1>Cadastro</h1>
+			<h1>WebApp JSF</h1>
 			
-			<p>Seja bem-vindo ao <b>Sistema de Cadastro</b> do Comitê Paralímpico Brasileiro (CPB)</p>
-			<p>O objetivo é que todas as pessoas envolvidas com o Movimento Paralímpico Brasileiro estejam cadastradas nesse sistema, aumentando a qualidade do trabalho realizado pelo CPB. </p>
-			<p>Utilize o sistema e qualquer dúvida, sugestões e reclamações envie um e-mail para <a href="mailto:sistemascpb@cpb.org.br">sistemascpb@cpb.org.br</a> .</p>
+			<p>Seja bem-vindo ao <b>Sistema TOP</b> do Comitê Paralímpico Brasileiro (CPB)</p>
+			<p>Nosso objetivo é transformá-los em máquinas de programar ;)</p>
 		
-			</div>
-			
-			<h:panelGroup
-				rendered="#{!segurancaController.hasRole('CLUBE_ESTRANGEIRO')}">
-				<div id="banner-aviso97"
-					style="display: block; height: 230px; text-align: justify; border: 1px solid #ccc; background-color: #fff6ab; position: absolute; float: right; 
-					width: 440px; margin-top: -200px; right: 10%; padding-left: 15px; padding-right: 15px; font-size: 15px !important;">
-					<h6 style="text-align: center;">ATENÇÃO</h6>
-					Para realizar contratação de atletas, atletas-guia e staffs, basta acessar o menu 'transferências', atleta ou atleta-guia/staff, contratar.
-					Somente atletas/staffs sem clube podem ter sua transferência solicitada.
-					Caso o atleta/staff esteja vinculado em algum clube, será necessário que o clube atual da pessoa realize a liberação do mesmo, para que então,
-					o novo clube faça a solicitação da transferência.
-					Feito isso, basta o CPB aprovar a transferência e as pessoas solicitadas estarão disponíveis para atualização cadastral e inscrições em eventos..
-					<p style="text-align: right !important; bottom: 0px;">
-						<a href="#"
-							onclick="document.getElementById('banner-aviso97').style.display = 'none'">Fechar</a>
-					</p>
-					<BR />
-
-				</div>
-			</h:panelGroup>
+		</div>
 	</ui:define>
 </ui:composition>

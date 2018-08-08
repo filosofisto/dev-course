@@ -1,4 +1,4 @@
-package br.org.cpb.cadgeral.util.listener;
+package com.cursojava.util.listener;
 
 import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;

@@ -14,7 +14,11 @@ public interface BancoServico {
 
     void remover(Banco banco);
 
-    Banco editar(Long id);
+    Banco obter(Long id);
 
     List<Banco> listar();
+
+    List<Banco> listar(int first, int pageSize);
+
+    Long count();
 }

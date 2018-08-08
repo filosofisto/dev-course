@@ -14,4 +14,6 @@ public interface Repository<T, K> {
     void removeByKey(K key);
 
     T find(K key);
+
+    Long count();
 }

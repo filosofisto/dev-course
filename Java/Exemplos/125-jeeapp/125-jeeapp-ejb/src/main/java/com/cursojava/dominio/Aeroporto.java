@@ -8,10 +8,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
-@Table(
-	name = "AEROPORTO",
-	uniqueConstraints=@UniqueConstraint(columnNames={"NOME", "ID_CIDADE"}, name="UK_AEROPORTO_NOME_ID_CIDADE")
-)
+@Table(name = "AEROPORTO")
 @NamedQueries({
 		@NamedQuery(name = "Aeroporto.Listar", query = "select a from Aeroporto a order by a.nome")
 })
@@ -26,12 +23,13 @@ public class Aeroporto implements Serializable {
 
 	@NotEmpty(message="O campo aeroporto deve ser preenchido.")
 	@NotBlank(message = "O campo aeroporto deve ser preenchido.")
-    @Size(max = 60, message="O campo aeroporto deve possuir no máximo 45 caracteres.")
+    @Size(max = 60, message="O campo aeroporto deve possuir no máximo 60 caracteres.")
     @Column(name="NOME", nullable=false, length=60)
     private String nome;
 
-	@NotEmpty(message="Selecione uma cidade.")
-	@Column(name="NOME", nullable=false, length=60)
+	@NotEmpty(message="O campo cidade deve ser preenchido.")
+	@Size(max = 60, message="O campo cidade deve possuir no máximo 60 caracteres.")
+	@Column(name="CIDADE", nullable=false, length=60)
 	private String cidade;
 	
     @Size(max = 8, message="O campo Sigla deve possuir no máximo 8 caracteres.")

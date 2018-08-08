@@ -9,6 +9,19 @@ import java.util.List;
  */
 public interface BancoRepositorio extends Repository<Banco, Long> {
 
+    /**
+     * Lista de bancos ordenado por nome.
+     *
+     * @return
+     */
     List<Banco> listar();
 
+    /**
+     * Lista de bancos ordenado por nome e paginado.
+     *
+     * @param first
+     * @param pageSize
+     * @return
+     */
+    List<Banco> listar(int first, int pageSize);
 }
