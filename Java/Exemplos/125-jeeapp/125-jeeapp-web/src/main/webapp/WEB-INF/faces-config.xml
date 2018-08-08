@@ -32,6 +32,17 @@
 			<to-view-id>/pages/aeroporto/listaAeroportos.xhtml</to-view-id>
 		</navigation-case>
 		<!-- Fim Aeroporto -->
+		
+		<!-- Pessoa -->
+		<navigation-case>
+			<from-outcome>novoPessoa</from-outcome>
+			<to-view-id>/pages/pessoa/novoPessoa.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listaAeroportos</from-outcome>
+			<to-view-id>/pages/pessoa/listaPessoa.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Pessoa -->
 	</navigation-rule>
 
 	<application>

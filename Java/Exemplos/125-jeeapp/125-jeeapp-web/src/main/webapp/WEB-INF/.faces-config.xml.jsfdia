@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="home::#pages#home.xhtml" NAME="output"
+    PATH="/pages/home.xhtml" TARGET="rules:#pages#home.xhtml"
+    TITLE="home" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="novoBanco::#pages#banco#novoBanco.xhtml"
+    NAME="output1" PATH="/pages/banco/novoBanco.xhtml"
+    TARGET="rules:#pages#banco#novoBanco.xhtml" TITLE="novoBanco" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listaBancos::#pages#banco#listaBancos.xhtml"
+    NAME="output2" PATH="/pages/banco/listaBancos.xhtml"
+    TARGET="rules:#pages#banco#listaBancos.xhtml" TITLE="listaBancos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="novoAeroporto::#pages#aeroporto#novoAeroporto.xhtml"
+    NAME="output3" PATH="/pages/aeroporto/novoAeroporto.xhtml"
+    TARGET="rules:#pages#aeroporto#novoAeroporto.xhtml"
+    TITLE="novoAeroporto" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listaAeroportos::#pages#aeroporto#listaAeroportos.xhtml"
+    NAME="output4" PATH="/pages/aeroporto/listaAeroportos.xhtml"
+    TARGET="rules:#pages#aeroporto#listaAeroportos.xhtml"
+    TITLE="listaAeroportos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="novoPessoa::#pages#pessoa#novoPessoa.xhtml"
+    NAME="output5" PATH="/pages/pessoa/novoPessoa.xhtml"
+    TARGET="rules:#pages#pessoa#novoPessoa.xhtml" TITLE="novoPessoa" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listaAeroportos::#pages#pessoa#listaPessoa.xhtml" NAME="output6"
+    PATH="/pages/pessoa/listaPessoa.xhtml"
+    TARGET="rules:#pages#pessoa#listaPessoa.xhtml"
+    TITLE="listaAeroportos" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#aeroporto#novoAeroporto.xhtml"
+  PATH="/pages/aeroporto/novoAeroporto.xhtml" SHAPE="304,497,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#banco#listaBancos.xhtml"
+  PATH="/pages/banco/listaBancos.xhtml" SHAPE="304,385,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#banco#novoBanco.xhtml"
+  PATH="/pages/banco/novoBanco.xhtml" SHAPE="304,273,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#aeroporto#listaAeroportos.xhtml"
+  PATH="/pages/aeroporto/listaAeroportos.xhtml" SHAPE="304,609,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#home.xhtml" PATH="/pages/home.xhtml"
+  SHAPE="304,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#pessoa#listaPessoa.xhtml"
+  PATH="/pages/pessoa/listaPessoa.xhtml" SHAPE="304,897,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#pessoa#novoPessoa.xhtml"
+  PATH="/pages/pessoa/novoPessoa.xhtml" SHAPE="304,337,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>
