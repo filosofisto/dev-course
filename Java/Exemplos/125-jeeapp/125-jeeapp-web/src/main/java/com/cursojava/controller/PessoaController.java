@@ -1,7 +1,7 @@
 package com.cursojava.controller;
 
 import com.cursojava.dominio.Aeroporto;
-import com.cursojava.servico.AeroportoServico;
+import com.cursojava.servico.pessoaServico;
 import com.cursojava.util.lazydatamodel.AeroportoLazyDataModel;
 
 import javax.enterprise.context.Conversation;
@@ -25,12 +25,12 @@ public class PessoaController implements Serializable {
 	protected FacesContext facesContext;
 
 	@Inject
-	private AeroportoServico aeroportoServico;
+	private PessoaServico pessoaServico;
 
 	@Inject
-	private AeroportoLazyDataModel aeroportosDataModel;
+	private PessoaLazyDataModel pessoaDataModel;
 
-	private Aeroporto aeroporto;
+	private Pessoa pessoa;
 
 	public String begin() {
 		conversation.begin();
@@ -56,14 +56,14 @@ public class PessoaController implements Serializable {
 
     public void incluir() {
 		try {
-			aeroportoServico.incluir(aeroporto);
+			pessoaServico.incluir(aeroporto);
 
 			// Prepara para cadastrar outro aeroporto
 			setAeroporto(new Aeroporto());
 
 			messageSucesso("Operação realizada com sucesso");
 
-			aeroportosDataModel.forceRefresh();
+			pessoaDataModel.forceRefresh();
 		} catch (Exception e) {
 			messageException(e);
 		}
@@ -71,10 +71,10 @@ public class PessoaController implements Serializable {
 
     public String atualizar() {
 		try {
-			aeroportoServico.atualizar(aeroporto);
+			pessoaServico.atualizar(aeroporto);
 			messageSucesso("Operação realizada com sucesso");
 
-			aeroportosDataModel.forceRefresh();
+			pessoaDataModel.forceRefresh();
 
 			return "listaAeroportos";
 		} catch (Exception e) {
@@ -84,7 +84,7 @@ public class PessoaController implements Serializable {
     }
 
     public String cancelarEdicao() {
-        aeroportosDataModel.forceRefresh();
+        pessoaDataModel.forceRefresh();
 
         return "listaAeroportos";
     }
@@ -93,7 +93,7 @@ public class PessoaController implements Serializable {
 	@Named
 	public List<Aeroporto> getAeroportos() {
 		try {
-			return aeroportoServico.listar();
+			return pessoaServico.listar();
 		} catch (Exception e) {
 			messageException(e);
 			return null;
@@ -122,11 +122,11 @@ public class PessoaController implements Serializable {
 		this.aeroporto = aeroporto;
 	}
 
-    public AeroportoLazyDataModel getAeroportosDataModel() {
-        return aeroportosDataModel;
+    public AeroportoLazyDataModel getpessoaDataModel() {
+        return pessoaDataModel;
     }
 
-    public void setAeroportosDataModel(AeroportoLazyDataModel aeroportosDataModel) {
-        this.aeroportosDataModel = aeroportosDataModel;
+    public void setpessoaDataModel(AeroportoLazyDataModel pessoaDataModel) {
+        this.pessoaDataModel = pessoaDataModel;
     }
 }

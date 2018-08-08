@@ -17,11 +17,8 @@
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<!--<property name="hibernate.default_schema" value="cpb_cadgeral" />-->
 		    <property name="hibernate.archive.autodetection" value="class"/>
-<<<<<<< HEAD
 	    	<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-=======
 	    	<property name="hibernate.hbm2ddl.auto" value="update"/>
->>>>>>> 90380b6eee7d4e265f307f0c216a77a20065b127
 			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="true" />
 			<!-- <property name="hibernate.connection.isolation" value="2" /> -->
