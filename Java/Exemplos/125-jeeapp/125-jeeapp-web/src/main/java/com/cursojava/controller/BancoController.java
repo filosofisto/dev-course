@@ -1,93 +1,137 @@
 package com.cursojava.controller;
 
-public class BancoController  {
+import java.io.Serializable;
+import java.util.List;
+
+import javax.enterprise.context.Conversation;
+import javax.enterprise.context.ConversationScoped;
+import javax.enterprise.inject.Produces;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import com.cursojava.dominio.Aeroporto;
+import com.cursojava.dominio.Banco;
+import com.cursojava.servico.BancoServico;
+import com.cursojava.util.lazydatamodel.BancoLazyDataModel;
+
+@Named
+@ConversationScoped
+public class BancoController implements Serializable {
 
 	private static final long serialVersionUID = -6199824374371124650L;
 
-	/*@Inject
-	private BancoServicoBean bancoServicoBean;
+	@Inject
+	private BancoServico bancoServico;
+
+	@Inject
+	protected Conversation conversation;
+
+	@Inject
+	protected FacesContext facesContext;
+
+	@Inject
+	private BancoLazyDataModel bancoLazyDataModel;
 
 	private Banco banco;
-	
-	//@PostConstruct
-    public String initNovoBanco() {
-        banco = new Banco();
-        
-        return "createBanco";
-    }
-	
-	@Produces
-    @Named
-    public Banco getBanco() {
-        return banco;
-    }
-	
-	public void setBanco(Banco banco) {
-		this.banco = banco;
+
+	public String begin() {
+		conversation.begin();
+
+		return "listaBancos";
 	}
 
-	*//*@Produces
+	public String novoBanco() {
+		setBanco(new Banco());
+
+		return "novoBanco";
+	}
+
+	@Produces
 	@Named
 	public List<Banco> getBancos() {
 		try {
-			return bancoServicoBean.listar();
-		} catch (Exception e) {
-			messageException(e);
-			return null;
-		}
-	}*//*
-
-	@Override
-	protected void doCreate() throws Exception {
-		bancoServicoBean.incluir(banco);
-		initNovoBanco();
-		bancoLazyDataModel.forceRefresh();
-	}
-
-	@Override
-	protected void doUpdate() throws Exception {
-		bancoServicoBean.atualizar(banco);
-	}
-
-	@Override
-	protected void doRead() throws Exception {
-	}
-
-	@Override
-	protected void doDelete() throws Exception {
-		bancoServicoBean.remover(banco);
-		bancoLazyDataModel.forceRefresh();
-	}
-	
-	public void salvar() {
-		try {
-			doSave();
-		} catch (Exception e) {
-			messageException(e);
-		}
-	}
-
-	private void doSave() throws Exception {
-		if (banco.getId() == null) {
-			super.create();
-		} else {
-			super.update();
-		}
-	}
-	
-	protected String ler (){
-		try {
-			banco = bancoServicoBean.obter(banco);
-			
-			return "createBanco";
-
+			return bancoServico.listar();
 		} catch (Exception e) {
 			messageException(e);
 			return null;
 		}
 	}
+
+    public void incluir() {
+		try {
+			bancoServico.incluir(banco);
+
+			setBanco(new Banco());
+
+			messageSucesso("Operação realizada com sucesso");
+
+			bancoLazyDataModel.forceRefresh();
+		} catch (Exception e) {
+			messageException(e);
+		}
+	}
+    
+    public String cancelarEdicao() {
+        bancoLazyDataModel.forceRefresh();
+
+        return "listaBancos";
+    }
+
+	// @Override
+	// protected void doUpdate() throws Exception {
+	// bancoServico.atualizar(banco);
+	// }
+	//
+	// @Override
+	// protected void doRead() throws Exception {
+	// }
+	//
+	// @Override
+	// protected void doDelete() throws Exception {
+	// bancoServico.remover(banco);
+	// bancoLazyDataModel.forceRefresh();
+	// }
+
+	private void messageException(Exception e) {
+		FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), "Atualização falhou");
+		this.facesContext.addMessage(null, m);
+		this.facesContext.validationFailed();
+	}
+
+	private void messageSucesso(String mensagem) {
+		FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, mensagem, null);
+		this.facesContext.addMessage(null, m);
+	}
+
+//	protected String ler() {
+//		try {
+//			banco = bancoServico.obter(banco.getId());
+//
+//			return "createBanco";
+//
+//		} catch (Exception e) {
+//			messageException(e);
+//			return null;
+//		}
+//	}
 
 	public BancoLazyDataModel getBancoLazyDataModel() {
 		return bancoLazyDataModel;
-	}*/
+	}
+
+	public void setBancoLazyDataModel(BancoLazyDataModel bancoLazyDataModel) {
+		this.bancoLazyDataModel = bancoLazyDataModel;
+	}
+
+	@Produces
+	@Named
+	public Banco getBanco() {
+		return banco;
+	}
+
+	public void setBanco(Banco banco) {
+		this.banco = banco;
+	}
 }
