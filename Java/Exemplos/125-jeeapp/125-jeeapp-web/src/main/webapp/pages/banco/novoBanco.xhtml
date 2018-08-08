@@ -38,7 +38,11 @@
 
 				<div class="form-actions">
 					<p:commandButton value="Salvar" styleClass="botao"
-						action="#{bancoController.incluir}" update="form" />
+						action="#{bancoController.incluir}" update="form" 
+							rendered="#{empty bancoController.banco.id}"/>
+					<p:commandButton value="Atualizar" styleClass="botao"
+						action="#{bancoController.atualizar}" update="form" 
+							rendered="#{not empty bancoController.banco.id}"/>
 					<p:commandButton value="Voltar" styleClass="botao"
 						action="#{bancoController.cancelarEdicao}" immediate="true" />
 				</div>
