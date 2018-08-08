@@ -15,7 +15,9 @@ import java.util.logging.Logger;
 @TransactionAttribute(TransactionAttributeType.REQUIRED)
 public class BancoServicoBean implements BancoServico, Serializable {
 
-    @Inject
+	private static final long serialVersionUID = 1L;
+
+	@Inject
     private Logger log;
 
     @Inject
