@@ -1,8 +1,8 @@
 package com.cursojava.controller;
 
 import com.cursojava.dominio.Aeroporto;
-import com.cursojava.servico.pessoaServico;
-import com.cursojava.util.lazydatamodel.AeroportoLazyDataModel;
+/*import com.cursojava.servico.pessoaServico;
+import com.cursojava.util.lazydatamodel.AeroportoLazyDataModel;*/
 
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
@@ -24,13 +24,13 @@ public class PessoaController implements Serializable {
 	@Inject
 	protected FacesContext facesContext;
 
-	@Inject
+	/*@Inject
 	private PessoaServico pessoaServico;
 
 	@Inject
 	private PessoaLazyDataModel pessoaDataModel;
 
-	private Pessoa pessoa;
+	private Pessoa pessoa;*/
 
 	public String begin() {
 		conversation.begin();
@@ -44,7 +44,7 @@ public class PessoaController implements Serializable {
 		return "home";
 	}
 
-    public Aeroporto getAeroporto() {
+   /* public Aeroporto getAeroporto() {
         return aeroporto;
     }
 
@@ -52,9 +52,9 @@ public class PessoaController implements Serializable {
 	    setAeroporto(new Aeroporto());
 
 	    return "novoPessoa";
-    }
+    }*/
 
-    public void incluir() {
+    /*public void incluir() {
 		try {
 			pessoaServico.incluir(aeroporto);
 
@@ -67,9 +67,9 @@ public class PessoaController implements Serializable {
 		} catch (Exception e) {
 			messageException(e);
 		}
-	}
+	}*/
 
-    public String atualizar() {
+    /*public String atualizar() {
 		try {
 			pessoaServico.atualizar(aeroporto);
 			messageSucesso("Operação realizada com sucesso");
@@ -81,13 +81,13 @@ public class PessoaController implements Serializable {
 			messageException(e);
 			return null;
 		}
-    }
+    }*/
 
-    public String cancelarEdicao() {
+    /*public String cancelarEdicao() {
         pessoaDataModel.forceRefresh();
 
         return "listaAeroportos";
-    }
+    }*/
 
 	/*@Produces
 	@Named
@@ -118,15 +118,4 @@ public class PessoaController implements Serializable {
 		this.facesContext.addMessage(null, m);
 	}
 
-	public void setAeroporto(Aeroporto aeroporto) {
-		this.aeroporto = aeroporto;
-	}
-
-    public AeroportoLazyDataModel getpessoaDataModel() {
-        return pessoaDataModel;
-    }
-
-    public void setpessoaDataModel(AeroportoLazyDataModel pessoaDataModel) {
-        this.pessoaDataModel = pessoaDataModel;
-    }
 }
