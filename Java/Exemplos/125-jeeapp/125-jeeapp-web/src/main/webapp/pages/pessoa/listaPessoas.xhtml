@@ -6,63 +6,61 @@
 	xmlns:p="http://primefaces.org/ui"
 	template="/templates/default.xhtml">
 	<ui:define name="content">
-		<f:loadBundle var="msg" basename="global"/>
+		<f:loadBundle var="msg" basename="global" />
 		<h:form>
 			<div class="page-header">
-	        	<h1>Bancos</h1>
+	        	<h1>Pessoas</h1>
 	        </div>
 	        <div class="row-fluid">
 	        	<div class="toolbar toolbar-right">
 	        		<p:commandButton styleClass="botao"
-	        			value="Novo Banco"
-	        			action="#{bancoController.novoBanco}"/>
+	        			value="Nova Pessoa"
+	        			action="#{aeroportoController.novoAeroporto}"/>
 	        		<p:commandButton styleClass="botao" 
 	        			value="Início"
 	        			immediate="true" rendered="false"
-	        			action="#{bancoController.end}"/>
+	        			action="#{pessoaController.end}"/>
 	        	</div>
-	        	<p:dataTable id="table" var="ba" value="#{bancoController.bancoLazyDataModel}"
-	        		rows="10" paginator="true" lazy="true"
-			        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-			        rowsPerPageTemplate="5,10,15"
-			        emptyMessage="#{msg.NAO_EXISTEM_REGISTROS}">
+	        	<p:dataTable id="table" var="pessoa" value="#{pessoaController.aeroportosDataModel}"
+							 rows="10" paginator="true" lazy="true"
+							 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							 rowsPerPageTemplate="5,10,15"
+							 emptyMessage="#{msg.NAO_EXISTEM_REGISTROS}">
 			        <p:column headerText="Id">
-			            <h:outputText value="#{ba.id}" />
+			            <h:outputText value="#{pessoa.id}" />
 			        </p:column>
-			        <p:column headerText="Código Banco">
-			            <h:outputText value="#{ba.codBanco}" />
+			        <p:column headerText="Nome">
+			            <h:outputText value="#{pessoa.nome}" />
 			        </p:column>
-			        <p:column headerText="Banco">
-			            <h:outputText value="#{ba.nome}" />
-			        </p:column>			        
-			        <p:column style="width:25%">
+			        
+			        <p:column style="width:8%">
 						<f:facet name="header">
 							<h:outputText value="Ações"/>
 						</f:facet>
-						<p:commandButton
+						<!--<p:commandButton
 							id="btnEditar"
 							process="@this"
 							value=""
-							action="novoBanco" title="Editar" styleClass="botaoEditar">
+							action="#{aeroportoController.ler()}" title="Editar" styleClass="botaoEditar">
 							<f:setPropertyActionListener 
-								target="#{bancoController.banco}" 
-								value="#{ba}"/>
-						</p:commandButton>
-						<p:commandButton
+								target="#{aeroportoController.aeroporto}" 
+								value="#{aeroporto}"/>
+						</p:commandButton>-->
+						<!--<p:commandButton
 							id="btnExcluir"
 							process="@this"
 							value=""
 							oncomplete="confirmation.show()" title="Excluir" styleClass="botaoExcluir">
 							<f:setPropertyActionListener 
-								target="#{bancoController.banco}" 
-								value="#{ba}"/>
-						</p:commandButton>
+								target="#{aeroportoController.aeroporto}" 
+								value="#{aeroporto}"/>
+						</p:commandButton>-->
 					</p:column>
 			    </p:dataTable>
-			    <p:confirmDialog id="confirmDialog" message="Excluir banco selecionado?"
+			    <p:confirmDialog id="confirmDialog" message="Excluir pessoa selecionada?"
 					header="Excluir" severity="alert" widgetVar="confirmation">
 					<p:commandButton id="confirm" value="Sim" ajax="false" 
-						actionListener="#{bancoController.delete}"/>
+						actionListener="#{pessoaController.delete}"/>
 					<p:commandButton id="decline" value="Não" onclick="confirmation.hide()" 
 						type="button"/>
 				</p:confirmDialog>
