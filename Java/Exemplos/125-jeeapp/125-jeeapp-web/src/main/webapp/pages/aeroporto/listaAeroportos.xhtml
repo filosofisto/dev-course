@@ -51,23 +51,23 @@
 								target="#{aeroportoController.aeroporto}" 
 								value="#{aeroporto}"/>
 						</p:commandButton>
-						<!--<p:commandButton
+						<!--oncomplete="confirmation.show()"-->
+						<p:commandButton
 							id="btnExcluir"
 							process="@this"
+							update="table"
 							value=""
-							oncomplete="confirmation.show()" title="Excluir" styleClass="botaoExcluir">
-							<f:setPropertyActionListener 
-								target="#{aeroportoController.aeroporto}" 
-								value="#{aeroporto}"/>
-						</p:commandButton>-->
+							title="Excluir"
+							styleClass="botaoExcluir"
+							actionListener="#{aeroportoController.excluir(aeroporto)}">
+							<p:confirm header="Confirmação" message="Excluir aeroporto selecionado?" icon="ui-icon-alert"/>
+						</p:commandButton>
 					</p:column>
 			    </p:dataTable>
-			    <p:confirmDialog id="confirmDialog" message="Excluir aeroporto selecionado?"
-					header="Excluir" severity="alert" widgetVar="confirmation">
-					<p:commandButton id="confirm" value="Sim" ajax="false" 
-						actionListener="#{aeroportoController.delete}"/>
-					<p:commandButton id="decline" value="Não" onclick="confirmation.hide()" 
-						type="button"/>
+
+			    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+					<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
 				</p:confirmDialog>
 	        </div>
 		</h:form>

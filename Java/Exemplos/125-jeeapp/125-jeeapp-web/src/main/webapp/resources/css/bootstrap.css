@@ -2294,7 +2294,7 @@ table th[class*="span"],
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("/cadastro-geral-web/resources/img/glyphicons-halflings.png");
+  background-image: url("/125-jeeapp-web/resources/img/glyphicons-halflings.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
 }
@@ -2318,7 +2318,7 @@ table th[class*="span"],
 .dropdown-submenu:focus > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"],
 .dropdown-submenu:focus > a > [class*=" icon-"] {
-  background-image: url("/cadastro-geral-web/resources/img/glyphicons-halflings-white.png");
+  background-image: url("/125-jeeapp-web/resources/img/glyphicons-halflings-white.png");
 }
 
 .icon-glass {
@@ -3477,7 +3477,7 @@ input[type="button"].btn-block {
 }
 
 .botaoExcluir{
-	background: url(/cadastro-geral-web/resources/theme/default/img/icons/apagar.png) left center no-repeat !important;
+	background: url(/125-jeeapp-web/resources/theme/default/img/icons/apagar.png) left center no-repeat !important;
   	background-repeat: no-repeat !important;
 	height:33px !important;
  	width:33px;
@@ -3486,7 +3486,7 @@ input[type="button"].btn-block {
 
 }
 .botaoInativar{
-	background: url(/cadastro-geral-web/resources/theme/default/img/icons/inativar.png) left center no-repeat !important;
+	background: url(/125-jeeapp-web/resources/theme/default/img/icons/inativar.png) left center no-repeat !important;
   	background-repeat: no-repeat !important;
 	height:33px !important;
  	width:33px;
@@ -3495,7 +3495,7 @@ input[type="button"].btn-block {
 
 }
 .botaoAtivar{
-	background: url(/cadastro-geral-web/resources/theme/default/img/icons/confirmar.png) left center no-repeat !important;
+	background: url(/125-jeeapp-web/resources/theme/default/img/icons/confirmar.png) left center no-repeat !important;
   	background-repeat: no-repeat !important;
 	height:33px !important;
  	width:33px;
@@ -3504,7 +3504,7 @@ input[type="button"].btn-block {
 
 }
 .botaoVisualizar{
-	background: url(/cadastro-geral-web/resources/theme/default/img/icons/visualizar.png) left center no-repeat !important;
+	background: url(/125-jeeapp-web/resources/theme/default/img/icons/visualizar.png) left center no-repeat !important;
   	background-repeat: no-repeat !important;
 	height:33px !important;
  	width:33px;
@@ -3513,7 +3513,7 @@ input[type="button"].btn-block {
 
 }
 .botaoVisualizar-h{
-	background: url(/cadastro-geral-web/resources/theme/default/img/icons/visualizar.png) left center no-repeat !important;
+	background: url(/125-jeeapp-web/resources/theme/default/img/icons/visualizar.png) left center no-repeat !important;
   	background-repeat: no-repeat !important;
 	height:33px !important;
  	width:40px;
@@ -3523,7 +3523,7 @@ input[type="button"].btn-block {
 }
 
 .botaoEditar{
-  background: url(/cadastro-geral-web/resources/theme/default/img/icons/editar.png) center left no-repeat !important;
+  background: url(/125-jeeapp-web/resources/theme/default/img/icons/editar.png) center left no-repeat !important;
   background-repeat: no-repeat !important;
   height:33px !important;
   width:33px;
@@ -3534,7 +3534,7 @@ input[type="button"].btn-block {
 }
 
 .botaoRegulamento{
-  background: url(/cadastro-geral-web/resources/theme/default/img/icons/icone-pdf.png) center left no-repeat !important;
+  background: url(/125-jeeapp-web/resources/theme/default/img/icons/icone-pdf.png) center left no-repeat !important;
   background-repeat: no-repeat !important;
   height:33px !important;
   width:33px;
@@ -3545,7 +3545,7 @@ input[type="button"].btn-block {
 }
 
 .botaoComprovante{
-  background: url(/cadastro-geral-web/resources/theme/default/img/icons/icone-comprovante.png) center left no-repeat !important;
+  background: url(/125-jeeapp-web/resources/theme/default/img/icons/icone-comprovante.png) center left no-repeat !important;
   background-repeat: no-repeat !important;
   height:33px !important;
   width:33px;
@@ -3558,7 +3558,7 @@ input[type="button"].btn-block {
 
 
 .botaoExcluir-h{
-	background: url(/cadastro-geral-web/resources/theme/default/img/icons/apagar.png) left center no-repeat !important;
+	background: url(/125-jeeapp-web/resources/theme/default/img/icons/apagar.png) left center no-repeat !important;
   	background-repeat: no-repeat !important;
 	height:33px !important;
  	width:40px;
@@ -3567,7 +3567,7 @@ input[type="button"].btn-block {
 
 }
 .botaoInativar-h{
-	background: url(/cadastro-geral-web/resources/theme/default/img/icons/inativar.png) left center no-repeat !important;
+	background: url(/125-jeeapp-web/resources/theme/default/img/icons/inativar.png) left center no-repeat !important;
   	background-repeat: no-repeat !important;
 	height:33px !important;
  	width:40px;
@@ -3576,7 +3576,7 @@ input[type="button"].btn-block {
 
 }
 .botaoAtivar-h{
-	background: url(/cadastro-geral-web/resources/theme/default/img/icons/confirmar.png) left center no-repeat !important;
+	background: url(/125-jeeapp-web/resources/theme/default/img/icons/confirmar.png) left center no-repeat !important;
   	background-repeat: no-repeat !important;
 	height:33px !important;
  	width:40px;
@@ -3586,7 +3586,7 @@ input[type="button"].btn-block {
 }
 
 .botaoEditar-h{
-  background: url(/cadastro-geral-web/resources/theme/default/img/icons/editar.png) center left no-repeat !important;
+  background: url(/125-jeeapp-web/resources/theme/default/img/icons/editar.png) center left no-repeat !important;
   background-repeat: no-repeat !important;
   height:33px !important;
   width:40px;
@@ -3597,7 +3597,7 @@ input[type="button"].btn-block {
 }
 
 .botaoRegulamento-h{
-  background: url(/cadastro-geral-web/resources/theme/default/img/icons/icone-pdf.png) center left no-repeat !important;
+  background: url(/125-jeeapp-web/resources/theme/default/img/icons/icone-pdf.png) center left no-repeat !important;
   background-repeat: no-repeat !important;
   height:33px !important;
   width:40px;
@@ -3608,7 +3608,7 @@ input[type="button"].btn-block {
 }
 
 .botaoComprovante-h{
-  background: url(/cadastro-geral-web/resources/theme/default/img/icons/icone-comprovante.png) center left no-repeat !important;
+  background: url(/125-jeeapp-web/resources/theme/default/img/icons/icone-comprovante.png) center left no-repeat !important;
   background-repeat: no-repeat !important;
   height:33px !important;
   width:40px;
@@ -3619,7 +3619,7 @@ input[type="button"].btn-block {
 }
 
 .botaoDownload{
-	background: url(/cadastro-geral-web/resources/theme/default/img/icons/download.png) left center no-repeat !important;
+	background: url(/125-jeeapp-web/resources/theme/default/img/icons/download.png) left center no-repeat !important;
   	background-repeat: no-repeat !important;
 	height:33px !important;
  	width:33px;
@@ -3629,7 +3629,7 @@ input[type="button"].btn-block {
 }
 
 .botaoDownloadExcel{
-	background: url(/cadastro-geral-web/resources/theme/default/img/icons/downloadExcel.png) left center no-repeat !important;
+	background: url(/125-jeeapp-web/resources/theme/default/img/icons/downloadExcel.png) left center no-repeat !important;
   	background-repeat: no-repeat !important;
 	height:33px !important;
  	width:33px;

@@ -38,7 +38,7 @@ public class AeroportoServicoBean implements AeroportoServico, Serializable {
     @Override
     public void remover(Aeroporto aeroporto) {
         log.info("Removendo aeroporto " + aeroporto.getId());
-        aeroportoRepositorio.remove(aeroporto);
+        aeroportoRepositorio.removeByKey(aeroporto.getId());
         log.info("Aeroporto removido com sucesso");
     }
 

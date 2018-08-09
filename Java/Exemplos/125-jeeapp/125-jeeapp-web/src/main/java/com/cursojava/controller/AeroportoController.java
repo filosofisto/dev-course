@@ -3,6 +3,7 @@ package com.cursojava.controller;
 import com.cursojava.dominio.Aeroporto;
 import com.cursojava.servico.AeroportoServico;
 import com.cursojava.util.lazydatamodel.AeroportoLazyDataModel;
+import org.primefaces.PrimeFaces;
 
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
@@ -11,6 +12,8 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 @Named
 @ConversationScoped
@@ -89,16 +92,15 @@ public class AeroportoController implements Serializable {
         return "listaAeroportos";
     }
 
-	/*@Produces
-	@Named
-	public List<Aeroporto> getAeroportos() {
+	public void excluir(Aeroporto aeroporto) {
 		try {
-			return aeroportoServico.listar();
+			aeroportoServico.remover(aeroporto);
+			aeroportosDataModel.forceRefresh();
+			messageSucesso("Operação realizada com sucesso");
 		} catch (Exception e) {
 			messageException(e);
-			return null;
 		}
-	}*/
+	}
 
 	private void messageException(Exception e) {
 		FacesMessage m = new FacesMessage(
