@@ -26,7 +26,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 	}
 )
 @NamedQueries(
-		@NamedQuery(name = "Banco.Listar", query = "select b from Banco b order by nome")
+		@NamedQuery(name = "Banco.Listar", query = "select b from Banco b order by b.nome")
 )
 public class Banco implements Serializable {
 

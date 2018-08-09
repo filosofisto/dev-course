@@ -59,7 +59,7 @@ public class BancoController implements Serializable {
 		}
 	}
 
-    public void incluir() {
+	public void incluir() {
 		try {
 			bancoServico.incluir(banco);
 
@@ -72,12 +72,26 @@ public class BancoController implements Serializable {
 			messageException(e);
 		}
 	}
-    
-    public String cancelarEdicao() {
-        bancoLazyDataModel.forceRefresh();
 
-        return "listaBancos";
-    }
+	public String atualizar() {
+		try {
+			bancoServico.atualizar(banco);
+			messageSucesso("Operação realizada com sucesso");
+
+			bancoLazyDataModel.forceRefresh();
+
+			return "listaBancos";
+		} catch (Exception e) {
+			messageException(e);
+			return null;
+		}
+	}
+
+	public String cancelarEdicao() {
+		bancoLazyDataModel.forceRefresh();
+
+		return "listaBancos";
+	}
 
 	// @Override
 	// protected void doUpdate() throws Exception {
@@ -105,17 +119,17 @@ public class BancoController implements Serializable {
 		this.facesContext.addMessage(null, m);
 	}
 
-//	protected String ler() {
-//		try {
-//			banco = bancoServico.obter(banco.getId());
-//
-//			return "createBanco";
-//
-//		} catch (Exception e) {
-//			messageException(e);
-//			return null;
-//		}
-//	}
+	// protected String ler() {
+	// try {
+	// banco = bancoServico.obter(banco.getId());
+	//
+	// return "createBanco";
+	//
+	// } catch (Exception e) {
+	// messageException(e);
+	// return null;
+	// }
+	// }
 
 	public BancoLazyDataModel getBancoLazyDataModel() {
 		return bancoLazyDataModel;
