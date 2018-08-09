@@ -3,7 +3,6 @@ package com.cursojava.controller;
 import com.cursojava.dominio.Aeroporto;
 import com.cursojava.servico.AeroportoServico;
 import com.cursojava.util.lazydatamodel.AeroportoLazyDataModel;
-import org.primefaces.PrimeFaces;
 
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
@@ -12,8 +11,6 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 @Named
 @ConversationScoped
