@@ -1,17 +1,19 @@
 package com.cursojava.servico.bean;
 
-import com.cursojava.dominio.Aeroporto;
-import com.cursojava.dominio.Pessoa;
-import com.cursojava.repositorio.AeroportoRepositorio;
-import com.cursojava.repositorio.PessoaRepositorio;
-import com.cursojava.servico.AeroportoServico;
-import com.cursojava.servico.PessoaServico;
-
-import javax.ejb.*;
-import javax.inject.Inject;
 import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Logger;
+
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
+import javax.inject.Inject;
+
+import com.cursojava.dominio.Pessoa;
+import com.cursojava.repositorio.PessoaRepositorio;
+import com.cursojava.servico.PessoaServico;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
