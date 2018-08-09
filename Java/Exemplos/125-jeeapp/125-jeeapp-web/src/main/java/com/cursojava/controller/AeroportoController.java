@@ -1,6 +1,8 @@
 package com.cursojava.controller;
 
-import java.io.Serializable;
+import com.cursojava.dominio.Aeroporto;
+import com.cursojava.servico.AeroportoServico;
+import com.cursojava.util.lazydatamodel.AeroportoLazyDataModel;
 
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
@@ -9,6 +11,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.io.Serializable;
 
 import com.cursojava.dominio.Aeroporto;
 import com.cursojava.servico.AeroportoServico;
