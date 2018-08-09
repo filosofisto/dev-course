@@ -22,8 +22,6 @@ public class PessoaController implements Serializable {
 
 	private static final long serialVersionUID = -5129718892570710240L;
 
-	private static final PessoaLazyDataModel PessoasDataModel = null;
-
 	@Inject
 	protected Conversation conversation;
 
@@ -122,7 +120,7 @@ public class PessoaController implements Serializable {
 	}
 
 	public PessoaLazyDataModel getPessoasDataModel() {
-		return PessoasDataModel;
+		return pessoaDataModel;
 	}
 
 	public void setPessoasDataModel(PessoaLazyDataModel PessoasDataModel) {
