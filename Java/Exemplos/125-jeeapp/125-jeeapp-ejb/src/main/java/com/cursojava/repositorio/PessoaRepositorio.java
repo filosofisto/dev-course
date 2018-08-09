@@ -5,19 +5,19 @@ import com.cursojava.dominio.Pessoa;
 import java.util.List;
 
 /**
- * Created by Eduardo on 19/07/2015.
+ * Created by Renan on 08/08/2018.
  */
 public interface PessoaRepositorio extends Repository<Pessoa, Long> {
 
     /**
-     * Lista de aeroportos ordenado por nome.
+     * Lista de pessoas ordenado por nome.
      *
      * @return
      */
     List<Pessoa> listar();
 
     /**
-     * Lista de aeroportos paginado.
+     * Lista de pessoas paginado.
      *
      * @param first
      * @param pageSize
