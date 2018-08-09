@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -27,6 +27,9 @@
 						<f:param name="nocid" value="" />
 					</p:menuitem>
 					<p:menuitem value="Pessoa" action="#{pessoaController.begin}">
+						<f:param name="nocid" value="" />
+					</p:menuitem>
+					<p:menuitem value="Modalidade" action="#{modalidadeController.begin}">
 						<f:param name="nocid" value="" />
 					</p:menuitem>
 				</p:submenu>
