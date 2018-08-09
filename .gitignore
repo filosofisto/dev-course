@@ -66,4 +66,7 @@ Java/~$sta*.docx
 *.iml
 **/.idea/*
 
+**/*.project
+**/*.classpath
+
 
