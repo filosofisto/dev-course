@@ -28,23 +28,23 @@ public class PessoaServicoBean implements PessoaServico, Serializable {
 
     @Override
     public void incluir(Pessoa pessoa) {
-        log.info("Incluindo novo aeroporto");
+        log.info("Incluindo nova pessoa");
        pessoaRepositorio.insert(pessoa);
         log.info("Aeroporto incluido com sucesso");
     }
 
     @Override
     public void atualizar(Pessoa pessoa) {
-        log.info("Atualizando aeroporto " + pessoa.getId());
+        log.info("Atualizando pessoa " + pessoa.getId());
         pessoaRepositorio.update(pessoa);
-        log.info("Aeroporto atualizado com sucesso");
+        log.info("Pessoa atualizado com sucesso");
     }
 
     @Override
     public void remover(Pessoa pessoa) {
-        log.info("Removendo aeroporto " + pessoa.getId());
+        log.info("Removendo pessoa " + pessoa.getId());
         pessoaRepositorio.remove(pessoa);
-        log.info("Aeroporto removido com sucesso");
+        log.info("Pessoa removido com sucesso");
     }
 
     @Override

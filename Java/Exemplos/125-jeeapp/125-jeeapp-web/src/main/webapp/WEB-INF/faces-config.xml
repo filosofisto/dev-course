@@ -39,8 +39,8 @@
 			<to-view-id>/pages/pessoa/novoPessoa.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
-			<from-outcome>listaPessoa</from-outcome>
-			<to-view-id>/pages/pessoa/listaPessoa.xhtml</to-view-id>
+			<from-outcome>listaPessoas</from-outcome>
+			<to-view-id>/pages/pessoa/listaPessoas.xhtml</to-view-id>
 		</navigation-case>
 		<!-- Pessoa -->
 	</navigation-rule>

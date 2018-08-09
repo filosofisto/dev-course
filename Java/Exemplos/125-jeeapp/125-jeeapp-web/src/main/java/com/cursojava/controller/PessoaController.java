@@ -50,17 +50,17 @@ public class PessoaController implements Serializable {
 		return "home";
 	}
 
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
 
-    public String novoPessoa() {
-	    setPessoa(new Pessoa());
+	public String novoPessoa() {
+		setPessoa(new Pessoa());
 
-	    return "novoPessoa";
-    }
+		return "novoPessoa";
+	}
 
-    public void incluir() {
+	public void incluir() {
 		try {
 			pessoaServico.incluir(pessoa);
 
@@ -75,25 +75,25 @@ public class PessoaController implements Serializable {
 		}
 	}
 
-    public String atualizar() {
+	public String atualizar() {
 		try {
 			pessoaServico.atualizar(pessoa);
 			messageSucesso("Operação realizada com sucesso");
 
 			pessoaDataModel.forceRefresh();
 
-			return "listapessoas";
+			return "listaPessoas";
 		} catch (Exception e) {
 			messageException(e);
 			return null;
 		}
-    }
+	}
 
-    public String cancelarEdicao() {
-        pessoaDataModel.forceRefresh();
+	public String cancelarEdicao() {
+		pessoaDataModel.forceRefresh();
 
-        return "listapessoas";
-    }
+		return "listaPessoas";
+	}
 
 	@Produces
 	@Named
@@ -107,20 +107,13 @@ public class PessoaController implements Serializable {
 	}
 
 	private void messageException(Exception e) {
-		FacesMessage m = new FacesMessage(
-				FacesMessage.SEVERITY_ERROR,
-				e.getMessage(),
-				"Atualização falhou"
-		);
+		FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), "Atualização falhou");
 		this.facesContext.addMessage(null, m);
 		this.facesContext.validationFailed();
 	}
 
 	private void messageSucesso(String mensagem) {
-		FacesMessage m = new FacesMessage(
-				FacesMessage.SEVERITY_INFO,
-				mensagem, null
-		);
+		FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, mensagem, null);
 		this.facesContext.addMessage(null, m);
 	}
 
@@ -128,12 +121,12 @@ public class PessoaController implements Serializable {
 		this.pessoa = Pessoa;
 	}
 
-    public PessoaLazyDataModel getPessoasDataModel() {
-        return PessoasDataModel;
-    }
+	public PessoaLazyDataModel getPessoasDataModel() {
+		return PessoasDataModel;
+	}
 
-    public void setPessoasDataModel(PessoaLazyDataModel PessoasDataModel) {
-        this.pessoaDataModel = PessoasDataModel;
-    }
-	
+	public void setPessoasDataModel(PessoaLazyDataModel PessoasDataModel) {
+		this.pessoaDataModel = PessoasDataModel;
+	}
+
 }

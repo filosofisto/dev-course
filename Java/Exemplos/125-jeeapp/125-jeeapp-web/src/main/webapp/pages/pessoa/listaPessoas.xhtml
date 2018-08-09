@@ -15,13 +15,13 @@
 	        	<div class="toolbar toolbar-right">
 	        		<p:commandButton styleClass="botao"
 	        			value="Nova Pessoa"
-	        			action="#{aeroportoController.novoAeroporto}"/>
+	        			action="#{pessoaController.novoPessoa}"/>
 	        		<p:commandButton styleClass="botao" 
 	        			value="Início"
 	        			immediate="true" rendered="false"
 	        			action="#{pessoaController.end}"/>
 	        	</div>
-	        	<p:dataTable id="table" var="pessoa" value="#{pessoaController.aeroportosDataModel}"
+	        	<p:dataTable id="table" var="pessoa" value="#{pessoaController.pessoasDataModel}"
 							 rows="10" paginator="true" lazy="true"
 							 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 							 rowsPerPageTemplate="5,10,15"
@@ -41,10 +41,10 @@
 							id="btnEditar"
 							process="@this"
 							value=""
-							action="#{aeroportoController.ler()}" title="Editar" styleClass="botaoEditar">
+							action="#{pessoaController.ler()}" title="Editar" styleClass="botaoEditar">
 							<f:setPropertyActionListener 
-								target="#{aeroportoController.aeroporto}" 
-								value="#{aeroporto}"/>
+								target="#{pessoaController.pessoa}" 
+								value="#{pessoa}"/>
 						</p:commandButton>-->
 						<!--<p:commandButton
 							id="btnExcluir"
@@ -52,8 +52,8 @@
 							value=""
 							oncomplete="confirmation.show()" title="Excluir" styleClass="botaoExcluir">
 							<f:setPropertyActionListener 
-								target="#{aeroportoController.aeroporto}" 
-								value="#{aeroporto}"/>
+								target="#{pessoaController.pessoa}" 
+								value="#{pessoa}"/>
 						</p:commandButton>-->
 					</p:column>
 			    </p:dataTable>
