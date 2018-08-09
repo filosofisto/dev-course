@@ -37,24 +37,25 @@
 						<f:facet name="header">
 							<h:outputText value="Ações"/>
 						</f:facet>
-						<!--<p:commandButton
+						<p:commandButton
 							id="btnEditar"
 							process="@this"
 							value=""
-							action="#{pessoaController.ler()}" title="Editar" styleClass="botaoEditar">
+							action="novoPessoa" title="Editar" styleClass="botaoEditar">
 							<f:setPropertyActionListener 
 								target="#{pessoaController.pessoa}" 
 								value="#{pessoa}"/>
-						</p:commandButton>-->
-						<!--<p:commandButton
+						</p:commandButton>
+						<p:commandButton
 							id="btnExcluir"
 							process="@this"
+							update="table"
 							value=""
-							oncomplete="confirmation.show()" title="Excluir" styleClass="botaoExcluir">
-							<f:setPropertyActionListener 
-								target="#{pessoaController.pessoa}" 
-								value="#{pessoa}"/>
-						</p:commandButton>-->
+							title="Excluir"
+							styleClass="botaoExcluir"
+							actionListener="#{pessoaController.excluir(pessoa)}">
+							<p:confirm header="Confirmação" message="Excluir a pessoa selecionada?" icon="ui-icon-alert"/>
+						</p:commandButton>
 					</p:column>
 			    </p:dataTable>
 			    <p:confirmDialog id="confirmDialog" message="Excluir pessoa selecionada?"
