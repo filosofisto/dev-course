@@ -1,0 +1,64 @@
+import java.util.Objects;
+
+public class User {
+
+    private String name;
+    private boolean ativo;
+    private String password;
+
+    public User() {
+    }
+
+    public User(String name, boolean ativo, String password) {
+        this.name = name;
+        this.ativo = ativo;
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return name.equals(user.name) &&
+                password.equals(user.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, password);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", ativo=" + ativo +
+                ", password='" + password + '\'' +
+                '}';
+    }
+}
