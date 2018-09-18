@@ -9,59 +9,57 @@
 		<f:loadBundle var="msg" basename="global" />
 		<h:form>
 			<div class="page-header">
-	        	<h1>Pessoas</h1>
+	        	<h1>Modalidades</h1>
 	        </div>
 	        <div class="row-fluid">
 	        	<div class="toolbar toolbar-right">
 	        		<p:commandButton styleClass="botao"
-	        			value="Nova Pessoa"
-	        			action="#{pessoaController.novoPessoa}"/>
+	        			value="Nova Modalidade"
+	        			action="#{modalidadeController.novaModalidade}"/>
 	        		<p:commandButton styleClass="botao" 
 	        			value="Início"
 	        			immediate="true" rendered="false"
-	        			action="#{pessoaController.end}"/>
+	        			action="#{modalidadeController.end}"/>
 	        	</div>
-	        	<p:dataTable id="table" var="pessoa" value="#{pessoaController.pessoasDataModel}"
+	        	<p:dataTable id="table" var="modalidade" value="#{modalidadeController.modalidadesDataModel}"
 							 rows="10" paginator="true" lazy="true"
 							 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 							 rowsPerPageTemplate="5,10,15"
 							 emptyMessage="#{msg.NAO_EXISTEM_REGISTROS}">
 			        <p:column headerText="Id">
-			            <h:outputText value="#{pessoa.id}" />
+			            <h:outputText value="#{modalidade.id}" />
 			        </p:column>
-			        <p:column headerText="Nome">
-			            <h:outputText value="#{pessoa.nome}" />
+			        <p:column headerText="Modalidade">
+			            <h:outputText value="#{modalidade.descricao}" />
 			        </p:column>
-			        
 			        <p:column style="width:8%">
 						<f:facet name="header">
 							<h:outputText value="Ações"/>
 						</f:facet>
-						<p:commandButton
+						<!--<p:commandButton
 							id="btnEditar"
 							process="@this"
 							value=""
-							action="novoPessoa" title="Editar" styleClass="botaoEditar">
+							action="#{modalidadeController.ler()}" title="Editar" styleClass="botaoEditar">
 							<f:setPropertyActionListener 
-								target="#{pessoaController.pessoa}" 
-								value="#{pessoa}"/>
-						</p:commandButton>
-						<p:commandButton
+								target="#{modalidadeController.aeroporto}" 
+								value="#{modalidade}"/>
+						</p:commandButton>-->
+						<!--<p:commandButton
 							id="btnExcluir"
 							process="@this"
-							update="table"
 							value=""
-							title="Excluir"
-							styleClass="botaoExcluir"
-							actionListener="#{pessoaController.excluir(pessoa)}">
-							<p:confirm header="Confirmação" message="Excluir a pessoa selecionada?" icon="ui-icon-alert"/>
-						</p:commandButton>
+							oncomplete="confirmation.show()" title="Excluir" styleClass="botaoExcluir">
+							<f:setPropertyActionListener 
+								target="#{modalidadeController.modalidade}" 
+								value="#{modalidade}"/>
+						</p:commandButton>-->
 					</p:column>
 			    </p:dataTable>
-			    <p:confirmDialog id="confirmDialog" message="Excluir pessoa selecionada?"
+			    <p:confirmDialog id="confirmDialog" message="Excluir modalidade selecionada?"
 					header="Excluir" severity="alert" widgetVar="confirmation">
 					<p:commandButton id="confirm" value="Sim" ajax="false" 
-						actionListener="#{pessoaController.delete}"/>
+						actionListener="#{modalidadeController.delete}"/>
 					<p:commandButton id="decline" value="Não" onclick="confirmation.hide()" 
 						type="button"/>
 				</p:confirmDialog>

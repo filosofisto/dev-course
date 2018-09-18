@@ -43,6 +43,17 @@
 			<to-view-id>/pages/pessoa/listaPessoas.xhtml</to-view-id>
 		</navigation-case>
 		<!-- Pessoa -->
+
+		<!-- Modalidade -->
+		<navigation-case>
+			<from-outcome>novaModalidade</from-outcome>
+			<to-view-id>/pages/modalidade/novaModalidade.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listaModalidades</from-outcome>
+			<to-view-id>/pages/modalidade/listaModalidades.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Fim Modalidade -->
 	</navigation-rule>
 
 	<application>
