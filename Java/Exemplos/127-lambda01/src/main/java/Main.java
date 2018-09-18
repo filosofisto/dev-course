@@ -45,8 +45,8 @@ public class Main {
     private static void printLambda(List<User> users) {
         out.println("--------------------- Consumer  e Lambda ----------------------");
 
-        Consumer<User> consumer = (User user) -> { out.println(user.getName()); };
-        users.forEach(consumer);
+        /*Consumer<User> consumer = (User user) -> { out.println(user.getName()); };
+        users.forEach(consumer);*/
 
         /*Consumer<User> consumer = user -> { out.println(user.getName()); };
         users.forEach(consumer);*/
@@ -54,6 +54,6 @@ public class Main {
         /*Consumer<User> consumer = user -> out.println(user.getName());
         users.forEach(consumer);*/
 
-        //users.forEach(user -> out.println(user.getName()));
+        users.forEach(user -> out.println(user.getName()));
     }
 }

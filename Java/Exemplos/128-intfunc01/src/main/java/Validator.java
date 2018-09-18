@@ -1,7 +1,15 @@
 @FunctionalInterface
 public interface Validator<T> {
 
-    boolean accept(T object);
+    boolean validate(T object);
 
-    // void x();
+    //void setValue(T object);
+
+    /*default void x() {
+
+    }
+
+    default void y() {
+
+    }*/
 }

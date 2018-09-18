@@ -15,7 +15,7 @@ public class Main {
 
         List<User> users = new ArrayList<>(Arrays.asList(u1, u2, u3)); // avoid => java.lang.UnsupportedOperationException: remove
 
-        Predicate<User> predicate = new Predicate<User>() {
+        /*Predicate<User> predicate = new Predicate<User>() {
             @Override
             public boolean test(User user) {
                 return !user.isAtivo();
@@ -23,9 +23,9 @@ public class Main {
         };
 
         users.removeIf(predicate);
-        users.forEach(user -> out.println(user.getName()));
+        users.forEach(user -> out.println(user.getName()));*/
 
-        //users.removeIf(user -> !user.isAtivo());
-        //users.forEach(user -> out.println(user.getName()));
+        users.removeIf(user -> !user.isAtivo());
+        users.forEach(user -> out.println(user.getName()));
     }
 }
